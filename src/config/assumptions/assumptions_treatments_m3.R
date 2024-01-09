@@ -1,8 +1,11 @@
 
 # 3 Month Cancer Findings -------------------------------------------------
 
-m3_cancer_rate <- 0.508
-m3_m12_fu_rate <- 1 - m3_cancer_rate
+m3_diagnostic_rate <- 0.508
+m3_m12_fu_rate <- 1 - m3_diagnostic_rate
+
+m3_cancer_rate <- 0.8
+m3_non_malignant_rate <- 1 - m3_cancer_rate
 
 # 3 Month Treatment Rates -------------------------------------------------
 

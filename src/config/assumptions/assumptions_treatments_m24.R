@@ -1,8 +1,11 @@
 
 # 24 Month Cancer Findings -------------------------------------------------
 
-m24_cancer_rate <- 0.508
-m24_m48_fu_rate <- 1 - m24_cancer_rate
+m24_diagnostic_rate <- 0.508
+m24_m48_fu_rate <- 1 - m24_diagnostic_rate
+
+m24_cancer_rate <- 0.8
+m24_non_malignant_rate <- 1 - m24_cancer_rate
 
 # 24 Month Treatment Rates -------------------------------------------------
 

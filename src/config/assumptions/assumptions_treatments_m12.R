@@ -1,8 +1,11 @@
 
 # 12 Month Cancer Findings -------------------------------------------------
 
-m12_cancer_rate <- 0.508
-m12_m24_fu_rate <- 1 - m12_cancer_rate
+m12_diagnostic_rate <- 0.508
+m12_m24_fu_rate <- 1 - m12_diagnostic_rate
+
+m12_cancer_rate <- 0.8
+m12_non_malignant_rate <- 1 - m12_cancer_rate
 
 # 12 Month Treatment Rates -------------------------------------------------
 

@@ -1,8 +1,11 @@
 
 # Initial Cancer Findings -------------------------------------------------
 
-initial_cancer_rate <- 0.508
-initial_m3_fu_rate <- 1 - initial_cancer_rate
+initial_diagnostic_rate <- 0.508
+initial_m3_fu_rate <- 1 - initial_diagnostic_rate
+
+initial_cancer_rate <- 0.8
+initial_non_malignant_rate <- 1 - initial_cancer_rate
 
 # Initial Treatment Rates -------------------------------------------------
 
