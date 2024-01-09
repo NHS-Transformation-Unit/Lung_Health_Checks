@@ -34,3 +34,16 @@ initial_treatment_df <- data.frame(
                                                 "Chemo-Radiation",
                                                 "Chemotherapy",
                                                 "No Treatment or BSC")))
+
+# Initial Diagnostics Rates -----------------------------------------------
+
+initial_diagnostics_df <- data.frame(
+  Modality = c("PET CT",
+               "Bronchoscopy",
+               "EBUS",
+               "CT Guided Biopsy"),
+  Rates = c(0.40,
+            0.35,
+            0.45,
+            0.20)
+)
