@@ -34,3 +34,16 @@ m12_treatment_df <- data.frame(
                                                 "Chemo-Radiation",
                                                 "Chemotherapy",
                                                 "No Treatment or BSC")))
+
+# 12 Month Diagnostics Rates -----------------------------------------------
+
+m12_diagnostics_df <- data.frame(
+  Modality = c("PET CT",
+               "Bronchoscopy",
+               "EBUS",
+               "CT Guided Biopsy"),
+  Rates = c(0.40,
+            0.35,
+            0.45,
+            0.20)
+)
