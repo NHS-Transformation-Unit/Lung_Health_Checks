@@ -9,4 +9,4 @@ lhc_dna_rebook_rate <- 0.50
 # Positive LHC Rate -------------------------------------------------------
 
 lhc_positive_rate <- 0.43
-lhc_negative_rate <- 1 - lhc_negative_rate
+lhc_negative_rate <- 1 - lhc_positive_rate
