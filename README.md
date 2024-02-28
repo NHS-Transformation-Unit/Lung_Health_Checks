@@ -17,6 +17,8 @@ The current structure of the repository is detailed below:
 ``` plaintext
 
 ├───data
+    ├───project_documentation
+    └───guidance
 ├───images
 └───src
     ├───config
@@ -33,6 +35,9 @@ The current structure of the repository is detailed below:
 
 ### `data`
 This folder will contain any relevant data files or external data that is to be utilised during the construction of the model.
+
+### `documentation`
+This folder contain the project documentation including the model specification and guidance on how to use the model.
 
 ### `images`
 This folder contains all images used in the outputs or repository such as the TU logo and the flow-chart mapping the movement of patients across the lung health check pathway.
