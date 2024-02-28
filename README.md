@@ -17,6 +17,7 @@ The current structure of the repository is detailed below:
 ``` plaintext
 
 ├───data
+├───documentation
     ├───project_documentation
     └───guidance
 ├───images
