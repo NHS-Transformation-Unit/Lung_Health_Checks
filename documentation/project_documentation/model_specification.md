@@ -29,7 +29,7 @@ The model will be probabilistic so that each model run will determine the moveme
 The initial modelling period will be for patients invited for a Lung Health Check during the 2024/25 financial year.
 
 ### Model Inputs
-The inputs to the model will be derived from relevant datasets provided by West Midlands Cancer Alliance or by relevant key stakeholders. These inputs will take the form of probabilities to model an individual patient to an outcome at each stage of the pathway. The latest version of these will be available to view in the `src/config/assumptions` folder.
+The inputs to the model will be derived from relevant datasets provided by West Midlands Cancer Alliance or by relevant key stakeholders. These inputs will take the form of probabilities to model an individual patient to an outcome at each stage of the pathway. The latest version of these will be available to view in the `data/config_inputs/lhc_config_inputs.xlsx` file. Inputs from this config file are read into the model and assigned to relevant assumptions in the `src/config` folder.
 
 ### Model Outputs
 The model outputs will be represented in an `model_outputs.html` file created via a `model_outputs.rmd`script. This will contain:
