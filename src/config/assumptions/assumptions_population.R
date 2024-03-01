@@ -1,12 +1,12 @@
 
 # Total Population --------------------------------------------------------
 
-total_pop <- 50000
+total_pop <- assumptions_pop[[1,4]]
 
 # Smoking Rate ------------------------------------------------------------
 
-smk_rate <- 0.45
+smk_rate <- assumptions_pop[[2,4]]
 
 # Uptake Rate -------------------------------------------------------------
 
-uptake_rate <- 0.60
+uptake_rate <- assumptions_pop[[3,4]]
