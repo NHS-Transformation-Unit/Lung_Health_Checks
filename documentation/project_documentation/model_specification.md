@@ -18,7 +18,7 @@ This specification provides an overview of the modelling requirements for a dema
 
 ### Pathway
 The model will be based of the pathway:
-<img src="../../images/lhc_pathway-Additional diagnostics.drawio.svg" alt="LHC Pathway"/>
+<img src="../../images/lhc_pathway-Feedback_Pathway.drawio.svg" alt="LHC Pathway"/>
 
 ### Construction
 The model will be probabilistic so that each model run will determine the movement of a patient across the pathway based on the probabilities of an outcome at each event of the pathway. Through running the model multiple times this will provide a range of outcomes. 
