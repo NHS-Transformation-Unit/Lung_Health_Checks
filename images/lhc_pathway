@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-11T16:44:31.601Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="gsjOCiMVB4onXuzZ35DW" version="24.0.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2024-03-11T16:47:35.889Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="fkjsDeSLpeMAXWF9cyMk" version="24.0.1" type="github" pages="4">
   <diagram name="Original" id="gv6AHSvtYbOpaegL3wCU">
     <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1724,6 +1724,11 @@
         </mxCell>
         <mxCell id="Wb0BC9BJqgc8UauS_F91-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Thm3jAd2NmNReXNPuARD-1" source="Thm3jAd2NmNReXNPuARD-103" target="Wb0BC9BJqgc8UauS_F91-26">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wb0BC9BJqgc8UauS_F91-117" value="lhc_re-invite_rate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Wb0BC9BJqgc8UauS_F91-27">
+          <mxGeometry x="0.15" y="2" relative="1" as="geometry">
+            <mxPoint x="4" y="-13" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="Thm3jAd2NmNReXNPuARD-103" value="Negative LHCs" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="Thm3jAd2NmNReXNPuARD-1">
           <mxGeometry x="1020" y="1155" width="120" height="60" as="geometry" />
