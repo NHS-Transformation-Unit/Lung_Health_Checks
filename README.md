@@ -28,8 +28,9 @@ The current structure of the repository is detailed below:
     ├───config
       └───assumtpions
     ├───load
+    ├───model
+        └───functions
     ├───outputs
-    ├───processing
     ├───requirements
     └───visualisation
     
@@ -51,8 +52,8 @@ All code is stored within the `src` folder. This is then divided into:
 
 1. `config`: Files for configuring the model and the outputs. The model assumptions are stored within the `assumptions` folder, with the parameters that can be amended for running the model. Other parameters such as setting the seed within R and theme css files are also located here.
 2. `load`: Scripts for loading any external data into the model will be saved here.
-3. `outputs`: Scripts for rendering the outputs of the model are saved within here.
-4. `processing`: Scripts for modelling the movement of patients at each stage of the lung health check pathway are saved here.
+3. `model`: Scripts for modelling the movement of patients at each stage of the lung health check pathway are saved here.
+4. `outputs`: Scripts for rendering the outputs of the model are saved within here.
 5. `requirements`: Requirements for running the model and creating outputs such as the `packages.R` script are saved here.
 6. `visualisation`: Scripts for producing visualisations of the modelled demand and capacity requirements at different points of the pathway are saved here to be used in the model outputs.
 
@@ -60,7 +61,7 @@ All code is stored within the `src` folder. This is then divided into:
 
 ## Lung Health Check Pathway
 The diagram below shows the current version of the pathway that has been modelled:
-<img src="images/lhc_pathway-Additional diagnostics.drawio.svg" alt="LHC Pathway"/>
+<img src="images/lhc_pathway-Feedback_Pathway.drawio.svg" alt="LHC Pathway"/>
 
 ## Contributors
 
