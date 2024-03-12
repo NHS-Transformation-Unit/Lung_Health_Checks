@@ -7,6 +7,7 @@ y1_init_treat_groups_list <- initial_treat_groups(input_df = y1_ct_output,
                                              follow_up_rate = initial_m3_fu_rate_y1,
                                              cancer_rate = initial_cancer_rate_y1)
 
+y1_init_add_diags_df <- y1_init_treat_groups_list[[2]]
 y1_init_cancer_df <- y1_init_treat_groups_list[[5]]
 
 
