@@ -1,4 +1,4 @@
-initial_diagnostic_modalities <- function(input_df, pet_rate, bronch_rate, ebus_rate, ct_bio_rate, nav_bronch_rate){
+initial_diagnostic_modalities <- function(input_df, pet_rate, bronch_rate, ebus_rate, ct_bio_rate, nav_bronch_rate, lft_rate){
   
   ### Simulate diagnostic modalitiy requirements
   initial_diag_modalities_df <- input_df %>%
@@ -16,7 +16,10 @@ initial_diagnostic_modalities <- function(input_df, pet_rate, bronch_rate, ebus_
                               TRUE ~ 0),
            nav_bronch_prob = runif(n()),
            nav_bronch = case_when(nav_bronch_prob < nav_bronch_rate ~ 1,
-                                  TRUE ~0)
+                                  TRUE ~0),
+           lft_prob = runif(n()),
+           lft = case_when(lft_prob < lft_rate ~ 1,
+                                  TRUE ~0),
     )
   
   ### Aggregate Diagnostic Activity
@@ -26,6 +29,7 @@ initial_diagnostic_modalities <- function(input_df, pet_rate, bronch_rate, ebus_
               bronch = sum(bronch, na.rm = TRUE),
               ebus = sum(ebus, na.rm = TRUE),
               ct_bio = sum(ct_bio, na.rm = TRUE),
-              nav_bronch = sum(nav_bronch, na.rm = TRUE)
+              nav_bronch = sum(nav_bronch, na.rm = TRUE),
+              lft = sum(lft, na.rm = TRUE),
     )
 }

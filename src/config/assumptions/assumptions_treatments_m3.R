@@ -41,9 +41,13 @@ m3_diagnostics_df <- data.frame(
   Modality = c("PET CT",
                "Bronchoscopy",
                "EBUS",
-               "CT Guided Biopsy"),
+               "CT Guided Biopsy",
+               "Navigational Bronchoscopy",
+               "Lung Function Test"),
   Rates = c(assumptions_m3_diag[[1,4]],
             assumptions_m3_diag[[2,4]],
             assumptions_m3_diag[[3,4]],
-            assumptions_m3_diag[[4,4]])
+            assumptions_m3_diag[[4,4]],
+            assumptions_m3_diag[[5,4]],
+            assumptions_m3_diag[[6,4]])
 )
