@@ -2,8 +2,8 @@
 # Simulate Year 3-month FU Treatment Groups --------------------------------
 
 y1_m3_treat_groups_list <- m3_treat_groups(input_df = m3_FU_input_df,
-                                           m3_dna_rate = m3_scan_dna_rate,
-                                           m3_rebook_rate= m3_scan_rebook_rate,
+                                           dna_rate = m3_scan_dna_rate,
+                                           rebook_rate= m3_scan_rebook_rate,
                                            diagnostic_rate = m3_diagnostic_rate,
                                            incidental_rate = m3_incidental_rate,
                                            follow_up_rate = m3_m12_fu_rate,
