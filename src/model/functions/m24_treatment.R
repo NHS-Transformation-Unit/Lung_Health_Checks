@@ -1,66 +1,66 @@
-m3_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, incidental_rate, follow_up_rate, 
+m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, incidental_rate, follow_up_rate, 
                                  cancer_rate){
   
   ### Simulate DNA and Rebooking for non-excluded patients
-  m3_dna_df <- input_df %>%
-    mutate(m3_scan_dna_prob = runif(n()),
-           m3_dna = case_when(m3_scan_dna_rate < dna_rate ~ 1,
+  m24_dna_df <- input_df %>%
+    mutate(m24_scan_dna_prob = runif(n()),
+           m24_dna = case_when(m24_scan_dna_rate < dna_rate ~ 1,
                               TRUE ~ 0),
-           m3_rebook_prob = runif(n()),
-           m3_rebook = case_when(m3_dna == 0 ~ "Attended",
-                                 m3_scan_rebook_rate < rebook_rate ~ "Rebook",
+           m24_rebook_prob = runif(n()),
+           m24_rebook = case_when(m24_dna == 0 ~ "Attended",
+                                 m24_scan_rebook_rate < rebook_rate ~ "Rebook",
                                  TRUE ~ "Opt-out"))
   
   ### Aggregate Attendance, DNA and Rebooked
-  m3_dna_agg_df <- m3_dna_df %>%
-    group_by(Trial, m3_rebook) %>%
+  m24_dna_agg_df <- m24_dna_df %>%
+    group_by(Trial, m24_rebook) %>%
     summarise("Total" = n())
   
-  ### Simulate the m3 treatment outcomes
-  m3_treat_outcome_df <- m3_dna_df %>%
-    filter(m3_rebook != "Opt-out") %>%
-    mutate(m3_treat_outcome_prob = runif(n()),
-           m3_treat_outcome = case_when(m3_treat_outcome_prob < diagnostic_rate ~ "Diagnostics",
-                                          m3_treat_outcome_prob < diagnostic_rate + incidental_rate ~ "Incidental",
-                                          TRUE ~ "12M_FU"))
+  ### Simulate the m24 treatment outcomes
+  m24_treat_outcome_df <- m24_dna_df %>%
+    filter(m24_rebook != "Opt-out") %>%
+    mutate(m24_treat_outcome_prob = runif(n()),
+           m24_treat_outcome = case_when(m24_treat_outcome_prob < diagnostic_rate ~ "Diagnostics",
+                                         m24_treat_outcome_prob < diagnostic_rate + incidental_rate ~ "Incidental",
+                                          TRUE ~ "48M_FU"))
   
-  ### Aggregate m3 outcomes
-  m3_treat_outcome_agg_df <- m3_treat_outcome_df %>%
-    group_by(Trial, m3_treat_outcome) %>%
+  ### Aggregate m24 outcomes
+  m24_treat_outcome_agg_df <- m24_treat_outcome_df %>%
+    group_by(Trial, m24_treat_outcome) %>%
     summarise("Total" = n())
   
   ### Additional Diagnostics Output
-  m3_treat_diags_df <- m3_treat_outcome_df %>%
-    filter(m3_treat_outcome == "Diagnostics")
+  m24_treat_diags_df <- m24_treat_outcome_df %>%
+    filter(m24_treat_outcome == "Diagnostics")
   
-  ### 12-month follow-up Output
-  m3_treat_12m_fu_df <- m3_treat_outcome_df %>%
-    filter(m3_treat_outcome == "12M_FU")
+  ### 28-month follow-up Output
+  m24_treat_48m_fu_df <- m24_treat_outcome_df %>%
+    filter(m24_treat_outcome == "48M_FU")
   
   ### Simulate cancer diagnosis
-  m3_treat_diags_outcome_df <- m3_treat_diags_df %>%
+  m24_treat_diags_outcome_df <- m24_treat_diags_df %>%
     mutate(cancer_outcome_prob = runif(n()),
            cancer_outcome = case_when(cancer_outcome_prob < cancer_rate ~ "Cancer",
                                       TRUE ~ "Non-Malignant"))
   
   ### Aggregate cancer diagnosis
-  m3_treat_diags_outcome_agg_df <- m3_treat_diags_outcome_df %>%
+  m24_treat_diags_outcome_agg_df <- m24_treat_diags_outcome_df %>%
     group_by(Trial, cancer_outcome) %>%
     summarise("Total" = n())
   
   ### Output Cancer Dataframe
-  m3_treat_cancer_output_df <- m3_treat_diags_outcome_df %>%
+  m24_treat_cancer_output_df <- m24_treat_diags_outcome_df %>%
     filter(cancer_outcome == "Cancer")
   
-  return(list(m3_dna_agg_df, m3_treat_outcome_agg_df, m3_treat_diags_df, m3_treat_12m_fu_df, m3_treat_diags_outcome_agg_df, m3_treat_cancer_output_df))
+  return(list(m24_dna_agg_df, m24_treat_outcome_agg_df, m24_treat_diags_df, m24_treat_48m_fu_df, m24_treat_diags_outcome_agg_df, m24_treat_cancer_output_df))
   
 }
 
-m3_treatment_modalities <- function(input_df, surgery_rate, surg_ac_rate, sabr_rate, xrt_rate,
+m24_treatment_modalities <- function(input_df, surgery_rate, surg_ac_rate, sabr_rate, xrt_rate,
                                          chemrad_rate, chemo_rate, nadj_imm_rate){
   
   ### Simulate treatment modalities
-  m3_treat_modalities_df <- input_df %>%
+  m24_treat_modalities_df <- input_df %>%
     mutate(modality_prob = runif(n()),
            modality = case_when(modality_prob < surgery_rate ~ "Surgery",
                                 modality_prob < surgery_rate + surg_ac_rate ~ "Surgery_Adjuvant_Chemotherapy",
@@ -72,7 +72,7 @@ m3_treatment_modalities <- function(input_df, surgery_rate, surg_ac_rate, sabr_r
                                 TRUE ~ "Best_Supportive_Care"))
   
   ### Aggregate treatment modalities
-  m3_treat_modalities_agg_df <- m3_treat_modalities_df %>%
+  m24_treat_modalities_agg_df <- m24_treat_modalities_df %>%
     group_by(Trial, modality) %>%
     summarise("Total" = n())
   

@@ -13,7 +13,7 @@ y1_m3_add_diags_df <- y1_m3_treat_groups_list[[2]]
 y1_m3_cancer_df <- y1_m3_treat_groups_list[[5]]
 
 
-# Simulate Year 1 Initial Treatment Modalities ----------------------------
+# Simulate Year 1 3-month Treatment Modalities ----------------------------
 
 y1_m3_modalities_df <- m3_treatment_modalities(input_df = y1_m3_cancer_df,
                                                surgery_rate = initial_treatment_surgery_y1,

@@ -9,3 +9,5 @@ y1_uptake_pop <- uptake_pop(start_pop = total_pop,
                             screened_prev = 0,
                             repeats = 0,
                             uptake = uptake_rate_y1)
+
+y1_pop_list <- list(y1_uptake_pop)
