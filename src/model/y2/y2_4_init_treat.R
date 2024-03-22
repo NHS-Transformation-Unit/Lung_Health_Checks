@@ -22,4 +22,4 @@ y2_init_modalities_df <- initial_treatment_modalities(input_df = y2_init_cancer_
                                                       chemo_rate = initial_treatment_chemo_y2,
                                                       nadj_imm_rate = initial_treatment_nadj_imm_y2)
 
-m3_FU_input_df <- y2_init_treat_groups_list[[3]]
+y2_m3_FU_input_df <- y2_init_treat_groups_list[[3]]

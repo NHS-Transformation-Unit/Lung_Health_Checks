@@ -18,5 +18,3 @@ y3_screened_input <- y2_uptake_pop %>%
 y3_screened_input <- y3_screened_input[1, 1]
 
 y3_screened_input <- (y2_screened_input + y3_screened_input)
-
-y3_screened_input <- y3_screened_input[1, 1]
