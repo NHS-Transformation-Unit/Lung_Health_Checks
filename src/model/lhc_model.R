@@ -1,6 +1,8 @@
 
 # Master script for running all yearly source scripts
 
+library(here)
+
 ## Packages
 
 source(paste0(here(),"/src/requirements/packages.R"))
