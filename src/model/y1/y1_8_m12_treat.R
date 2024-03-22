@@ -1,7 +1,7 @@
 
 # Simulate Year 1 12-month FU Treatment Groups --------------------------------
 
-y1_m12_treat_groups_list <- m12_treat_groups(input_df = m12_FU_input_df,
+y1_m12_treat_groups_list <- m12_treat_groups(input_df = y1_m12_FU_input_df,
                                              dna_rate = m12_scan_dna_rate,
                                              rebook_rate= m12_scan_rebook_rate,
                                              diagnostic_rate = m12_diagnostic_rate,
@@ -24,4 +24,9 @@ y1_m12_modalities_df <- m12_treatment_modalities(input_df = y1_m12_cancer_df,
                                                  chemo_rate = initial_treatment_chemo_y1,
                                                  nadj_imm_rate = initial_treatment_nadj_imm_y1)
 
-m24_FU_input_df <- y1_m12_treat_groups_list[[4]]
+y1_m24_FU_input_df <- y1_m12_treat_groups_list[[4]]
+
+# Creating outputs to inform m24 reinvites
+
+y1_m12_opt_out <- y1_m12_treat_groups_list[[7]] %>%
+  select(1:3)
