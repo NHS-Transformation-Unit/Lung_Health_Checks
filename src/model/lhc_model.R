@@ -1,12 +1,19 @@
-# Running of Y2 script to populate environment for development
+# Master script for running all yearly source scripts
 
 ## Packages
 
 source(paste0(here(),"/src/requirements/packages.R"))
 
-## Config (input parameters and assumptions)
+## Loading inputs
+
+source(paste0(here(),"/src/load/load_inputs_config.R"))
+
+## Config - input parameters
 
 source(paste0(here(),"/src/config/input_parameters.R"))
+
+## Config - assumptions
+
 source(paste0(here(),"/src/config/assumptions/assumptions_population.R"))
 source(paste0(here(),"/src/config/assumptions/assumptions_lhc.R"))
 source(paste0(here(),"/src/config/assumptions/assumptions_ct.R"))
@@ -31,18 +38,8 @@ source(paste0(here(),"/src/model/functions/m24_diagnostics.R"))
 
 ## Model
 
-source(paste0(here(),"/src/model/y2/y2_1_pop.R"))
-source(paste0(here(),"/src/model/y2/y2_2_lhc.R"))
-source(paste0(here(),"/src/model/y2/y2_3_ct.R"))
-source(paste0(here(),"/src/model/y2/y2_4_init_treat.R"))
-source(paste0(here(),"/src/model/y2/y2_5_init_diags.R"))
-source(paste0(here(),"/src/model/y2/y2_6_m3_treat.R"))
-source(paste0(here(),"/src/model/y2/y2_7_m3_diags.R"))
-source(paste0(here(),"/src/model/y2/y2_8_m12_treat.R"))
-source(paste0(here(),"/src/model/y2/y2_9_m12_diags.R"))
-source(paste0(here(),"/src/model/y2/y2_10_m24_treat.R"))
-source(paste0(here(),"/src/model/y2/y2_11_m24_diags.R"))
-
-## Exporting all sheets to .csv
-
-##source(paste0(here(),"/src/outputs/y2_model_outputs.R"))
+source(paste0(here(),"/src/model/y1/y1_source.R"))
+source(paste0(here(),"/src/model/y2/y2_source.R"))
+source(paste0(here(),"/src/model/y3/y3_source.R"))
+source(paste0(here(),"/src/model/y4/y4_source.R"))
+source(paste0(here(),"/src/model/y5/y5_source.R"))
