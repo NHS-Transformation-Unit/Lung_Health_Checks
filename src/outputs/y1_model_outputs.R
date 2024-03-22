@@ -11,16 +11,16 @@ export_lists_fct <- function(file_path, ...) {
 }
 
 
-export_lists_fct(paste0(here(),"/data/model_outputs/Y1/y1_model_outputs.csv",
-                        y1_pop_list,
-                        y1_lhc_list,
-                        y1_ct_list,
-                        y1_init_treat_groups_list,
-                        y1_init_diag_list,
-                        y1_m3_treat_groups_list,
-                        y1_m3_diag_list,
-                        y1_m12_treat_groups_list,
-                        y1_m12_diag_list,
-                        y1_m24_treat_groups_list,
-                        y1_m24_diag_list
-                        ))
+export_lists_fct(paste0(here(), "/data/model_outputs/Y1/y1_model_outputs.xlsx"),
+                 y1_pop_list,
+                 y1_lhc_list,
+                 y1_ct_list,
+                 y1_init_treat_groups_list,
+                 y1_init_diag_list,
+                 y1_m3_treat_groups_list,
+                 y1_m3_diag_list,
+                 y1_m12_treat_groups_list,
+                 y1_m12_diag_list,
+                 y1_m24_treat_groups_list,
+                 y1_m24_diag_list
+)

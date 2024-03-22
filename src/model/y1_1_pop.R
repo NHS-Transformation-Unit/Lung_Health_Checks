@@ -11,3 +11,6 @@ y1_uptake_pop <- uptake_pop(start_pop = total_pop,
                             uptake = uptake_rate_y1)
 
 y1_pop_list <- list(y1_uptake_pop)
+
+y1_total_average <- y1_uptake_pop %>%
+  summarize(total_average = n() / length(unique(Trial)))
