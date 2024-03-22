@@ -1,5 +1,5 @@
 
-# Simulate Year 3-month FU Treatment Groups --------------------------------
+# Simulate Year 1 3-month FU Treatment Groups --------------------------------
 
 y1_m3_treat_groups_list <- m3_treat_groups(input_df = m3_FU_input_df,
                                            dna_rate = m3_scan_dna_rate,

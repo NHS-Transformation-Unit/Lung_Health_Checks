@@ -12,5 +12,7 @@ y1_uptake_pop <- uptake_pop(start_pop = total_pop,
 
 y1_pop_list <- list(y1_uptake_pop)
 
-y1_total_average <- y1_uptake_pop %>%
+y2_screened_input <- y1_uptake_pop %>%
   summarize(total_average = n() / length(unique(Trial)))
+
+y2_screened_input <- y2_screened_input[1, 1]

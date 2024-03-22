@@ -1,5 +1,5 @@
 
-# Simulate Year 24-month FU Treatment Groups --------------------------------
+# Simulate Year 1 24-month FU Treatment Groups --------------------------------
 
 y1_m24_treat_groups_list <- m24_treat_groups(input_df = m24_FU_input_df,
                                              dna_rate = m24_scan_dna_rate,
@@ -24,4 +24,4 @@ y1_m24_modalities_df <- m24_treatment_modalities(input_df = y1_m24_cancer_df,
                                                  chemo_rate = initial_treatment_chemo_y1,
                                                  nadj_imm_rate = initial_treatment_nadj_imm_y1)
 
-m24_FU_input_df <- y1_m24_treat_groups_list[[4]]
+m48_FU_input_df <- y1_m24_treat_groups_list[[4]]

@@ -3,13 +3,16 @@ m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, i
   
   ### Simulate DNA and Rebooking for non-excluded patients
   m24_dna_df <- input_df %>%
-    mutate(m24_scan_dna_prob = runif(n()),
-           m24_dna = case_when(m24_scan_dna_rate < dna_rate ~ 1,
-                              TRUE ~ 0),
+    mutate(m24_dna_prob = runif(n()),
+           m24_dna = case_when(m24_dna_prob < dna_rate ~ 1,
+                               TRUE ~ 0),
            m24_rebook_prob = runif(n()),
            m24_rebook = case_when(m24_dna == 0 ~ "Attended",
-                                 m24_scan_rebook_rate < rebook_rate ~ "Rebook",
-                                 TRUE ~ "Opt-out"))
+                                  m24_rebook_prob < rebook_rate ~ "Rebook",
+                                  TRUE ~ "Opt-out"))
+  
+  m24_dna_opt_out <- m24_dna_df %>%
+    filter(m24_rebook == "Opt-out")
   
   ### Aggregate Attendance, DNA and Rebooked
   m24_dna_agg_df <- m24_dna_df %>%
@@ -52,7 +55,7 @@ m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, i
   m24_treat_cancer_output_df <- m24_treat_diags_outcome_df %>%
     filter(cancer_outcome == "Cancer")
   
-  return(list(m24_dna_agg_df, m24_treat_outcome_agg_df, m24_treat_diags_df, m24_treat_48m_fu_df, m24_treat_diags_outcome_agg_df, m24_treat_cancer_output_df))
+  return(list(m24_dna_agg_df, m24_treat_outcome_agg_df, m24_treat_diags_df, m24_treat_48m_fu_df, m24_treat_diags_outcome_agg_df, m24_treat_cancer_output_df, m24_dna_opt_out))
   
 }
 
