@@ -9,7 +9,7 @@ y1_m3_treat_groups_list <- m3_treat_groups(input_df = y1_m3_FU_input_df,
                                            follow_up_rate = m3_m12_fu_rate,
                                            cancer_rate = m3_cancer_rate)
 
-y1_m3_add_diags_df <- y1_m3_treat_groups_list[[2]]
+y1_m3_add_diags_df <- y1_m3_treat_groups_list[[3]]
 y1_m3_cancer_df <- y1_m3_treat_groups_list[[5]]
 
 
