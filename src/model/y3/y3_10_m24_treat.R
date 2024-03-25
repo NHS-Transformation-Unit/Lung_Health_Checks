@@ -39,7 +39,7 @@ y5_repeat_df <-bind_rows(y3_lhc_opt_out,
                          y3_ct_opt_out,
                          y3_m3_opt_out,
                          y3_m12_opt_out,
-                         y3_m24_opt_out)
+                         y3_m24_opt_out) # Do some of these need to be taken out?
 
 y5_repeat_df <- y5_repeat_df %>%
   summarize(total_average = n() / length(unique(Trial)))
