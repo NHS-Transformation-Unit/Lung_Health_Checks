@@ -10,8 +10,6 @@ y4_uptake_pop <- uptake_pop(start_pop = total_pop,
                             repeats = 0,
                             uptake = uptake_rate_y4)
 
-y4_pop_list <- list(y4_uptake_pop)
-
 y5_screened_input <- y4_uptake_pop %>%
   summarize(total_average = n() / length(unique(Trial)))
 
