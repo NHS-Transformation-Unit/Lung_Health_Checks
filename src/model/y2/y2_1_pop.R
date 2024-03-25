@@ -18,3 +18,15 @@ y3_screened_input <- y2_uptake_pop %>%
 y3_screened_input <- y3_screened_input[1, 1]
 
 y3_screened_input <- (y2_screened_input + y3_screened_input)
+
+
+# Create previously screened dataframes -----------------------------------
+
+y3_screened_input_current_df <- y2_uptake_pop %>%
+  group_by(Trial) %>%
+  summarise(Total = n())
+
+y3_screened_input_df <- y2_screened_input_df %>%
+  rbind(y3_screened_input_current_df) %>%
+  group_by(Trial) %>%
+  summarise(Total = sum(Total, na.rm = TRUE))
