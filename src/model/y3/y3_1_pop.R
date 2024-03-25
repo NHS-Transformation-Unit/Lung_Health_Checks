@@ -6,17 +6,9 @@ y3_uptake_pop <- uptake_pop(start_pop = total_pop,
                             age_out = age_out_y3,
                             smk_current = smk_rate_current_y3,
                             smk_prev = smk_rate_prev_y3,
-                            screened_prev = y3_screened_input,
+                            screened_prev = y3_screened_input_df,
                             repeats = 0,
                             uptake = uptake_rate_y3)
-
-y4_screened_input <- y3_uptake_pop %>%
-  summarize(total_average = n() / length(unique(Trial)))
-
-y4_screened_input <- y4_screened_input[1, 1]
-
-y4_screened_input <- (y3_screened_input + y4_screened_input)
-
 
 # Create previously screened dataframe ------------------------------------
 
