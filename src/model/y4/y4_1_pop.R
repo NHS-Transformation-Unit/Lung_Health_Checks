@@ -7,7 +7,7 @@ y4_uptake_pop <- uptake_pop(start_pop = total_pop,
                             smk_current = smk_rate_current_y4,
                             smk_prev = smk_rate_prev_y4,
                             screened_prev = y4_screened_input_df,
-                            repeats = 0,
+                            repeats = y4_reinvites,
                             uptake = uptake_rate_y4)
 
 # Created previously screened dataframe -----------------------------------

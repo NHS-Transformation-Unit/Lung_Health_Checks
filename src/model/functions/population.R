@@ -15,8 +15,18 @@ uptake_pop <- function(start_pop, age_in, age_out, smk_current, smk_prev, screen
       
     }
     
+    if(is.data.frame(repeats)){
+      
+      repeats_value <- as.integer(repeats[[i, 2]])
+      
+    } else {
+      
+      repeats_value <- repeats
+      
+    }
+    
     ### Determine size of the population for screening in the year
-    screening_pop <- (start_pop * (1 + (age_in - age_out)) * (smk_current + smk_prev)) - screened_prev_value + repeats
+    screening_pop <- (start_pop * (1 + (age_in - age_out)) * (smk_current + smk_prev)) - screened_prev_value + repeats_value
     
     screening_pop_trial <- data.frame(
       Trial = i,
