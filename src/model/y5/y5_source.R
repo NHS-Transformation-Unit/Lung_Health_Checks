@@ -1,7 +1,5 @@
 
-# Y5 model and output scripts
-
-## Model
+# Y5 model scripts
 
 source(paste0(here(),"/src/model/y5/y5_1_pop.R"))
 source(paste0(here(),"/src/model/y5/y5_2_lhc.R"))
@@ -14,7 +12,4 @@ source(paste0(here(),"/src/model/y5/y5_8_m12_treat.R"))
 source(paste0(here(),"/src/model/y5/y5_9_m12_diags.R"))
 source(paste0(here(),"/src/model/y5/y5_10_m24_treat.R"))
 source(paste0(here(),"/src/model/y5/y5_11_m24_diags.R"))
-
-## Output
-
-##source(paste0(here(),"/src/outputs/y5_model_outputs.R"))
+source(paste0(here(),"/src/model/y5/y5_12_repeats.R"))

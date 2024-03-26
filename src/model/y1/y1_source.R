@@ -1,7 +1,5 @@
 
-# Y1 model and output scripts
-
-## Model
+# Y1 model scripts
 
 source(paste0(here(),"/src/model/y1/y1_1_pop.R"))
 source(paste0(here(),"/src/model/y1/y1_2_lhc.R"))
@@ -14,7 +12,4 @@ source(paste0(here(),"/src/model/y1/y1_8_m12_treat.R"))
 source(paste0(here(),"/src/model/y1/y1_9_m12_diags.R"))
 source(paste0(here(),"/src/model/y1/y1_10_m24_treat.R"))
 source(paste0(here(),"/src/model/y1/y1_11_m24_diags.R"))
-
-## Output
-
-##source(paste0(here(),"/src/outputs/y1_model_outputs.R"))
+source(paste0(here(),"/src/model/y1/y1_12_repeats.R"))

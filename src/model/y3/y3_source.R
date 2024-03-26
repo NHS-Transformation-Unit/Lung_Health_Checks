@@ -1,7 +1,5 @@
 
-# Y3 model and output scripts
-
-## Model
+# Y3 model scripts
 
 source(paste0(here(),"/src/model/y3/y3_1_pop.R"))
 source(paste0(here(),"/src/model/y3/y3_2_lhc.R"))
@@ -14,7 +12,4 @@ source(paste0(here(),"/src/model/y3/y3_8_m12_treat.R"))
 source(paste0(here(),"/src/model/y3/y3_9_m12_diags.R"))
 source(paste0(here(),"/src/model/y3/y3_10_m24_treat.R"))
 source(paste0(here(),"/src/model/y3/y3_11_m24_diags.R"))
-
-## Output
-
-##source(paste0(here(),"/src/outputs/y3_model_outputs.R"))
+source(paste0(here(),"/src/model/y3/y3_12_repeats.R"))
