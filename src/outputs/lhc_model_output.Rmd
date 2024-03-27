@@ -71,8 +71,94 @@ y1_uptake_hist
 
 <br/>
 
-### Lung Health Checks
-Placeholder.
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y1_lhc_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y1_lhc_activity_hist, out.width='100%'}
+
+y1_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y1_lhc_outcome_table}
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y1_lhc_outcome_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y1_lhc_opt-out_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y1_lhc_opt-out_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y1_lhc_neg_ri_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y1_lhc_neg_ri_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
 
 ### CT Scans
 Placeholder.
@@ -115,11 +201,94 @@ y2_uptake_hist
 <br/>
 
 
-### Population uptake
-Placeholder.
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
 
-### Lung Health Checks
-Placeholder.
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y2_lhc_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y2_lhc_activity_hist, out.width='100%'}
+
+y2_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y2_lhc_outcome_table}
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y2_lhc_outcome_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y2_lhc_opt-out_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y2_lhc_opt-out_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y2_lhc_neg_ri_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y2_lhc_neg_ri_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
 
 ### CT Scans
 Placeholder.
@@ -162,11 +331,94 @@ y3_uptake_hist
 <br/>
 
 
-### Population uptake
-Placeholder.
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
 
-### Lung Health Checks
-Placeholder.
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y3_lhc_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y3_lhc_activity_hist, out.width='100%'}
+
+y3_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y3_lhc_outcome_table}
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y3_lhc_outcome_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y3_lhc_opt-out_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y3_lhc_opt-out_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y3_lhc_neg_ri_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y3_lhc_neg_ri_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
 
 ### CT Scans
 Placeholder.
@@ -208,12 +460,94 @@ y4_uptake_hist
 
 <br/>
 
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
 
-### Population uptake
-Placeholder.
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
 
-### Lung Health Checks
-Placeholder.
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y4_lhc_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y4_lhc_activity_hist, out.width='100%'}
+
+y4_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y4_lhc_outcome_table}
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y4_lhc_outcome_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y4_lhc_opt-out_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y4_lhc_opt-out_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y4_lhc_neg_ri_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y4_lhc_neg_ri_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
 
 ### CT Scans
 Placeholder.
@@ -255,11 +589,94 @@ y5_uptake_hist
 
 <br/>
 
-### Population uptake
-Placeholder.
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
 
-### Lung Health Checks
-Placeholder.
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y5_lhc_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y5_lhc_activity_hist, out.width='100%'}
+
+y5_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y5_lhc_outcome_table}
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y5_lhc_outcome_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y5_lhc_opt-out_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y5_lhc_opt-out_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y5_lhc_neg_ri_table, out.width='100%'}
+
+
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y5_lhc_neg_ri_hist, out.width='100%'}
+
+
+
+```
+
+<br/>
 
 ### CT Scans
 Placeholder.

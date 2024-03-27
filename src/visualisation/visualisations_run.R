@@ -4,6 +4,7 @@ source(paste0(here(), "/src/config/tu_ggplot_themes.R"))
 
 # Source visualisation functions
 source(paste0(here(), "/src/visualisation/functions/uptake_population.R"))
+source(paste0(here(), "/src/visualisation/functions/lhc.R"))
 
 # Run visualisation files for each year
 source(paste0(here(),"/src/visualisation/y1_visuals.R"))
