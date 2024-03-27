@@ -31,3 +31,35 @@ y3_lhc_neg_ri_hist_df <- y3_lhc_list[[7]] %>%
   summarise(Total = n())
 
 y3_lhc_neg_ri_hist <- lhc_neg_ri_chart_visual(y3_lhc_neg_ri_hist_df, "#407EC9", "Year 3")
+
+# CT Scan Activity --------------------------------------------------------
+
+y3_ct_activity_hist_df <- y3_ct_list[[2]] %>%
+  filter(ct_rebook != "Opt-out")
+
+y3_ct_activity_hist <- ct_activity_chart_visual(y3_ct_activity_hist_df, "#407EC9", "Year 3")
+
+
+# CT Scan Outcomes --------------------------------------------------------
+
+y3_ct_outcomes_hist_df <- y3_ct_list[[3]]
+
+y3_ct_outcomes_hist <- ct_outcomes_chart_visual(y3_ct_outcomes_hist_df, "#407EC9", "Year 3")
+
+
+# CT Scan Negative Follow-ups ---------------------------------------------
+
+y3_ct_neg_ri_hist_df <- y3_ct_list[[5]] %>%
+  group_by(Trial) %>%
+  summarise(Total = n())
+
+y3_ct_neg_ri_hist <- ct_neg_ri_chart_visual(y3_ct_neg_ri_hist_df, "#407EC9", "Year 3")
+
+
+# CT Scan Opt-Outs --------------------------------------------------------
+
+y3_ct_opt_out_hist_df <- y3_ct_list[[7]] %>%
+  group_by(Trial) %>%
+  summarise(Total = n())
+
+y3_ct_opt_out_hist <- ct_opt_out_chart_visual(y3_ct_opt_out_hist_df, "#407EC9", "Year 3")
