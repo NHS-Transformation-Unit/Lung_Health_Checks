@@ -399,7 +399,7 @@ The distribution of the modality activity across these model runs is shown in th
 
 ```{r y1_m3_treat_diag_hist, out.width='100%'}
 
-y1_init_treat_diags_hist
+y1_m3_treat_diags_hist
 
 ```
 
@@ -454,7 +454,104 @@ At this point in the model the outcomes of those patients on the 12 month follow
 * A breakdown of those patients with a confirmed malignancy or not
 * A breakdown of the treatment modality activity for those with a confirmed malignancy.
 
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y1_m12_treat_ct_activity_table}
+
+
+```
+
 <br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y1_m12_treat_ct_activity_hist, out.width='100%'}
+
+y1_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_m12_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_ct_hist, out.width='100%'}
+
+y1_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_m12_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_diag_hist, out.width='100%'}
+
+y1_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_m12_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_malig_hist, out.width='100%'}
+
+y1_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_m12_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_mod_hist, out.width='100%'}
+
+y1_m12_treat_mods_hist
+
+```
+
+<br/>
+
 
 ### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
 In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
@@ -867,8 +964,113 @@ y2_m3_treat_mods_hist
 
 <br/>
 
-### 12M Treatments
-Placeholder.
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y2_m12_treat_ct_activity_table}
+
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y2_m12_treat_ct_activity_hist, out.width='100%'}
+
+y2_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_m12_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_ct_hist, out.width='100%'}
+
+y2_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_m12_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_diag_hist, out.width='100%'}
+
+y2_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_m12_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_malig_hist, out.width='100%'}
+
+y2_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_m12_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_mod_hist, out.width='100%'}
+
+y2_m12_treat_mods_hist
+
+```
+
+<br/>
+
 
 ### 24M Treatments
 Placeholder.
@@ -1274,8 +1476,113 @@ y3_m3_treat_mods_hist
 <br/>
 
 
-### 12M Treatments
-Placeholder.
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y3_m12_treat_ct_activity_table}
+
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y3_m12_treat_ct_activity_hist, out.width='100%'}
+
+y3_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_m12_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_ct_hist, out.width='100%'}
+
+y3_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_m12_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_diag_hist, out.width='100%'}
+
+y3_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_m12_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_malig_hist, out.width='100%'}
+
+y3_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_m12_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_mod_hist, out.width='100%'}
+
+y3_m12_treat_mods_hist
+
+```
+
+<br/>
+
 
 ### 24M Treatments
 Placeholder.
@@ -1679,8 +1986,112 @@ y4_m3_treat_mods_hist
 
 <br/>
 
-### 12M Treatments
-Placeholder.
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y4_m12_treat_ct_activity_table}
+
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y4_m12_treat_ct_activity_hist, out.width='100%'}
+
+y4_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_m12_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_ct_hist, out.width='100%'}
+
+y4_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_m12_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_diag_hist, out.width='100%'}
+
+y4_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_m12_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_malig_hist, out.width='100%'}
+
+y4_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_m12_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_mod_hist, out.width='100%'}
+
+y4_m12_treat_mods_hist
+
+```
+
+<br/>
 
 ### 24M Treatments
 Placeholder.
@@ -2087,11 +2498,107 @@ y5_m3_treat_mods_hist
 ### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
-* The number of patients attending the three month follow-up CT Scan
+* The number of patients attending the 12 month follow-up CT Scan
 * The outcomes of this scan
 * The additional diagnostic activity for each modality for those patients requiring further investigations
 * A breakdown of those patients with a confirmed malignancy or not
 * A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y5_m12_treat_ct_activity_table}
+
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y5_m12_treat_ct_activity_hist, out.width='100%'}
+
+y5_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_m12_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_ct_hist, out.width='100%'}
+
+y5_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_m12_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_diag_hist, out.width='100%'}
+
+y5_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_m12_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_malig_hist, out.width='100%'}
+
+y5_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_m12_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_mod_hist, out.width='100%'}
+
+y5_m12_treat_mods_hist
+
+```
 
 <br/>
 
