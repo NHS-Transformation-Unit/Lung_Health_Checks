@@ -63,3 +63,48 @@ y1_ct_opt_out_hist_df <- y1_ct_list[[7]] %>%
   summarise(Total = n())
 
 y1_ct_opt_out_hist <- ct_opt_out_chart_visual(y1_ct_opt_out_hist_df, "#407EC9", "Year 1")
+
+
+# Initial Treatment Positive CT Outcomes ----------------------------------
+
+y1_init_treat_pos_outcomes_hist_df <- y1_init_treat_groups_list[[1]] %>%
+  mutate(init_treat_outcome_clean = case_when(init_treat_outcome == "3M_FU" ~ "3 Month Follow-Up",
+                                              init_treat_outcome == "Diagnostics" ~ "Additional Diagnostics",
+                                              init_treat_outcome == "Incidental" ~ "Incidental Finding"))
+
+y1_init_treat_pos_outcomes_hist <- init_treat_pos_outcomes_chart_visual(y1_init_treat_pos_outcomes_hist_df, "#407EC9", "Year 1")
+
+
+# Initial Treatment Diagnostics -------------------------------------------
+
+y1_init_modalities_hist_df <- y1_init_diags_modalities_df %>%
+  gather(modality, Total, -c(1)) %>%
+  mutate(modality_clean = case_when(modality == "bronch" ~ "Bronchoscopy",
+                                    modality == "ct_bio" ~ "CT Guided Biopsy",
+                                    modality == "ebus" ~ "EBUS",
+                                    modality == "lft" ~ "LFTs",
+                                    modality == "nav_bronch" ~ "Navigation Bronchoscopy",
+                                    modality == "pet" ~ "PET Scan",
+                                    TRUE ~ modality))
+
+y1_init_treat_diags_hist <- init_treat_diags_chart_visual(y1_init_modalities_hist_df, "#407EC9", "Year 1")
+
+
+# Initial Treatment Confirmed Malignancy ----------------------------------
+
+y1_init_treat_malig_hist_df <- y1_init_treat_groups_list[[4]]
+
+y1_init_treat_malig_hist <- init_treat_malig_chart_visual(y1_init_treat_malig_hist_df, "#407EC9", "Year 1")
+
+
+# Initial Treatment Modalities --------------------------------------------
+
+y1_init_mods_hist_df <- y1_init_modalities_df %>%
+  mutate(modality_clean = case_when(modality == "Best_Supportive_Care" ~ "Best Supportive Care",
+                                    modality == "Neoadjuvant_Immunotherapy" ~ "Neoadjuvant Immunotherapy",
+                                    modality == "Surgery_Adjuvant_Chemotherapy" ~ "Surgery with Adjuvant Chemotherapy",
+                                    modality == "XRT" ~ "Radiotherapy",
+                                    TRUE ~ modality)
+  )
+
+y1_init_treat_mods_hist <- init_treat_mods_chart_visual(y1_init_mods_hist_df, "#407EC9", "Year 1")

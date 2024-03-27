@@ -250,8 +250,93 @@ y1_ct_opt_out_hist
 
 <br/>
 
-### Initial Treatments
-Placeholder.
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_init_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_ct_hist, out.width='100%'}
+
+y1_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_init_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_diag_hist, out.width='100%'}
+
+y1_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_init_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_malig_hist, out.width='100%'}
+
+y1_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_init_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_mod_hist, out.width='100%'}
+
+y1_init_treat_mods_hist
+
+```
+
+<br/>
 
 ### 3M Treatments
 Placeholder.
@@ -467,8 +552,93 @@ y2_ct_opt_out_hist
 
 <br/>
 
-### Initial Treatments
-Placeholder.
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_init_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_ct_hist, out.width='100%'}
+
+y2_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_init_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_diag_hist, out.width='100%'}
+
+y2_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_init_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_malig_hist, out.width='100%'}
+
+y2_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_init_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_mod_hist, out.width='100%'}
+
+y2_init_treat_mods_hist
+
+```
+
+<br/>
 
 ### 3M Treatments
 Placeholder.
@@ -684,8 +854,93 @@ y3_ct_opt_out_hist
 
 <br/>
 
-### Initial Treatments
-Placeholder.
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_init_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_ct_hist, out.width='100%'}
+
+y3_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_init_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_diag_hist, out.width='100%'}
+
+y3_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_init_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_malig_hist, out.width='100%'}
+
+y3_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_init_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_mod_hist, out.width='100%'}
+
+y3_init_treat_mods_hist
+
+```
+
+<br/>
 
 ### 3M Treatments
 Placeholder.
@@ -900,8 +1155,93 @@ y4_ct_opt_out_hist
 
 <br/>
 
-### Initial Treatments
-Placeholder.
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_init_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_ct_hist, out.width='100%'}
+
+y4_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_init_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_diag_hist, out.width='100%'}
+
+y4_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_init_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_malig_hist, out.width='100%'}
+
+y4_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_init_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_mod_hist, out.width='100%'}
+
+y4_init_treat_mods_hist
+
+```
+
+<br/>
 
 ### 3M Treatments
 Placeholder.
@@ -1116,8 +1456,93 @@ y5_ct_opt_out_hist
 
 <br/>
 
-### Initial Treatments
-Placeholder.
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_init_treat_ct_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_ct_hist, out.width='100%'}
+
+y5_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_init_treat_diag_table}
+
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_diag_hist, out.width='100%'}
+
+y5_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_init_treat_malig_table}
+
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_malig_hist, out.width='100%'}
+
+y5_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_init_treat_mod_table}
+
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_mod_hist, out.width='100%'}
+
+y5_init_treat_mods_hist
+
+```
+
+<br/>
 
 ### 3M Treatments
 Placeholder.
