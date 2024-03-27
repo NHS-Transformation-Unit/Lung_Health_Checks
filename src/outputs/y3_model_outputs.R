@@ -39,7 +39,7 @@ y3_m24_treat_mod_op <- y3_m24_modalities_df
 ## Exporting defined objects using output function
 
 excel_output(
-  paste0(here(),"/src/outputs/y3/y3_outputs.xlsx"),
+  paste0(here(),"/data/model_outputs/y3_outputs.xlsx"),
   list(
     y3_uptake_pop_op = y3_uptake_pop_op,
     y3_pop_smoke_op = y3_pop_smoke_op,

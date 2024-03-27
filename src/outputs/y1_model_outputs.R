@@ -39,7 +39,7 @@ y1_m24_treat_mod_op <- y1_m24_modalities_df
 ## Exporting defined objects using output function
 
 excel_output(
-  paste0(here(),"/src/outputs/y1/y1_outputs.xlsx"),
+  paste0(here(),"/data/model_outputs/y1_outputs.xlsx"),
   list(
     y1_uptake_pop_op = y1_uptake_pop_op,
     y1_pop_smoke_op = y1_pop_smoke_op,
