@@ -63,6 +63,6 @@ ct <- function(input_df, exclusion_rate, dna_rate, dna_rebook_rate, positive, ne
   ct_output_df <- ct_outcomes_df %>%
     filter(ct_outcome == "Positive")
   
-  return(list(ct_exclusion_agg_df, ct_dna_agg_df, ct_outcomes_agg_df, ct_negative_fu_df, ct_24M_FU_output, ct_output_df, ct_dna_opt_out_df))
+  return(list(ct_exclusion_agg_df, ct_dna_agg_df, ct_outcomes_agg_df, ct_negative_fu_df, ct_24M_FU_output, ct_output_df, ct_dna_opt_out_df, ct_negative_fu_agg_df))
   
 }
