@@ -1,9 +1,6 @@
 
 # Y1 model output creation
 
-install.packages("writexl")
-library(writexl)
-
 ## Defining objects to be outputted for Y1
 
 y1_uptake_pop_op <- y2_screened_input_df
