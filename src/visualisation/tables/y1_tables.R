@@ -267,4 +267,3 @@ y1_ct_neg_fu_tab_vis <- y1_ct_neg_fu_tab_formatted %>%
 
 # ct scan opt-outs --------------------------------------------------------
 
-
