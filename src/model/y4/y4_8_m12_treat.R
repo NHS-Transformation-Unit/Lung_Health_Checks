@@ -10,7 +10,7 @@ y4_m12_treat_groups_list <- m12_treat_groups(input_df = y4_m12_FU_input_df,
                                              cancer_rate = m12_cancer_rate_y4)
 
 y4_m12_add_diags_df <- y4_m12_treat_groups_list[[3]]
-y4_m12_cancer_df <- y4_m12_treat_groups_list[[5]]
+y4_m12_cancer_df <- y4_m12_treat_groups_list[[6]]
 
 
 # Simulate Year 4 12-month Treatment Modalities ----------------------------

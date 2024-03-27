@@ -10,7 +10,7 @@ y1_m24_treat_groups_list <- m24_treat_groups(input_df = y1_m24_FU_input_df,
                                              cancer_rate = m24_cancer_rate_y1)
 
 y1_m24_add_diags_df <- y1_m24_treat_groups_list[[3]]
-y1_m24_cancer_df <- y1_m24_treat_groups_list[[5]]
+y1_m24_cancer_df <- y1_m24_treat_groups_list[[6]]
 y1_m24_opt_out <- y1_m24_treat_groups_list[[7]] %>%
   select(1:3)
 y1_m48_FU_input_df <- y1_m24_treat_groups_list[[4]]
