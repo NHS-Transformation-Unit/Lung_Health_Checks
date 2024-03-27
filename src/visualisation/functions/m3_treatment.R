@@ -1,17 +1,42 @@
 
-# Positive CT Outcomes ----------------------------------------------------
+# CT Scan Activity --------------------------------------------------------
 
-init_treat_pos_outcomes_chart_visual <- function(input_df, fill_hex, sub_label){
+m3_treat_ct_act_chart_visual <- function(input_df, fill_hex, sub_label){
   
   chart_df <- input_df %>%
-    group_by(Trial, init_treat_outcome_clean) %>%
+    group_by(Trial)%>%
+    summarise(Total = sum(Total, na.rm = TRUE))
+  
+  trial_df <- data.frame("Trial" = seq(1:trials))
+  
+  chart_df <- trial_df %>%
+    left_join(chart_df, by = c("Trial")) %>%
+    mutate(Total = replace_na(Total, 0))
+  
+  m3_treat_ct_act_chart <- ggplot(chart_df, aes(x = Total)) +
+    geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 20) +
+    labs(x = "CT Scan Activity",
+         y = "Number of Trials",
+         title = "Histogram of in year 3 Month follow-up CT Activity",
+         subtitle = sub_label,
+         caption = "Model Output") +
+    theme_tu_white(hex_col = "#407EC9")
+  
+}
+
+# Positive CT Outcomes ----------------------------------------------------
+
+m3_treat_pos_outcomes_chart_visual <- function(input_df, fill_hex, sub_label){
+  
+  chart_df <- input_df %>%
+    group_by(Trial, m3_treat_outcome_clean) %>%
     summarise(Total = sum(Total, na.rm = TRUE)) %>%
     ungroup() %>%
-    complete(Trial, init_treat_outcome_clean, fill = list(Total = 0))
+    complete(Trial, m3_treat_outcome_clean, fill = list(Total = 0))
   
-  init_treat_pos_outcomes_chart <- ggplot(chart_df, aes(x = Total)) +
+  m3_treat_pos_outcomes_chart <- ggplot(chart_df, aes(x = Total)) +
     geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 20) +
-    facet_wrap(~init_treat_outcome_clean, scales = "free_x") +
+    facet_wrap(~m3_treat_outcome_clean, scales = "free_x") +
     labs(x = "Number of Patients",
          y = "Number of Trials",
          title = "Histogram of in year Positive CT Outcomes",
@@ -24,7 +49,7 @@ init_treat_pos_outcomes_chart_visual <- function(input_df, fill_hex, sub_label){
 
 # Diagnostic Activity -----------------------------------------------------
 
-init_treat_diags_chart_visual <- function(input_df, fill_hex, sub_label){
+m3_treat_diags_chart_visual <- function(input_df, fill_hex, sub_label){
   
   chart_df <- input_df %>%
     group_by(Trial, modality_clean) %>%
@@ -32,7 +57,7 @@ init_treat_diags_chart_visual <- function(input_df, fill_hex, sub_label){
     ungroup() %>%
     complete(Trial, modality_clean, fill = list(Total = 0))
   
-  init_treat_diags_chart <- ggplot(chart_df, aes(x = Total)) +
+  m3_treat_diags_chart <- ggplot(chart_df, aes(x = Total)) +
     geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 10) +
     facet_wrap(~modality_clean, scales = "free_x") +
     labs(x = "Number of Patients",
@@ -42,12 +67,13 @@ init_treat_diags_chart_visual <- function(input_df, fill_hex, sub_label){
          caption = "Model Output") +
     theme_tu_white(hex_col = "#407EC9")
   
+  
 }
 
 
 # Confirmed Malignancy ----------------------------------------------------
 
-init_treat_malig_chart_visual <- function(input_df, fill_hex, sub_label){
+m3_treat_malig_chart_visual <- function(input_df, fill_hex, sub_label){
   
   chart_df <- input_df %>%
     group_by(Trial, cancer_outcome) %>%
@@ -55,7 +81,7 @@ init_treat_malig_chart_visual <- function(input_df, fill_hex, sub_label){
     ungroup() %>%
     complete(Trial, cancer_outcome, fill = list(Total = 0))
   
-  init_treat_malig_chart <- ggplot(chart_df, aes(x = Total)) +
+  m3_treat_malig_chart <- ggplot(chart_df, aes(x = Total)) +
     geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 20) +
     facet_wrap(~cancer_outcome, scales = "free_x") +
     labs(x = "Number of Patients",
@@ -64,13 +90,13 @@ init_treat_malig_chart_visual <- function(input_df, fill_hex, sub_label){
          subtitle = sub_label,
          caption = "Model Output") +
     theme_tu_white(hex_col = "#407EC9")
-  
+
 }
 
 
 # Treatment Modalities ----------------------------------------------------
 
-init_treat_mods_chart_visual <- function(input_df, fill_hex, sub_label){
+m3_treat_mods_chart_visual <- function(input_df, fill_hex, sub_label){
   
   chart_df <- input_df %>%
     group_by(Trial, modality_clean) %>%
@@ -78,8 +104,8 @@ init_treat_mods_chart_visual <- function(input_df, fill_hex, sub_label){
     ungroup() %>%
     complete(Trial, modality_clean, fill = list(Total = 0))
   
-  init_treat_mods_chart <- ggplot(chart_df, aes(x = Total)) +
-    geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 10) +
+  m3_treat_diags_chart <- ggplot(chart_df, aes(x = Total)) +
+    geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 5) +
     facet_wrap(~modality_clean, scales = "free_x") +
     labs(x = "Number of Patients",
          y = "Number of Trials",
@@ -90,4 +116,3 @@ init_treat_mods_chart_visual <- function(input_df, fill_hex, sub_label){
   
   
 }
-
