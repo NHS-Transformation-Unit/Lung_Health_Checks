@@ -10,6 +10,7 @@ y1_uptake_pop_op <- y2_screened_input_df
 #y1_smoking_cess_op <- 
 
 y1_lhc_book_op <- y1_lhc_list[[3]]
+y1_lhc_book_op <- y1_lhc_list[[3]]
 y1_lhc_outcome_op <- y1_lhc_list[[4]]
 
 y1_ct_book_op <- y1_ct_list[[2]]
