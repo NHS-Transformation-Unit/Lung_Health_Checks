@@ -3,7 +3,7 @@ title: "Lung Health Checks, 5-Year Model"
 author: "NHS Transformation Unit"
 date: "`r Sys.Date()`"
 output: 
-html_document:
+  html_document:
     toc: true
     toc_depth: 2
     toc_float: true
@@ -16,6 +16,7 @@ html_document:
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 source("../model/lhc_model.R")
+source("../visualisation/visualisations_run.R")
 
 ```
 
@@ -29,16 +30,89 @@ htmltools::img(src = knitr::image_uri(paste0(here(), "/images/TU_logo_large.png"
 
 ```
 
-## Introduction
+## Introduction {.tabset .tabset-fade}
 ***
 
-This repository holds the codebase for modelling the demand and capacity requirements for Lung Health Check screening. There is an ambition for all eligible patients aged 55 - 74 years old with a history of smoking to be offered a lung health check by 2029, more information is available [here](https://www.nhs.uk/conditions/lung-health-checks/).
+### Background to the Model
 
 
-## Year 1 {.tabset .tabset-fade}
+<br/>
+
+### Assumptions
+
+<br/>
+
+
+### Pathway
+
+<br/>
+
+## Year 1 Projections {.tabset .tabset-fade}
 ***
 
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the first year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y1_uptake_hist, out.width='100%'}
+
+y1_uptake_hist
+
+```
+
+<br/>
+
+### Lung Health Checks
 Placeholder.
+
+### CT Scans
+Placeholder.
+
+### Initial Treatments
+Placeholder.
+
+### 3M Treatments
+Placeholder.
+
+### 12M Treatments
+Placeholder.
+
+### 24M Treatments
+Placeholder.
+
+
+## Year 2 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the second year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y2_uptake_hist, out.width='100%'}
+
+y2_uptake_hist
+
+```
+
+<br/>
 
 
 ### Population uptake
@@ -63,10 +137,29 @@ Placeholder.
 Placeholder.
 
 
-## Year 2 {.tabset .tabset-fade}
+## Year 3 Projections {.tabset .tabset-fade}
 ***
 
-Placeholder.
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the third year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y3_uptake_hist, out.width='100%'}
+
+y3_uptake_hist
+
+```
+
+<br/>
 
 
 ### Population uptake
@@ -91,10 +184,29 @@ Placeholder.
 Placeholder.
 
 
-## Year 3 {.tabset .tabset-fade}
+## Year 4 Projections {.tabset .tabset-fade}
 ***
 
-Placeholder.
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the fourth year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y4_uptake_hist, out.width='100%'}
+
+y4_uptake_hist
+
+```
+
+<br/>
 
 
 ### Population uptake
@@ -119,39 +231,29 @@ Placeholder.
 Placeholder.
 
 
-## Year 4 {.tabset .tabset-fade}
+## Year 5 Projections {.tabset .tabset-fade}
 ***
 
-Placeholder.
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the final year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake
-Placeholder.
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
 
-### Lung Health Checks
-Placeholder.
+#### Summary
 
-### CT Scans
-Placeholder.
+<br/>
 
-### Initial Treatments
-Placeholder.
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
-### 3M Treatments
-Placeholder.
+```{r y5_uptake_hist, out.width='100%'}
 
-### 12M Treatments
-Placeholder.
+y5_uptake_hist
 
-### 24M Treatments
-Placeholder.
+```
 
-
-## Year 5 {.tabset .tabset-fade}
-***
-
-Placeholder.
-
+<br/>
 
 ### Population uptake
 Placeholder.
