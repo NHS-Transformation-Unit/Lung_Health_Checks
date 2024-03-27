@@ -1,26 +1,42 @@
-# Exporting all Y1 lists to a single .csv file --------------------------------
 
-export_lists_fct <- function(file_path, ...) {
-  wb <- createWorkbook()
-  for (i in seq_along(list(...))) {
-    sheet_name <- paste0("Sheet", i)
-    addWorksheet(wb, sheet_name)
-    writeData(wb, sheet = sheet_name, x = list(...)[[i]])
-  }
-  saveWorkbook(wb, file_path, overwrite = TRUE)
-}
+# Y1 model output creation
 
+## Defining objects to be outputted for Y1
 
-export_lists_fct(paste0(here(), "/data/model_outputs/Y1/y1_model_outputs.xlsx"),
-                 y1_pop_list,
-                 y1_lhc_list,
-                 y1_ct_list,
-                 y1_init_treat_groups_list,
-                 y1_init_diag_list,
-                 y1_m3_treat_groups_list,
-                 y1_m3_diag_list,
-                 y1_m12_treat_groups_list,
-                 y1_m12_diag_list,
-                 y1_m24_treat_groups_list,
-                 y1_m24_diag_list
-)
+y1_uptake_pop_op <- 
+y1_smoking_cess_op <- 
+
+y1_lhc_book_op <- 
+y1_lhc_dna_op <- 
+y1_lhc_outcome_op <- 
+
+y1_ct_book_op <- 
+y1_ct_dna_op <- 
+y1_ct_outcome_op <- 
+
+y1_init_FU_op <- 
+y1_init_incid_op <- 
+y1_init_diag_mod_op <- 
+y1_init_diag_outcome_op <- 
+y1_init_treat_mod_op <- 
+
+y1_m3_ct_op <- 
+y1_m3_FU_op <- 
+y1_m3_incid_op <- 
+y1_m3_diag_mod_op <- 
+y1_m3_diag_outcome_op <- 
+y1_m3_treat_mod_op <- 
+
+y1_m12_ct_op <- 
+y1_m12_FU_op <- 
+y1_m12_incid_op <- 
+y1_m12_diag_mod_op <- 
+y1_m12_diag_outcome_op <- 
+y1_m12_treat_mod_op <- 
+
+y1_m24_ct_op <- 
+y1_m24_FU_op <- 
+y1_m24_incid_op <- 
+y1_m24_diag_mod_op <- 
+y1_m24_diag_outcome_op <- 
+y1_m24_treat_mod_op <- 
