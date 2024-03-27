@@ -7,9 +7,8 @@ library(writexl)
 ## Defining objects to be outputted for Y1
 
 y1_uptake_pop_op <- y2_screened_input_df
-#y1_smoking_cess_op <- 
 
-y1_lhc_book_op <- y1_lhc_list[[3]]
+y1_pop_smoke_op <- y1_lhc_list[[8]]
 y1_lhc_book_op <- y1_lhc_list[[3]]
 y1_lhc_outcome_op <- y1_lhc_list[[4]]
 
@@ -46,6 +45,7 @@ excel_output(
   paste0(here(),"/src/outputs/y1/y1_outputs.xlsx"),
   list(
     y1_uptake_pop_op = y1_uptake_pop_op,
+    y1_pop_smoke_op = y1_pop_smoke_op,
     y1_lhc_book_op = y1_lhc_book_op,
     y1_lhc_outcome_op = y1_lhc_outcome_op,
     y1_ct_book_op = y1_ct_book_op,
