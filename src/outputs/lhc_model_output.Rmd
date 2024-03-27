@@ -160,8 +160,95 @@ y1_lhc_neg_ri_hist
 
 <br/>
 
-### CT Scans
-Placeholder.
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y1_ct_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y1_ct_activity_hist, out.width='100%'}
+
+y1_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y1_ct_outcomes_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y1_ct_outcomes_hist, out.width='100%'}
+
+y1_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y1_ct_neg_fu_table}
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y1_ct_neg_fu_hist, out.width='100%'}
+
+y1_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y1_ct_opt_out_table}
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y1_ct_opt_out_hist, out.width='100%'}
+
+y1_ct_opt_out_hist
+
+```
+
+<br/>
 
 ### Initial Treatments
 Placeholder.
@@ -290,8 +377,95 @@ y2_lhc_neg_ri_hist
 
 <br/>
 
-### CT Scans
-Placeholder.
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y2_ct_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y2_ct_activity_hist, out.width='100%'}
+
+y2_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y2_ct_outcomes_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y2_ct_outcomes_hist, out.width='100%'}
+
+y2_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y2_ct_neg_fu_table}
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y2_ct_neg_fu_hist, out.width='100%'}
+
+y2_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y2_ct_opt_out_table}
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y2_ct_opt_out_hist, out.width='100%'}
+
+y2_ct_opt_out_hist
+
+```
+
+<br/>
 
 ### Initial Treatments
 Placeholder.
@@ -420,8 +594,95 @@ y3_lhc_neg_ri_hist
 
 <br/>
 
-### CT Scans
-Placeholder.
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y3_ct_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y3_ct_activity_hist, out.width='100%'}
+
+y3_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y3_ct_outcomes_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y3_ct_outcomes_hist, out.width='100%'}
+
+y3_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y3_ct_neg_fu_table}
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y3_ct_neg_fu_hist, out.width='100%'}
+
+y3_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y3_ct_opt_out_table}
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y3_ct_opt_out_hist, out.width='100%'}
+
+y3_ct_opt_out_hist
+
+```
+
+<br/>
 
 ### Initial Treatments
 Placeholder.
@@ -549,8 +810,95 @@ y4_lhc_neg_ri_hist
 
 <br/>
 
-### CT Scans
-Placeholder.
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y4_ct_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y4_ct_activity_hist, out.width='100%'}
+
+y4_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y4_ct_outcomes_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y4_ct_outcomes_hist, out.width='100%'}
+
+y4_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y4_ct_neg_fu_table}
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y4_ct_neg_fu_hist, out.width='100%'}
+
+y4_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y4_ct_opt_out_table}
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y4_ct_opt_out_hist, out.width='100%'}
+
+y4_ct_opt_out_hist
+
+```
+
+<br/>
 
 ### Initial Treatments
 Placeholder.
@@ -678,8 +1026,95 @@ y5_lhc_neg_ri_hist
 
 <br/>
 
-### CT Scans
-Placeholder.
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y5_ct_activity_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y5_ct_activity_hist, out.width='100%'}
+
+y5_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y5_ct_outcomes_table}
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y5_ct_outcomes_hist, out.width='100%'}
+
+y5_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y5_ct_neg_fu_table}
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y5_ct_neg_fu_hist, out.width='100%'}
+
+y5_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y5_ct_opt_out_table}
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y5_ct_opt_out_hist, out.width='100%'}
+
+y5_ct_opt_out_hist
+
+```
+
+<br/>
 
 ### Initial Treatments
 Placeholder.
@@ -691,10 +1126,4 @@ Placeholder.
 Placeholder.
 
 ### 24M Treatments
-Placeholder.
-
-
-## Key Findings {.tabset .tabset-fade}
-***
-
 Placeholder.
