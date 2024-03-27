@@ -112,7 +112,7 @@ The histogram below shows the distribution of these outcomes across the `r trial
 
 ```{r y1_lhc_outcome_hist, out.width='100%'}
 
-
+y1_lhc_outcomes_hist
 
 ```
 
@@ -133,7 +133,7 @@ The histogram below shows the distribution of these opt-out numbers across the `
 
 ```{r y1_lhc_opt-out_hist, out.width='100%'}
 
-
+y1_lhc_opt_out_hist
 
 ```
 
@@ -154,7 +154,7 @@ The histogram below shows the distribution of these negative re-invite numbers a
 
 ```{r y1_lhc_neg_ri_hist, out.width='100%'}
 
-
+y1_lhc_neg_ri_hist
 
 ```
 
@@ -242,7 +242,7 @@ The histogram below shows the distribution of these outcomes across the `r trial
 
 ```{r y2_lhc_outcome_hist, out.width='100%'}
 
-
+y2_lhc_outcomes_hist
 
 ```
 
@@ -263,7 +263,7 @@ The histogram below shows the distribution of these opt-out numbers across the `
 
 ```{r y2_lhc_opt-out_hist, out.width='100%'}
 
-
+y2_lhc_opt_out_hist
 
 ```
 
@@ -284,7 +284,7 @@ The histogram below shows the distribution of these negative re-invite numbers a
 
 ```{r y2_lhc_neg_ri_hist, out.width='100%'}
 
-
+y2_lhc_neg_ri_hist
 
 ```
 
@@ -372,7 +372,7 @@ The histogram below shows the distribution of these outcomes across the `r trial
 
 ```{r y3_lhc_outcome_hist, out.width='100%'}
 
-
+y3_lhc_outcomes_hist
 
 ```
 
@@ -393,7 +393,7 @@ The histogram below shows the distribution of these opt-out numbers across the `
 
 ```{r y3_lhc_opt-out_hist, out.width='100%'}
 
-
+y3_lhc_opt_out_hist
 
 ```
 
@@ -414,7 +414,7 @@ The histogram below shows the distribution of these negative re-invite numbers a
 
 ```{r y3_lhc_neg_ri_hist, out.width='100%'}
 
-
+y3_lhc_neg_ri_hist
 
 ```
 
@@ -501,7 +501,7 @@ The histogram below shows the distribution of these outcomes across the `r trial
 
 ```{r y4_lhc_outcome_hist, out.width='100%'}
 
-
+y4_lhc_outcomes_hist
 
 ```
 
@@ -522,7 +522,7 @@ The histogram below shows the distribution of these opt-out numbers across the `
 
 ```{r y4_lhc_opt-out_hist, out.width='100%'}
 
-
+y4_lhc_opt_out_hist
 
 ```
 
@@ -543,7 +543,7 @@ The histogram below shows the distribution of these negative re-invite numbers a
 
 ```{r y4_lhc_neg_ri_hist, out.width='100%'}
 
-
+y4_lhc_neg_ri_hist
 
 ```
 
@@ -630,7 +630,7 @@ The histogram below shows the distribution of these outcomes across the `r trial
 
 ```{r y5_lhc_outcome_hist, out.width='100%'}
 
-
+y5_lhc_outcomes_hist
 
 ```
 
@@ -651,7 +651,7 @@ The histogram below shows the distribution of these opt-out numbers across the `
 
 ```{r y5_lhc_opt-out_hist, out.width='100%'}
 
-
+y5_lhc_opt_out_hist
 
 ```
 
@@ -672,7 +672,7 @@ The histogram below shows the distribution of these negative re-invite numbers a
 
 ```{r y5_lhc_neg_ri_hist, out.width='100%'}
 
-
+y5_lhc_neg_ri_hist
 
 ```
 
