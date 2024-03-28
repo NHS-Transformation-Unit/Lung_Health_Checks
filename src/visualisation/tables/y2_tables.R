@@ -1,8 +1,6 @@
 
 # y2 summary table creation
 
-library(scales)
-
 ## Uptake Population Table -------------------------------------------------
 
 ### Creating input df
@@ -10,7 +8,7 @@ library(scales)
 trial_df <- data.frame("Trial" = seq(1:trials))
 
 y3_screened_input_current_df <- trial_df %>%
-  left_join(y3_screened_input_df, by = c("Trial")) %>%
+  left_join(y3_screened_input_current_df, by = c("Trial")) %>%
   mutate(Total = replace_na(Total, 0))
 
 y2_uptake_pop_tab <- y3_screened_input_current_df %>%
