@@ -43,7 +43,7 @@ DES models how entities, in this case patients, move through a system where cert
 
 <br/>
 
-This document contains the projected model outputs for **`r geography`** over a five year period. The model has been ran `r trials` times. You can navigate through the different years and stages of the model using the table of contents to the left. 
+This document contains the projected model outputs for **`r geography`** over a five year period. The model has been ran `r trials` times. You can navigate through the different years and stages of the model using the table of contents to the left. Each section has a summary table showing the  10th percentile, lower quartile, median, upper quartile and 90th percentile of each output based on the `r trials` model runs. For example, if the median value of the positive Lung Health Check outcomes was 2,208 patients, this would indicate that in half of the model runs the figure was fewer than 2,208 patients and in the other 50% it was greater than 2,208. A histogram of the model outputs from all of the model runs is also presented to show the range of possible outcomes visually.
 
 <br/>
 
@@ -79,18 +79,107 @@ As the model is run multiple times each model run can result in a range of diffe
 
 <br/>
 
-### Assumptions
+### Assumptions {.tabset .tabset-fade}
+This section provides an overview of the assumptions used within the model.
 
+#### Population
 ```{r assumptions_pop}
 
-assumptions_pop
+assumptions_pop_table
 
 ```
 
+<br/>
 
+#### LHC
+```{r assumptions_lhc}
+
+assumptions_lhc_table
+
+```
 
 <br/>
 
+#### CT
+```{r assumptions_ct}
+
+assumptions_ct_table
+
+```
+
+<br/>
+
+#### Initial Diagnosis
+```{r assumptions_init_diag}
+
+assumptions_initial_diag_table
+
+```
+
+<br/>
+
+#### Initial Treatments
+```{r assumptions_init_treat}
+
+assumptions_initial_treat_table
+
+```
+
+<br/>
+
+#### Month 3 Diagnosis
+```{r assumptions_m3_diag}
+
+assumptions_m3_diag_table
+
+```
+
+<br/>
+
+#### Month 3 Treatments
+```{r assumptions_m3_treat}
+
+assumptions_m3_treat_table
+
+```
+
+<br/>
+
+#### Month 12 Diagnosis
+```{r assumptions_m12_diag}
+
+assumptions_m12_diag_table
+
+```
+
+<br/>
+
+#### Month 12 Treatments
+```{r assumptions_m12_treat}
+
+assumptions_m12_treat_table
+
+```
+
+<br/>
+
+#### Month 24 Diagnosis
+```{r assumptions_m24_diag}
+
+assumptions_m24_diag_table
+
+```
+
+<br/>
+
+#### Month 24 Treatments
+```{r assumptions_m24_treat}
+
+assumptions_m24_treat_table
+
+```
+
+<br/>
 
 ### Pathway
 The pathway that has been modelled is shown below:
