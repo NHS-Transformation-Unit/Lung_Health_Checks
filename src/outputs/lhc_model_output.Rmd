@@ -1,0 +1,3508 @@
+---
+title: "Lung Health Checks Pathway Simulation"
+author: "<a href='https://transformationunit.nhs.uk/'>NHS Transformation Unit</a><br><a href='https://wmcanceralliance.nhs.uk/'> on behalf of West Midlands Cancer Alliance</a>"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    toc_collapsed: true
+    css: ../config/nhs_tu_theme.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+source("../model/lhc_model.R")
+source("../visualisation/visualisations_run.R")
+source("../visualisation/tables/tables_run.R")
+
+```
+
+```{r tu logo, echo = FALSE}
+
+htmltools::img(src = knitr::image_uri(paste0(here(), "/images/TU_logo_large.png")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:5%; padding:10px;',
+               width = "180px",
+               heigth = "180px")
+
+```
+
+```{r wmca logo, echo = FALSE}
+
+htmltools::img(src = knitr::image_uri(paste0(here(), "/images/wmca-logo.svg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:20; right:5%; padding:10px;',
+               width = "180px",
+               heigth = "180px")
+
+```
+
+## Introduction {.tabset .tabset-fade}
+***
+
+### Background to the Model
+This model has been created to project how patients will flow along the Lung Health Check pathway. This includes projections on the activity at each step of the pathway and the outcome of this. The model is constructed using a methodology called **Discrete Event Simulation (DES)**.
+
+<br/>
+
+DES models how entities, in this case patients, move through a system where certain events occur. The events in this model will be patient interactions such as the Lung Health Check or a CT scan. At these events the patients are randomised to an outcome and will then move along the next stage of the pathway. Randomising these events is based on the probability of different outcomes. These probabilities are input into the model as a series of assumptions. In this model these probabilities relate to outcomes such as the probability a CT scan is negative for any concerning features or the probability that a patient with lung cancer will be treated with Radiotherapy. More information on how the model is constructed is included in the next tab.
+
+<br/>
+
+This document contains the projected model outputs for **`r geography`** over a five year period. The model has been ran `r trials` times. You can navigate through the different years and stages of the model using the table of contents to the left. Each section has a summary table showing the  10th percentile, lower quartile, median, upper quartile and 90th percentile of each output based on the `r trials` model runs. For example, if the median value of the positive Lung Health Check outcomes was 2,208 patients, this would indicate that in half of the model runs the figure was fewer than 2,208 patients and in the other 50% it was greater than 2,208. A histogram of the model outputs from all of the model runs is also presented to show the range of possible outcomes visually.
+
+<br/>
+
+### Discrete Event Simulation
+
+#### What is Discrete Event Simulation?
+Discrete Event Simulation (DES) is a technique used to model the behaviour of complex systems where events occur at distinct points. It is useful for modelling how entities, in this context patients, will move through various states and different pathways over time.
+
+In the case of the Lung Health Check pathway the key concepts of DES are:
+
+* The system that is being modelled represents the Lung Health Check pathway. Patients will flow through the pathway and will interact with different activities depending on their outcomes.
+
+* The entities within the model represent individual patients who will move through the system.
+
+* Events within the system represent activities and interactions between patients and the pathway. At events patients will be randomised to an outcome. For example, an event will be patients with a confirmed malignancy who are randomised to a treatment modality.
+
+<br/>
+
+#### How is this used within the Lung Health Check Pathway?
+Within the model a dataset of patients is created at the start of each model year. These individual patients then flow through the model based on the randomised outcomes at each stage of the pathway. To explain this consider an example of patients who attend their Lung Health Check. At a Lung Health Check a patient will either have a negative test and can be discharged from the service, or they will have a positive test and be referred for a CT scan. In this version of the model we assume that about 43% of patients will be positive. I.e. There is a 43% probability for an individual patient having a positive Lung Health Check. In the example below six patients are attend the health check. They are then randomised to one of the outcomes based on this probability. In this example patients 3 and 5 have a positive check and will be referred on for a CT scan, whilst the other four are negative:
+
+<br/>
+
+![](../../images/Simple Randomisation.drawio.svg)
+
+<br/>
+
+As the model is run multiple times each model run can result in a range of different outcomes. For example, across the three model runs below 2 patients are randomised to have a positive test in Model 1 and Model 2. But in Model 3, 3 patients have a positive test. By running the model many times this enables us to understand the range of potential outcomes at each stage of the pathway:
+
+<br/>
+
+![](../../images/Multiple Trials.drawio.svg)
+
+<br/>
+
+### Assumptions {.tabset .tabset-fade}
+This section provides an overview of the assumptions used within the model.
+
+#### Population
+```{r assumptions_pop}
+
+assumptions_pop_table
+
+```
+
+<br/>
+
+#### LHC
+```{r assumptions_lhc}
+
+assumptions_lhc_table
+
+```
+
+<br/>
+
+#### CT
+```{r assumptions_ct}
+
+assumptions_ct_table
+
+```
+
+<br/>
+
+#### Initial Diagnosis
+```{r assumptions_init_diag}
+
+assumptions_initial_diag_table
+
+```
+
+<br/>
+
+#### Initial Treatments
+```{r assumptions_init_treat}
+
+assumptions_initial_treat_table
+
+```
+
+<br/>
+
+#### Month 3 Diagnosis
+```{r assumptions_m3_diag}
+
+assumptions_m3_diag_table
+
+```
+
+<br/>
+
+#### Month 3 Treatments
+```{r assumptions_m3_treat}
+
+assumptions_m3_treat_table
+
+```
+
+<br/>
+
+#### Month 12 Diagnosis
+```{r assumptions_m12_diag}
+
+assumptions_m12_diag_table
+
+```
+
+<br/>
+
+#### Month 12 Treatments
+```{r assumptions_m12_treat}
+
+assumptions_m12_treat_table
+
+```
+
+<br/>
+
+#### Month 24 Diagnosis
+```{r assumptions_m24_diag}
+
+assumptions_m24_diag_table
+
+```
+
+<br/>
+
+#### Month 24 Treatments
+```{r assumptions_m24_treat}
+
+assumptions_m24_treat_table
+
+```
+
+<br/>
+
+### Pathway
+The pathway that has been modelled is shown below:
+
+![Lung Health Check Pathway](../../images/lhc_pathway-Feedback_Pathway.drawio.svg)
+
+<br/>
+
+## Summary of Key Activity {.tabset .tabset-fade}
+***
+This section provides an overview of several key summaries from the model across each of the five years.
+
+### Patients Screened
+The table below shows the number of patients who have been cumulatively screened across each of the five years:
+```{r key_summ_screened}
+
+summary_screened_table
+
+```
+
+<br/>
+
+### Positive LHCs
+The table below shows the number of patients who had a positive Lung Health Check across each of the five years:
+```{r key_summ_lhc_pos}
+
+summary_lhc_pos_table
+
+```
+
+<br/>
+
+### Positive CT Scans
+The table below shows the number of patients who had a positive CT scan after their Lung Health Check across each of the five years:
+```{r key_summ_ct_pos}
+
+summary_ct_pos_table
+
+```
+
+<br/>
+
+### Confirmed Lung Cancers
+The table below shows the number of patients who had a confirmed Lung Cancer across each of the five years:
+```{r key_summ_ca}
+
+summary_ca_table
+
+```
+
+<br/>
+
+## Year 1 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the first year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
+
+```{r y1_pop_activity_table}
+
+y1_uptake_pop_tab_vis
+
+```
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y1_uptake_hist, out.width='100%'}
+
+y1_uptake_hist
+
+```
+
+<br/>
+
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y1_lhc_activity_table}
+
+y1_lhc_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y1_lhc_activity_hist, out.width='100%'}
+
+y1_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y1_lhc_outcome_table}
+
+y1_lhc_outcome_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y1_lhc_outcome_hist, out.width='100%'}
+
+y1_lhc_outcomes_hist
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y1_lhc_opt-out_table, out.width='100%'}
+
+y1_lhc_opt_out_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y1_lhc_opt-out_hist, out.width='100%'}
+
+y1_lhc_opt_out_hist
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y1_lhc_neg_ri_table, out.width='100%'}
+
+y1_lhc_neg_ri_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y1_lhc_neg_ri_hist, out.width='100%'}
+
+y1_lhc_neg_ri_hist
+
+```
+
+<br/>
+
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y1_ct_activity_table}
+
+y1_ct_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y1_ct_activity_hist, out.width='100%'}
+
+y1_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y1_ct_outcomes_table}
+
+y1_ct_scan_outcomes_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y1_ct_outcomes_hist, out.width='100%'}
+
+y1_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y1_ct_neg_fu_table}
+
+y1_ct_neg_fu_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y1_ct_neg_fu_hist, out.width='100%'}
+
+y1_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y1_ct_opt_out_table}
+
+y1_ct_opt_out_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y1_ct_opt_out_hist, out.width='100%'}
+
+y1_ct_opt_out_hist
+
+```
+
+<br/>
+
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_init_treat_ct_table}
+
+y1_ct_init_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_ct_hist, out.width='100%'}
+
+y1_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_init_treat_diag_table}
+
+y1_init_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_diag_hist, out.width='100%'}
+
+y1_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_init_treat_malig_table}
+
+y1_init_outcomes_tab_formatted
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_malig_hist, out.width='100%'}
+
+y1_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_init_treat_mod_table}
+
+y1_init_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_init_treat_mod_hist, out.width='100%'}
+
+y1_init_treat_mods_hist
+
+```
+
+<br/>
+
+### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the three month follow-up across the `r trials` model runs:
+
+```{r y1_m3_treat_ct_activity_table}
+
+y1_m3_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y1_m3_treat_ct_activity_hist, out.width='100%'}
+
+y1_m3_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_m3_treat_ct_table}
+
+y1_ct_m3_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m3_treat_ct_hist, out.width='100%'}
+
+y1_m3_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_m3_treat_diag_table}
+
+y1_m3_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_m3_treat_diag_hist, out.width='100%'}
+
+y1_m3_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_m3_treat_malig_table}
+
+y1_m3_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m3_treat_malig_hist, out.width='100%'}
+
+y1_m3_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_m3_treat_mod_table}
+
+y1_m3_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_m3_treat_mod_hist, out.width='100%'}
+
+y1_m3_treat_mods_hist
+
+```
+
+<br/>
+
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y1_m12_treat_ct_activity_table}
+
+y1_m12_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y1_m12_treat_ct_activity_hist, out.width='100%'}
+
+y1_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_m12_treat_ct_table}
+
+y1_ct_m12_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_ct_hist, out.width='100%'}
+
+y1_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_m12_treat_diag_table}
+
+y1_m12_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_diag_hist, out.width='100%'}
+
+y1_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_m12_treat_malig_table}
+
+y1_m12_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_malig_hist, out.width='100%'}
+
+y1_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_m12_treat_mod_table}
+
+y1_m12_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_m12_treat_mod_hist, out.width='100%'}
+
+y1_m12_treat_mods_hist
+
+```
+
+<br/>
+
+
+### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
+In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 24 month follow-up across the `r trials` model runs:
+
+```{r y1_m24_treat_ct_activity_table}
+
+y1_m24_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y1_m24_treat_ct_activity_hist, out.width='100%'}
+
+y1_m24_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y1_m24_treat_ct_table}
+
+y1_ct_m24_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m24_treat_ct_hist, out.width='100%'}
+
+y1_m24_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y1_m24_treat_diag_table}
+
+y1_m24_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y1_m24_treat_diag_hist, out.width='100%'}
+
+y1_m24_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y1_m24_treat_malig_table}
+
+y1_m24_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y1_m24_treat_malig_hist, out.width='100%'}
+
+y1_m24_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y1_m24_treat_mod_table}
+
+y1_m24_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y1_m24_treat_mod_hist, out.width='100%'}
+
+y1_m24_treat_mods_hist
+
+```
+
+
+<br/>
+
+
+## Year 2 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the second year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
+
+```{r y2_pop_activity_table}
+
+y2_uptake_pop_tab_vis
+
+```
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y2_uptake_hist, out.width='100%'}
+
+y2_uptake_hist
+
+```
+
+<br/>
+
+
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y2_lhc_activity_table}
+
+y2_lhc_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y2_lhc_activity_hist, out.width='100%'}
+
+y2_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y2_lhc_outcome_table}
+
+y2_lhc_outcome_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y2_lhc_outcome_hist, out.width='100%'}
+
+y2_lhc_outcomes_hist
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y2_lhc_opt-out_table, out.width='100%'}
+
+y2_lhc_opt_out_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y2_lhc_opt-out_hist, out.width='100%'}
+
+y2_lhc_opt_out_hist
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y2_lhc_neg_ri_table, out.width='100%'}
+
+y2_lhc_neg_ri_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y2_lhc_neg_ri_hist, out.width='100%'}
+
+y2_lhc_neg_ri_hist
+
+```
+
+<br/>
+
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y2_ct_activity_table}
+
+y2_ct_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y2_ct_activity_hist, out.width='100%'}
+
+y2_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y2_ct_outcomes_table}
+
+y2_ct_scan_outcomes_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y2_ct_outcomes_hist, out.width='100%'}
+
+y2_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y2_ct_neg_fu_table}
+
+y2_ct_neg_fu_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y2_ct_neg_fu_hist, out.width='100%'}
+
+y2_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y2_ct_opt_out_table}
+
+y2_ct_opt_out_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y2_ct_opt_out_hist, out.width='100%'}
+
+y2_ct_opt_out_hist
+
+```
+
+<br/>
+
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_init_treat_ct_table}
+
+y2_ct_init_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_ct_hist, out.width='100%'}
+
+y2_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_init_treat_diag_table}
+
+y2_init_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_diag_hist, out.width='100%'}
+
+y2_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_init_treat_malig_table}
+
+y2_init_outcomes_tab_formatted
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_malig_hist, out.width='100%'}
+
+y2_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_init_treat_mod_table}
+
+y2_init_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_init_treat_mod_hist, out.width='100%'}
+
+y2_init_treat_mods_hist
+
+```
+
+<br/>
+
+### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the three month follow-up across the `r trials` model runs:
+
+```{r y2_m3_treat_ct_activity_table}
+
+y2_m3_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y2_m3_treat_ct_activity_hist, out.width='100%'}
+
+y2_m3_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_m3_treat_ct_table}
+
+y2_ct_m3_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m3_treat_ct_hist, out.width='100%'}
+
+y2_m3_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_m3_treat_diag_table}
+
+y2_m3_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_m3_treat_diag_hist, out.width='100%'}
+
+y2_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_m3_treat_malig_table}
+
+y2_m3_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m3_treat_malig_hist, out.width='100%'}
+
+y2_m3_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_m3_treat_mod_table}
+
+y2_m3_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_m3_treat_mod_hist, out.width='100%'}
+
+y2_m3_treat_mods_hist
+
+```
+
+<br/>
+
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y2_m12_treat_ct_activity_table}
+
+y2_m12_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y2_m12_treat_ct_activity_hist, out.width='100%'}
+
+y2_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_m12_treat_ct_table}
+
+y2_ct_m12_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_ct_hist, out.width='100%'}
+
+y2_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_m12_treat_diag_table}
+
+y2_m12_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_diag_hist, out.width='100%'}
+
+y2_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_m12_treat_malig_table}
+
+y2_m12_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_malig_hist, out.width='100%'}
+
+y2_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_m12_treat_mod_table}
+
+y2_m12_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_m12_treat_mod_hist, out.width='100%'}
+
+y2_m12_treat_mods_hist
+
+```
+
+<br/>
+
+
+### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
+In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 24 month follow-up across the `r trials` model runs:
+
+```{r y2_m24_treat_ct_activity_table}
+
+y2_m24_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y2_m24_treat_ct_activity_hist, out.width='100%'}
+
+y2_m24_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y2_m24_treat_ct_table}
+
+y2_ct_m24_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m24_treat_ct_hist, out.width='100%'}
+
+y2_m24_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y2_m24_treat_diag_table}
+
+y2_m24_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y2_m24_treat_diag_hist, out.width='100%'}
+
+y2_m24_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y2_m24_treat_malig_table}
+
+y2_m24_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y2_m24_treat_malig_hist, out.width='100%'}
+
+y2_m24_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y2_m24_treat_mod_table}
+
+y2_m24_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y2_m24_treat_mod_hist, out.width='100%'}
+
+y2_m24_treat_mods_hist
+
+```
+
+
+<br/>
+
+
+## Year 3 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the third year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
+
+```{r y3_pop_activity_table}
+
+y3_uptake_pop_tab_vis
+
+```
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y3_uptake_hist, out.width='100%'}
+
+y3_uptake_hist
+
+```
+
+<br/>
+
+
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y3_lhc_activity_table}
+
+y3_lhc_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y3_lhc_activity_hist, out.width='100%'}
+
+y3_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y3_lhc_outcome_table}
+
+y3_lhc_outcome_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y3_lhc_outcome_hist, out.width='100%'}
+
+y3_lhc_outcomes_hist
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y3_lhc_opt-out_table, out.width='100%'}
+
+y3_lhc_opt_out_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y3_lhc_opt-out_hist, out.width='100%'}
+
+y3_lhc_opt_out_hist
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y3_lhc_neg_ri_table, out.width='100%'}
+
+y3_lhc_neg_ri_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y3_lhc_neg_ri_hist, out.width='100%'}
+
+y3_lhc_neg_ri_hist
+
+```
+
+<br/>
+
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y3_ct_activity_table}
+
+y3_ct_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y3_ct_activity_hist, out.width='100%'}
+
+y3_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y3_ct_outcomes_table}
+
+y3_ct_scan_outcomes_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y3_ct_outcomes_hist, out.width='100%'}
+
+y3_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y3_ct_neg_fu_table}
+
+y3_ct_neg_fu_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y3_ct_neg_fu_hist, out.width='100%'}
+
+y3_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y3_ct_opt_out_table}
+
+y3_ct_opt_out_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y3_ct_opt_out_hist, out.width='100%'}
+
+y3_ct_opt_out_hist
+
+```
+
+<br/>
+
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_init_treat_ct_table}
+
+y3_ct_init_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_ct_hist, out.width='100%'}
+
+y3_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_init_treat_diag_table}
+
+y3_init_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_diag_hist, out.width='100%'}
+
+y3_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_init_treat_malig_table}
+
+y3_init_outcomes_tab_formatted
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_malig_hist, out.width='100%'}
+
+y3_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_init_treat_mod_table}
+
+y3_init_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_init_treat_mod_hist, out.width='100%'}
+
+y3_init_treat_mods_hist
+
+```
+
+<br/>
+
+### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the three month follow-up across the `r trials` model runs:
+
+```{r y3_m3_treat_ct_activity_table}
+
+y3_m3_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y3_m3_treat_ct_activity_hist, out.width='100%'}
+
+y3_m3_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_m3_treat_ct_table}
+
+y3_ct_m3_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m3_treat_ct_hist, out.width='100%'}
+
+y3_m3_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_m3_treat_diag_table}
+
+y3_m3_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_m3_treat_diag_hist, out.width='100%'}
+
+y3_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_m3_treat_malig_table}
+
+y3_m3_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m3_treat_malig_hist, out.width='100%'}
+
+y3_m3_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_m3_treat_mod_table}
+
+y3_m3_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_m3_treat_mod_hist, out.width='100%'}
+
+y3_m3_treat_mods_hist
+
+```
+
+<br/>
+
+
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y3_m12_treat_ct_activity_table}
+
+y3_m12_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y3_m12_treat_ct_activity_hist, out.width='100%'}
+
+y3_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_m12_treat_ct_table}
+
+y3_ct_m12_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_ct_hist, out.width='100%'}
+
+y3_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_m12_treat_diag_table}
+
+y3_m12_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_diag_hist, out.width='100%'}
+
+y3_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_m12_treat_malig_table}
+
+y3_m12_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_malig_hist, out.width='100%'}
+
+y3_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_m12_treat_mod_table}
+
+y3_m12_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_m12_treat_mod_hist, out.width='100%'}
+
+y3_m12_treat_mods_hist
+
+```
+
+<br/>
+
+
+### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
+In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 24 month follow-up across the `r trials` model runs:
+
+```{r y3_m24_treat_ct_activity_table}
+
+y3_m24_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y3_m24_treat_ct_activity_hist, out.width='100%'}
+
+y3_m24_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y3_m24_treat_ct_table}
+
+y3_ct_m24_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m24_treat_ct_hist, out.width='100%'}
+
+y3_m24_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y3_m24_treat_diag_table}
+
+y3_m24_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y3_m24_treat_diag_hist, out.width='100%'}
+
+y3_m24_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y3_m24_treat_malig_table}
+
+y3_m24_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y3_m24_treat_malig_hist, out.width='100%'}
+
+y3_m24_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y3_m24_treat_mod_table}
+
+y3_m24_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y3_m24_treat_mod_hist, out.width='100%'}
+
+y3_m24_treat_mods_hist
+
+```
+
+
+<br/>
+
+
+## Year 4 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the fourth year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
+
+```{r y4_pop_activity_table}
+
+y4_uptake_pop_tab_vis
+
+```
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y4_uptake_hist, out.width='100%'}
+
+y4_uptake_hist
+
+```
+
+<br/>
+
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y4_lhc_activity_table}
+
+y4_lhc_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y4_lhc_activity_hist, out.width='100%'}
+
+y4_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y4_lhc_outcome_table}
+
+y4_lhc_outcome_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y4_lhc_outcome_hist, out.width='100%'}
+
+y4_lhc_outcomes_hist
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y4_lhc_opt-out_table, out.width='100%'}
+
+y4_lhc_opt_out_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y4_lhc_opt-out_hist, out.width='100%'}
+
+y4_lhc_opt_out_hist
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y4_lhc_neg_ri_table, out.width='100%'}
+
+y4_lhc_neg_ri_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y4_lhc_neg_ri_hist, out.width='100%'}
+
+y4_lhc_neg_ri_hist
+
+```
+
+<br/>
+
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y4_ct_activity_table}
+
+y4_ct_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y4_ct_activity_hist, out.width='100%'}
+
+y4_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y4_ct_outcomes_table}
+
+y4_ct_scan_outcomes_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y4_ct_outcomes_hist, out.width='100%'}
+
+y4_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y4_ct_neg_fu_table}
+
+y4_ct_neg_fu_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y4_ct_neg_fu_hist, out.width='100%'}
+
+y4_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y4_ct_opt_out_table}
+
+y4_ct_opt_out_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y4_ct_opt_out_hist, out.width='100%'}
+
+y4_ct_opt_out_hist
+
+```
+
+<br/>
+
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_init_treat_ct_table}
+
+y4_ct_init_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_ct_hist, out.width='100%'}
+
+y4_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_init_treat_diag_table}
+
+y4_init_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_diag_hist, out.width='100%'}
+
+y4_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_init_treat_malig_table}
+
+y4_init_outcomes_tab_formatted
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_malig_hist, out.width='100%'}
+
+y4_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_init_treat_mod_table}
+
+y4_init_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_init_treat_mod_hist, out.width='100%'}
+
+y4_init_treat_mods_hist
+
+```
+
+<br/>
+
+### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the three month follow-up across the `r trials` model runs:
+
+```{r y4_m3_treat_ct_activity_table}
+
+y4_m3_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y4_m3_treat_ct_activity_hist, out.width='100%'}
+
+y4_m3_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_m3_treat_ct_table}
+
+y4_ct_m3_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m3_treat_ct_hist, out.width='100%'}
+
+y4_m3_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_m3_treat_diag_table}
+
+y4_m3_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_m3_treat_diag_hist, out.width='100%'}
+
+y4_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_m3_treat_malig_table}
+
+y4_m3_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m3_treat_malig_hist, out.width='100%'}
+
+y4_m3_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_m3_treat_mod_table}
+
+y4_m3_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_m3_treat_mod_hist, out.width='100%'}
+
+y4_m3_treat_mods_hist
+
+```
+
+<br/>
+
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y4_m12_treat_ct_activity_table}
+
+y4_m12_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y4_m12_treat_ct_activity_hist, out.width='100%'}
+
+y4_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_m12_treat_ct_table}
+
+y4_ct_m12_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_ct_hist, out.width='100%'}
+
+y4_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_m12_treat_diag_table}
+
+y4_m12_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_diag_hist, out.width='100%'}
+
+y4_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_m12_treat_malig_table}
+
+y4_m12_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_malig_hist, out.width='100%'}
+
+y4_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_m12_treat_mod_table}
+
+y4_m12_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_m12_treat_mod_hist, out.width='100%'}
+
+y4_m12_treat_mods_hist
+
+```
+
+<br/>
+
+### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
+In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 24 month follow-up across the `r trials` model runs:
+
+```{r y4_m24_treat_ct_activity_table}
+
+y4_m24_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y4_m24_treat_ct_activity_hist, out.width='100%'}
+
+y4_m24_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y4_m24_treat_ct_table}
+
+y4_ct_m24_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m24_treat_ct_hist, out.width='100%'}
+
+y4_m24_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y4_m24_treat_diag_table}
+
+y4_m24_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y4_m24_treat_diag_hist, out.width='100%'}
+
+y4_m24_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y4_m24_treat_malig_table}
+
+y4_m24_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y4_m24_treat_malig_hist, out.width='100%'}
+
+y4_m24_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y4_m24_treat_mod_table}
+
+y4_m24_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y4_m24_treat_mod_hist, out.width='100%'}
+
+y4_m24_treat_mods_hist
+
+```
+
+
+<br/>
+
+
+## Year 5 Projections {.tabset .tabset-fade}
+***
+
+This section provides an overview of the projected activity and outcomes at each point of the pathway during the final year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
+
+
+### Population uptake {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+
+#### Summary
+The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
+
+```{r y5_pop_activity_table}
+
+y5_uptake_pop_tab_vis
+
+```
+
+<br/>
+
+#### Distribution of Uptake Population
+The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
+
+```{r y5_uptake_hist, out.width='100%'}
+
+y5_uptake_hist
+
+```
+
+<br/>
+
+### Lung Health Checks {.tabset .tabset-fade}
+At the next stage patients will be invited to attend a Lung Health Check. Patient's may opt-out of the invite, DNA the appointment or attend for the check. This section provides an overview of the:
+
+* The number of Lung Health Checks performed across each of the model runs.
+* The split of the checks undertaken between positive and negative checks.
+* The number of negative lung health check patients who will be re-invited in two years.
+* The number of patients who declined the appointment and opted-out.
+
+#### LHC Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y5_lhc_activity_table}
+
+y5_lhc_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of LHC appointment activity across these model runs is shown in the histogram below:
+
+```{r y5_lhc_activity_hist, out.width='100%'}
+
+y5_lhc_activity_hist
+
+```
+
+<br/>
+
+#### LHC Outcomes
+The table below shows a summary of the split of the number of patients with a positive lung health check and those with a negative result:
+
+```{r y5_lhc_outcome_table}
+
+y5_lhc_outcome_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these outcomes across the `r trials` model runs:
+
+```{r y5_lhc_outcome_hist, out.width='100%'}
+
+y5_lhc_outcomes_hist
+
+```
+
+<br/>
+
+#### LHC Opt-Outs
+The table below shows a summary of the number of patients who opted-out of the invite for a Lung Health Check:
+
+```{r y5_lhc_opt-out_table, out.width='100%'}
+
+y5_lhc_opt_out_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these opt-out numbers across the `r trials` model runs:
+
+```{r y5_lhc_opt-out_hist, out.width='100%'}
+
+y5_lhc_opt_out_hist
+
+```
+
+<br/>
+
+#### LHC Negative Re-invites
+The table below shows a summary of the number of patients who had a negative Lung Health Check but need to be re-invited in two years:
+
+```{r y5_lhc_neg_ri_table, out.width='100%'}
+
+y5_lhc_neg_ri_tab_vis
+
+```
+
+<br/>
+
+The histogram below shows the distribution of these negative re-invite numbers across the `r trials` model runs:
+
+```{r y5_lhc_neg_ri_hist, out.width='100%'}
+
+y5_lhc_neg_ri_hist
+
+```
+
+<br/>
+
+### CT Scans {.tabset .tabset-fade}
+Patients with a positive Lung Health Check will then be referred for a CT scan. Some patients may be excluded from a CT scan, they may require further investigations or their scan may be negative. The probabilities of each of these outcomes are determined from the input assumptions into the model. This section provides an overview of:
+
+* The number of CT scans undertaken
+* The breakdown of patients in each outcome following the CT scan
+* The number of patients with a negative scan requiring a 24-month follow-up
+* The number of patients who DNA scans and opted-out, these patients will be re-invited in later years.
+
+<br/>
+
+#### CT Scan Activity
+The table below shows a summary of the activity required across the `r trials` model runs:
+
+```{r y5_ct_activity_table}
+
+y5_ct_activity_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan activity across these model runs is shown in the histogram below:
+
+```{r y5_ct_activity_hist, out.width='100%'}
+
+y5_ct_activity_hist
+
+```
+
+<br/>
+
+#### CT Scan Outcomes
+The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
+
+```{r y5_ct_outcomes_table}
+
+y5_ct_scan_outcomes_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of CT scan outcomes across these model runs is shown in the histogram below:
+
+```{r y5_ct_outcomes_hist, out.width='100%'}
+
+y5_ct_outcomes_hist
+
+```
+
+<br/>
+
+#### Negative Scans Requiring Follow-Up
+The table below shows a summary of the number of patients requiring a follow-up across the `r trials` model runs:
+
+```{r y5_ct_neg_fu_table}
+
+y5_ct_neg_fu_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of 24-month follow-up scans across these model runs is shown in the histogram below:
+
+```{r y5_ct_neg_fu_hist, out.width='100%'}
+
+y5_ct_neg_ri_hist
+
+```
+
+<br/>
+
+#### CT Scan Opt-Outs
+The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
+
+```{r y5_ct_opt_out_table}
+
+y5_ct_opt_out_tab_vis
+
+```
+
+
+<br/>
+
+The distribution of opt-outs across these model runs is shown in the histogram below:
+
+```{r y5_ct_opt_out_hist, out.width='100%'}
+
+y5_ct_opt_out_hist
+
+```
+
+<br/>
+
+### Initial Treatments {.tabset .tabset-fade}
+For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
+
+* A breakdown of the number of patients who require further diagnostics, have an incidental finding or are placed onto a three month follow-up.
+* A breakdown of the diagnostic modality activity for those patients requiring further investigation.
+* A breakdown of this group of patients between those with a malignancy and the non-cancer patients.
+* A breakdown of the treatment modality activity for the patients with a malignancy.
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_init_treat_ct_table}
+
+y5_ct_init_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_ct_hist, out.width='100%'}
+
+y5_init_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_init_treat_diag_table}
+
+y5_init_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_diag_hist, out.width='100%'}
+
+y5_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_init_treat_malig_table}
+
+y5_init_outcomes_tab_formatted
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_malig_hist, out.width='100%'}
+
+y5_init_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_init_treat_mod_table}
+
+y5_init_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_init_treat_mod_hist, out.width='100%'}
+
+y5_init_treat_mods_hist
+
+```
+
+<br/>
+
+### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the three month follow-up across the `r trials` model runs:
+
+```{r y5_m3_treat_ct_activity_table}
+
+y5_m3_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y5_m3_treat_ct_activity_hist, out.width='100%'}
+
+y5_m3_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_m3_treat_ct_table}
+
+y5_ct_m3_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m3_treat_ct_hist, out.width='100%'}
+
+y5_m3_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_m3_treat_diag_table}
+
+y5_m3_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_m3_treat_diag_hist, out.width='100%'}
+
+y5_init_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_m3_treat_malig_table}
+
+y5_m3_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m3_treat_malig_hist, out.width='100%'}
+
+y5_m3_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_m3_treat_mod_table}
+
+y5_m3_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_m3_treat_mod_hist, out.width='100%'}
+
+y5_m3_treat_mods_hist
+
+```
+
+<br/>
+
+### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
+At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the 12 month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 12 month follow-up across the `r trials` model runs:
+
+```{r y5_m12_treat_ct_activity_table}
+
+y5_m12_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y5_m12_treat_ct_activity_hist, out.width='100%'}
+
+y5_m12_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_m12_treat_ct_table}
+
+y5_ct_m12_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_ct_hist, out.width='100%'}
+
+y5_m12_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_m12_treat_diag_table}
+
+y5_m12_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_diag_hist, out.width='100%'}
+
+y5_m12_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_m12_treat_malig_table}
+
+y5_m12_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_malig_hist, out.width='100%'}
+
+y5_m12_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_m12_treat_mod_table}
+
+y5_m12_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_m12_treat_mod_hist, out.width='100%'}
+
+y5_m12_treat_mods_hist
+
+```
+
+<br/>
+
+### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
+In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
+
+* The number of patients attending the three month follow-up CT Scan
+* The outcomes of this scan
+* The additional diagnostic activity for each modality for those patients requiring further investigations
+* A breakdown of those patients with a confirmed malignancy or not
+* A breakdown of the treatment modality activity for those with a confirmed malignancy.
+
+#### CT Scan Activity
+The table below shows a summary of the CT scan activity for patients on the 24 month follow-up across the `r trials` model runs:
+
+```{r y5_m24_treat_ct_activity_table}
+
+y5_m24_ct_activity_tab_vis
+
+```
+
+<br/>
+
+The distribution of this CT scan activity across the model runs is shown in the histogram below:
+
+```{r y5_m24_treat_ct_activity_hist, out.width='100%'}
+
+y5_m24_treat_ct_act_hist
+
+```
+
+<br/>
+
+#### Positive Scan Outcomes
+The table below shows a summary of the number of patients with a positive CT scan split by outcome across the `r trials` model runs:
+
+```{r y5_m24_treat_ct_table}
+
+y5_ct_m24_scan_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m24_treat_ct_hist, out.width='100%'}
+
+y5_m24_treat_pos_outcomes_hist
+
+```
+
+<br/>
+
+#### Diagnostic Activity
+The table below shows a summary of the diagnostic activity by modality for those patients requiring further diagnostics across the `r trials` model runs:
+
+```{r y5_m24_treat_diag_table}
+
+y5_m24_diags_mod_tab_vis
+
+```
+
+The distribution of the modality activity across these model runs is shown in the histogram below:
+
+```{r y5_m24_treat_diag_hist, out.width='100%'}
+
+y5_m24_treat_diags_hist
+
+```
+
+<br/>
+
+#### Confirmed Malignancy
+The table below shows a summary of the patients who undergo the additional diagnostics by whether they have a confirmed malignancy or not:
+
+```{r y5_m24_treat_malig_table}
+
+y5_m24_outcomes_tab_vis
+
+```
+
+<br/>
+
+The distribution of these outcomes across these model runs is shown in the histogram below:
+
+```{r y5_m24_treat_malig_hist, out.width='100%'}
+
+y5_m24_treat_malig_hist
+
+```
+
+<br/>
+
+#### Treatment Modalities
+The table below shows a summary of the treatment modality activity across the `r trials` model runs:
+
+```{r y5_m24_treat_mod_table}
+
+y5_m24_treat_mod_tab_vis
+
+```
+
+<br/>
+
+The distribution of the activity across these model runs is shown in the histogram below:
+
+```{r y5_m24_treat_mod_hist, out.width='100%'}
+
+y5_m24_treat_mods_hist
+
+```
+
+
+<br/>

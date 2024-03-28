@@ -55,3 +55,6 @@ rsconnect/
 
 # HTML Outputs
 *.html
+
+# Config Inputs
+!/data/config_inputs/*.xlsx

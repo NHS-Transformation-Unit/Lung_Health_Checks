@@ -18,7 +18,7 @@ This specification provides an overview of the modelling requirements for a dema
 
 ### Pathway
 The model will be based of the pathway:
-<img src="../../images/lhc_pathway-Additional diagnostics.drawio.svg" alt="LHC Pathway"/>
+<img src="../../images/lhc_pathway-Feedback_Pathway.drawio.svg" alt="LHC Pathway"/>
 
 ### Construction
 The model will be probabilistic so that each model run will determine the movement of a patient across the pathway based on the probabilities of an outcome at each event of the pathway. Through running the model multiple times this will provide a range of outcomes. 
@@ -29,7 +29,7 @@ The model will be probabilistic so that each model run will determine the moveme
 The initial modelling period will be for patients invited for a Lung Health Check during the 2024/25 financial year.
 
 ### Model Inputs
-The inputs to the model will be derived from relevant datasets provided by West Midlands Cancer Alliance or by relevant key stakeholders. These inputs will take the form of probabilities to model an individual patient to an outcome at each stage of the pathway. The latest version of these will be available to view in the `src/config/assumptions` folder.
+The inputs to the model will be derived from relevant datasets provided by West Midlands Cancer Alliance or by relevant key stakeholders. These inputs will take the form of probabilities to model an individual patient to an outcome at each stage of the pathway. The latest version of these will be available to view in the `data/config_inputs/lhc_config_inputs.xlsx` file. Inputs from this config file are read into the model and assigned to relevant assumptions in the `src/config` folder.
 
 ### Model Outputs
 The model outputs will be represented in an `model_outputs.html` file created via a `model_outputs.rmd`script. This will contain:
