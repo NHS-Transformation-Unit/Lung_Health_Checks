@@ -9,11 +9,11 @@ library(scales)
 
 trial_df <- data.frame("Trial" = seq(1:trials)) ## for all inputs that only include activity 
 
-y3_screened_input_df <- trial_df %>% ## 
+y3_screened_input_current_df <- trial_df %>% ## 
   left_join(y3_screened_input_df, by = c("Trial")) %>% ## 
   mutate(Total = replace_na(Total, 0)) ## 
 
-y2_uptake_pop_tab <- y3_screened_input_df %>%
+y2_uptake_pop_tab <- y3_screened_input_current_df %>%
   summarize(
     percentile_10 = round(quantile(Total, probs = 0.1, na.rm = TRUE), 0),
     lower_quartile = round(quantile(Total, probs = 0.25, na.rm = TRUE), 0),
