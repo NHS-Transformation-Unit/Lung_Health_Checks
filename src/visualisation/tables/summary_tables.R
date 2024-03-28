@@ -10,7 +10,7 @@ summary_y3_screened <- y4_screened_input_df %>%
   mutate(Year = "Year 3")
 summary_y4_screened <- y5_screened_input_df %>%
   mutate(Year = "Year 4")
-summary_y5_screened <- y5_screened_input_df %>%
+summary_y5_screened <- y6_screened_input_df %>%
   mutate(Year = "Year 5")
 
 summary_screened_cum <- rbind(summary_y1_screened,
@@ -147,24 +147,24 @@ summary_y1_init_ca <- y1_init_treat_groups_list[[5]] %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 1")
 
-summary_y1_m3_ca <- y1_m3_treat_groups_list[[5]] %>%
+summary_y1_m3_ca <- y1_m3_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 1")
 
-summary_y1_m12_ca <- y1_m12_treat_groups_list[[5]] %>%
+summary_y1_m12_ca <- y1_m12_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 1")
 
-summary_y1_m24_ca <- y1_m24_treat_groups_list[[5]] %>%
+summary_y1_m24_ca <- y1_m24_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 1")
 
 summary_y1_ca <- rbind(summary_y1_init_ca,
                             summary_y1_m3_ca,
-                            summary_y1_m24_ca,
+                            summary_y1_m12_ca,
                             summary_y1_m24_ca) %>%
   group_by(Trial, Year) %>%
   summarise(Total = sum(Total, na.rm = TRUE))
@@ -174,24 +174,24 @@ summary_y2_init_ca <- y2_init_treat_groups_list[[5]] %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 2")
 
-summary_y2_m3_ca <- y2_m3_treat_groups_list[[5]] %>%
+summary_y2_m3_ca <- y2_m3_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 2")
 
-summary_y2_m12_ca <- y2_m12_treat_groups_list[[5]] %>%
+summary_y2_m12_ca <- y2_m12_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 2")
 
-summary_y2_m24_ca <- y2_m24_treat_groups_list[[5]] %>%
+summary_y2_m24_ca <- y2_m24_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 2")
 
 summary_y2_ca <- rbind(summary_y2_init_ca,
                        summary_y2_m3_ca,
-                       summary_y2_m24_ca,
+                       summary_y2_m12_ca,
                        summary_y2_m24_ca) %>%
   group_by(Trial, Year) %>%
   summarise(Total = sum(Total, na.rm = TRUE))
@@ -201,24 +201,24 @@ summary_y3_init_ca <- y3_init_treat_groups_list[[5]] %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 3")
 
-summary_y3_m3_ca <- y3_m3_treat_groups_list[[5]] %>%
+summary_y3_m3_ca <- y3_m3_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 3")
 
-summary_y3_m12_ca <- y3_m12_treat_groups_list[[5]] %>%
+summary_y3_m12_ca <- y3_m12_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 3")
 
-summary_y3_m24_ca <- y3_m24_treat_groups_list[[5]] %>%
+summary_y3_m24_ca <- y3_m24_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 3")
 
 summary_y3_ca <- rbind(summary_y3_init_ca,
                        summary_y3_m3_ca,
-                       summary_y3_m24_ca,
+                       summary_y3_m12_ca,
                        summary_y3_m24_ca) %>%
   group_by(Trial, Year) %>%
   summarise(Total = sum(Total, na.rm = TRUE))
@@ -228,24 +228,24 @@ summary_y4_init_ca <- y4_init_treat_groups_list[[5]] %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 4")
 
-summary_y4_m3_ca <- y4_m3_treat_groups_list[[5]] %>%
+summary_y4_m3_ca <- y4_m3_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 4")
 
-summary_y4_m12_ca <- y4_m12_treat_groups_list[[5]] %>%
+summary_y4_m12_ca <- y4_m12_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 4")
 
-summary_y4_m24_ca <- y4_m24_treat_groups_list[[5]] %>%
+summary_y4_m24_ca <- y4_m24_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 4")
 
 summary_y4_ca <- rbind(summary_y4_init_ca,
                        summary_y4_m3_ca,
-                       summary_y4_m24_ca,
+                       summary_y4_m12_ca,
                        summary_y4_m24_ca) %>%
   group_by(Trial, Year) %>%
   summarise(Total = sum(Total, na.rm = TRUE))
@@ -255,24 +255,24 @@ summary_y5_init_ca <- y5_init_treat_groups_list[[5]] %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 5")
 
-summary_y5_m3_ca <- y5_m3_treat_groups_list[[5]] %>%
+summary_y5_m3_ca <- y5_m3_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 5")
 
-summary_y5_m12_ca <- y5_m12_treat_groups_list[[5]] %>%
+summary_y5_m12_ca <- y5_m12_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 5")
 
-summary_y5_m24_ca <- y5_m24_treat_groups_list[[5]] %>%
+summary_y5_m24_ca <- y5_m24_treat_groups_list[[6]] %>%
   group_by(Trial) %>%
   summarise(Total = n()) %>%
   mutate(Year = "Year 5")
 
 summary_y5_ca <- rbind(summary_y5_init_ca,
                        summary_y5_m3_ca,
-                       summary_y5_m24_ca,
+                       summary_y5_m12_ca,
                        summary_y5_m24_ca) %>%
   group_by(Trial, Year) %>%
   summarise(Total = sum(Total, na.rm = TRUE))
