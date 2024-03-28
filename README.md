@@ -29,10 +29,19 @@ The current structure of the repository is detailed below:
       └───assumtpions
     ├───load
     ├───model
-        └───functions
+        ├───functions
+        ├───y1
+        ├───y2
+        ├───y3
+        ├───y4
+        └───y5
     ├───outputs
+        ├───extraction
+        └───functions
     ├───requirements
     └───visualisation
+        ├───functions
+        └───tables
     
 ```
 
@@ -55,7 +64,7 @@ All code is stored within the `src` folder. This is then divided into:
 3. `model`: Scripts for modelling the movement of patients at each stage of the lung health check pathway are saved here.
 4. `outputs`: Scripts for rendering the outputs of the model are saved within here.
 5. `requirements`: Requirements for running the model and creating outputs such as the `packages.R` script are saved here.
-6. `visualisation`: Scripts for producing visualisations of the modelled demand and capacity requirements at different points of the pathway are saved here to be used in the model outputs.
+6. `visualisation`: Scripts for producing visualisations of the modelled demand and outcomes at different points of the pathway are saved here to be used in the model outputs.
 
 <br/>
 
@@ -67,3 +76,4 @@ The diagram below shows the current version of the pathway that has been modelle
 
 This repository has been created and developed by:
 -   [Andy Wilson](https://github.com/ASW-Analyst)
+-   [Elliot Royle](https://github.com/elliotroyle)
