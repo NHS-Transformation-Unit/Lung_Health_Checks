@@ -1,6 +1,6 @@
 ---
-title: "Lung Health Checks, 5-Year Model"
-author: "NHS Transformation Unit"
+title: "Lung Health Checks Pathway Simulation"
+author: "<a href='https://transformationunit.nhs.uk/'>NHS Transformation Unit</a><br><a href='https://wmcanceralliance.nhs.uk/'> on behalf of West Midlands Cancer Alliance</a>"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -21,11 +21,21 @@ source("../visualisation/tables/tables_run.R")
 
 ```
 
-```{r logo, echo = FALSE}
+```{r tu logo, echo = FALSE}
 
 htmltools::img(src = knitr::image_uri(paste0(here(), "/images/TU_logo_large.png")), 
                alt = 'logo', 
                style = 'position:absolute; top:0; right:5%; padding:10px;',
+               width = "180px",
+               heigth = "180px")
+
+```
+
+```{r wmca logo, echo = FALSE}
+
+htmltools::img(src = knitr::image_uri(paste0(here(), "/images/wmca-logo.svg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:20; right:5%; padding:10px;',
                width = "180px",
                heigth = "180px")
 
