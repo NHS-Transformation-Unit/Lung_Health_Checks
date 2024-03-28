@@ -9,6 +9,7 @@ source(paste0(here(), "/src/visualisation/functions/ct.R"))
 source(paste0(here(), "/src/visualisation/functions/initial_treatment.R"))
 source(paste0(here(), "/src/visualisation/functions/m3_treatment.R"))
 source(paste0(here(), "/src/visualisation/functions/m12_treatment.R"))
+source(paste0(here(), "/src/visualisation/functions/m24_treatment.R"))
 
 # Run visualisation files for each year
 source(paste0(here(),"/src/visualisation/y1_visuals.R"))

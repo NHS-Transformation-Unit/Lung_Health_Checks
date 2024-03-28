@@ -213,3 +213,56 @@ y3_m12_mods_hist_df <- y3_m12_modalities_df %>%
   )
 
 y3_m12_treat_mods_hist <- m12_treat_mods_chart_visual(y3_m12_mods_hist_df, "#407EC9", "Year 3")
+
+# Month 24 Treatment CT Activity -------------------------------------------
+
+y3_m24_treat_ct_act_hist_df <- y3_m24_treat_groups_list[[1]] %>%
+  filter(m24_rebook != "Opt-out") %>%
+  group_by(Trial) %>%
+  summarise(Total = sum(Total))
+
+y3_m24_treat_ct_act_hist <- m24_treat_ct_act_chart_visual(y3_m24_treat_ct_act_hist_df, "#407EC9", "Year 3")
+
+# Month 24 Treatment Positive CT Outcomes ----------------------------------
+
+y3_m24_treat_pos_outcomes_hist_df <- y3_m24_treat_groups_list[[2]] %>%
+  mutate(m24_treat_outcome_clean = case_when(m24_treat_outcome == "48M_FU" ~ "48 Month Follow-Up",
+                                             m24_treat_outcome == "Diagnostics" ~ "Additional Diagnostics",
+                                             m24_treat_outcome == "Incidental" ~ "Incidental Finding"))
+
+y3_m24_treat_pos_outcomes_hist <- m24_treat_pos_outcomes_chart_visual(y3_m24_treat_pos_outcomes_hist_df, "#407EC9", "Year 3")
+
+
+# Month 24 Treatment Diagnostics -------------------------------------------
+
+y3_m24_modalities_hist_df <- y3_m24_diags_modalities_df %>%
+  gather(modality, Total, -c(1)) %>%
+  mutate(modality_clean = case_when(modality == "bronch" ~ "Bronchoscopy",
+                                    modality == "ct_bio" ~ "CT Guided Biopsy",
+                                    modality == "ebus" ~ "EBUS",
+                                    modality == "lft" ~ "LFTs",
+                                    modality == "nav_bronch" ~ "Navigation Bronchoscopy",
+                                    modality == "pet" ~ "PET Scan",
+                                    TRUE ~ modality))
+
+y3_m24_treat_diags_hist <- m24_treat_diags_chart_visual(y3_m24_modalities_hist_df, "#407EC9", "Year 3")
+
+
+# Month 24 Treatment Confirmed Malignancy ----------------------------------
+
+y3_m24_treat_malig_hist_df <- y3_m24_treat_groups_list[[5]]
+
+y3_m24_treat_malig_hist <- m24_treat_malig_chart_visual(y3_m24_treat_malig_hist_df, "#407EC9", "Year 3")
+
+
+# Month 24 Treatment Modalities --------------------------------------------
+
+y3_m24_mods_hist_df <- y3_m24_modalities_df %>%
+  mutate(modality_clean = case_when(modality == "Best_Supportive_Care" ~ "Best Supportive Care",
+                                    modality == "Neoadjuvant_Immunotherapy" ~ "Neoadjuvant Immunotherapy",
+                                    modality == "Surgery_Adjuvant_Chemotherapy" ~ "Surgery with Adjuvant Chemotherapy",
+                                    modality == "XRT" ~ "Radiotherapy",
+                                    TRUE ~ modality)
+  )
+
+y3_m24_treat_mods_hist <- m24_treat_mods_chart_visual(y3_m24_mods_hist_df, "#407EC9", "Year 3")
