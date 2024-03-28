@@ -34,16 +34,67 @@ htmltools::img(src = knitr::image_uri(paste0(here(), "/images/TU_logo_large.png"
 ***
 
 ### Background to the Model
+This model has been created to project how patients will flow along the Lung Health Check pathway. This includes projections on the activity at each step of the pathway and the outcome of this. The model is constructed using a methodology called **Discrete Event Simulation (DES)**.
 
+<br/>
+
+DES models how entities, in this case patients, move through a system where certain events occur. The events in this model will be patient interactions such as the Lung Health Check or a CT scan. At these events the patients are randomised to an outcome and will then move along the next stage of the pathway. Randomising these events is based on the probability of different outcomes. These probabilities are input into the model as a series of assumptions. In this model these probabilities relate to outcomes such as the probability a CT scan is negative for any concerning features or the probability that a patient with lung cancer will be treated with Radiotherapy. More information on how the model is constructed is included in the next tab.
+
+<br/>
+
+This document contains the projected model outputs for **`r geography`** over a five year period. The model has been ran `r trials` times. You can navigate through the different years and stages of the model using the table of contents to the left. 
+
+<br/>
+
+### Discrete Event Simulation
+
+#### What is Discrete Event Simulation?
+Discrete Event Simulation (DES) is a technique used to model the behaviour of complex systems where events occur at distinct points. It is useful for modelling how entities, in this context patients, will move through various states and different pathways over time.
+
+In the case of the Lung Health Check pathway the key concepts of DES are:
+
+* The system that is being modelled represents the Lung Health Check pathway. Patients will flow through the pathway and will interact with different activities depending on their outcomes.
+
+* The entities within the model represent individual patients who will move through the system.
+
+* Events within the system represent activities and interactions between patients and the pathway. At events patients will be randomised to an outcome. For example, an event will be patients with a confirmed malignancy who are randomised to a treatment modality.
+
+<br/>
+
+#### How is this used within the Lung Health Check Pathway?
+Within the model a dataset of patients is created at the start of each model year. These individual patients then flow through the model based on the randomised outcomes at each stage of the pathway. To explain this consider an example of patients who attend their Lung Health Check. At a Lung Health Check a patient will either have a negative test and can be discharged from the service, or they will have a positive test and be referred for a CT scan. In this version of the model we assume that about 43% of patients will be positive. I.e. There is a 43% probability for an individual patient having a positive Lung Health Check. In the example below six patients are attend the health check. They are then randomised to one of the outcomes based on this probability. In this example patients 3 and 5 have a positive check and will be referred on for a CT scan, whilst the other four are negative:
+
+<br/>
+
+![](../../images/Simple Randomisation.drawio.svg)
+
+<br/>
+
+As the model is run multiple times each model run can result in a range of different outcomes. For example, across the three model runs below 2 patients are randomised to have a positive test in Model 1 and Model 2. But in Model 3, 3 patients have a positive test. By running the model many times this enables us to understand the range of potential outcomes at each stage of the pathway:
+
+<br/>
+
+![](../../images/Multiple Trials.drawio.svg)
 
 <br/>
 
 ### Assumptions
 
+```{r assumptions_pop}
+
+assumptions_pop
+
+```
+
+
+
 <br/>
 
 
 ### Pathway
+The pathway that has been modelled is shown below:
+
+![Lung Health Check Pathway](../../images/lhc_pathway-Feedback_Pathway.drawio.svg)
 
 <br/>
 
