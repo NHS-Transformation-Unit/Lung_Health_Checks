@@ -7,11 +7,11 @@ library(scales)
 
 ### Creating input df
 
-trial_df <- data.frame("Trial" = seq(1:trials)) ## for all inputs that only include activity 
+trial_df <- data.frame("Trial" = seq(1:trials))
 
-y2_screened_input_current_df <- trial_df %>% ## 
-  left_join(y2_screened_input_df, by = c("Trial")) %>% ## 
-  mutate(Total = replace_na(Total, 0)) ## 
+y2_screened_input_current_df <- trial_df %>%
+  left_join(y2_screened_input_df, by = c("Trial")) %>%
+  mutate(Total = replace_na(Total, 0))
 
 y1_uptake_pop_tab <- y2_screened_input_current_df %>%
   summarize(

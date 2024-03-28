@@ -1,4 +1,8 @@
 
+# Loading of `here()` package for use in pulling all scripts
+
+library(here)
+
 # Master script for running all LHC modelling scripts
 
 source(paste0(here(),"/src/model/lhc_model.R"))
