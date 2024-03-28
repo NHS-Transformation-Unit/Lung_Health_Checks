@@ -8,6 +8,9 @@ This repository holds the codebase for modelling the demand and capacity require
 ## Using the Repository
 The repository can be cloned to model the demand and capacity for diagnostic investigations and therapies for treating lung cancer patients. The section below detailing the structure of the repository explains how the model functions and where the parameters of the model can be amended for the user. The model has been developed in the R programming language so of particular note the user will require the packages listed within the `packages.R` script within the `requirements` folder to be installed.
 
+### Running the Model
+
+
 <br/>
 
 ## Repository Structure
