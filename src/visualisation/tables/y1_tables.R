@@ -426,3 +426,45 @@ y1_init_outcomes_tab_formatted <- y1_init_outcomes_tab_formatted %>%
   kable(format = "html", align = "lrrrrr") %>%
   kable_styling() %>%
   row_spec(0, background = "#407EC9", color = "white")
+
+
+# init treatment modality table -------------------------------------------
+
+y1_init_treat_mod_tab <- y1_init_modalities_df %>%
+  ungroup() %>%
+  complete(Trial, modality, fill = list(Total = 0)) %>%
+  mutate(modality = case_when(
+    modality == "Best_Supportive_Care" ~ "Best Supportive Care",
+    modality == "Chemoradiotherapy" ~ "Chemoradiotherapy",
+    modality == "Chemotherapy" ~ "Chemotherapy",
+    modality == "Neoadjuvant_Immunotherapy" ~ "Neoadjuvant Immunotherapy",
+    modality == "SABR" ~ "SABR",
+    modality == "Surgery" ~ "Surgery",
+    modality == "Surgery_Adjuvant_Chemotherapy" ~ "Surgery Adjuvant Chemotherapy",
+    modality == "XRT" ~ "XRT",
+    TRUE ~ modality)) %>%
+  group_by(modality) %>%
+  summarize(
+    percentile_10 = round(quantile(Total, probs = 0.1, na.rm = TRUE), 0),
+    lower_quartile = round(quantile(Total, probs = 0.25, na.rm = TRUE), 0),
+    median = round(median(Total, na.rm = TRUE), 0),
+    upper_quartile = round(quantile(Total, probs = 0.75, na.rm = TRUE), 0),
+    percentile_90 = round(quantile(Total, probs = 0.9, na.rm = TRUE), 0)
+  )
+
+y1_init_treat_mod_tab_formatted <- y1_init_treat_mod_tab %>%
+  mutate_if(is.numeric, ~comma(., big.mark = ","))
+
+### Creating table output
+
+y1_init_treat_mod_tab_vis <- y1_init_treat_mod_tab_formatted %>%
+  ungroup() %>%
+  rename("Treatment Modality" = 1,
+         "10th Percentile" = 2,
+         "Lower Quartile" = 3,
+         "Median" = 4,
+         "Upper Quartile" = 5,
+         "90th Percentile" = 6) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
