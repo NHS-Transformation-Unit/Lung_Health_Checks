@@ -1,7 +1,7 @@
 
 # Load file from data -----------------------------------------------------
 
-input_file_name <- "lhc_config_inputs_v3_test.xlsx"
+input_file_name <- "lhc_config_inputs_v4_test.xlsx"
 
 geography <- read_excel(paste0(here(),"/data/config_inputs/", input_file_name), sheet = "frontpage", range = "B11", col_names = FALSE)[[1]]
 assumptions_pop <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "population", range = "B2:I8")
