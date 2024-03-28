@@ -1,5 +1,7 @@
 <img src="images/TU_logo_large.png" alt="TU logo" width="200" align="right"/>
 
+<img src="images/wmca-logo.svg" alt="TU logo" width="200" align="right"/>
+
 # Lung Health Checks
 This repository holds the codebase for modelling the demand and capacity requirements for Lung Health Check screening. There is an ambition for all eligible patients aged 55 - 74 years old with a history of smoking to be offered a lung health check by 2029, more information is available [here](https://www.nhs.uk/conditions/lung-health-checks/).
 
@@ -9,7 +11,13 @@ This repository holds the codebase for modelling the demand and capacity require
 The repository can be cloned to model the demand and capacity for diagnostic investigations and therapies for treating lung cancer patients. The section below detailing the structure of the repository explains how the model functions and where the parameters of the model can be amended for the user. The model has been developed in the R programming language so of particular note the user will require the packages listed within the `packages.R` script within the `requirements` folder to be installed.
 
 ### Running the Model
+The model can be run in one of three ways:
 
+1. **Knitting** the `lhc_model_output.Rmd` file within the `src/outputs` folder. This will run the model and render the summary outputs in an `.html` format.
+2. Running the `model_pipeline.R` file within the `src` folder. This will run the model, create the visuals and tables, and write the model objects to a series of excel files.
+3. Running the model files in turn by loading the assumptions, processing these and then running each model script. This is helpful to understand the structure of the model.
+
+More information on how to run the model is available in the `documentation/guidance/running_the_model.md` file.
 
 <br/>
 
@@ -39,7 +47,6 @@ The current structure of the repository is detailed below:
         ├───y4
         └───y5
     ├───outputs
-        ├───extraction
         └───functions
     ├───requirements
     └───visualisation
