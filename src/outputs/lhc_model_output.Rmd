@@ -17,6 +17,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 source("../model/lhc_model.R")
 source("../visualisation/visualisations_run.R")
+source("../visualisation/tables/tables_run.R")
 
 ```
 
@@ -135,6 +136,8 @@ The table below shows a summary of the activity required across the `r trials` m
 
 ```{r y1_lhc_activity_table}
 
+y1_lhc_activity_tab_vis
+
 ```
 
 
@@ -155,6 +158,8 @@ The table below shows a summary of the split of the number of patients with a po
 
 ```{r y1_lhc_outcome_table}
 
+y1_lhc_outcome_tab_vis
+
 ```
 
 <br/>
@@ -174,7 +179,7 @@ The table below shows a summary of the number of patients who opted-out of the i
 
 ```{r y1_lhc_opt-out_table, out.width='100%'}
 
-
+y1_lhc_opt_out_tab_vis
 
 ```
 
@@ -195,7 +200,7 @@ The table below shows a summary of the number of patients who had a negative Lun
 
 ```{r y1_lhc_neg_ri_table, out.width='100%'}
 
-
+y1_lhc_neg_ri_tab_vis
 
 ```
 
@@ -226,6 +231,8 @@ The table below shows a summary of the activity required across the `r trials` m
 
 ```{r y1_ct_activity_table}
 
+y1_ct_activity_tab_vis
+
 ```
 
 
@@ -245,6 +252,8 @@ y1_ct_activity_hist
 The table below shows a summary of the CT scan outcomes across the `r trials` model runs:
 
 ```{r y1_ct_outcomes_table}
+
+y1_ct_scan_outcomes_tab_vis
 
 ```
 
@@ -266,6 +275,8 @@ The table below shows a summary of the number of patients requiring a follow-up 
 
 ```{r y1_ct_neg_fu_table}
 
+y1_ct_neg_fu_tab_vis
+
 ```
 
 
@@ -285,6 +296,8 @@ y1_ct_neg_ri_hist
 The table below shows a summary of the number of patients who DNA their scan and need to be re-invited in the future across the `r trials` model runs:
 
 ```{r y1_ct_opt_out_table}
+
+y1_ct_opt_out_tab_vis
 
 ```
 
@@ -316,6 +329,7 @@ The table below shows a summary of the number of patients with a positive CT sca
 
 ```{r y1_init_treat_ct_table}
 
+y1_ct_init_scan_tab_vis
 
 ```
 
@@ -336,6 +350,7 @@ The table below shows a summary of the diagnostic activity by modality for those
 
 ```{r y1_init_treat_diag_table}
 
+y1_init_diags_mod_tab_vis
 
 ```
 
@@ -354,6 +369,7 @@ The table below shows a summary of the patients who undergo the additional diagn
 
 ```{r y1_init_treat_malig_table}
 
+y1_init_outcomes_tab_formatted
 
 ```
 
@@ -374,6 +390,7 @@ The table below shows a summary of the treatment modality activity across the `r
 
 ```{r y1_init_treat_mod_table}
 
+y1_init_treat_mod_tab_vis
 
 ```
 
@@ -403,6 +420,7 @@ The table below shows a summary of the CT scan activity for patients on the thre
 
 ```{r y1_m3_treat_ct_activity_table}
 
+y1_m3_ct_activity_tab_vis
 
 ```
 
@@ -423,6 +441,7 @@ The table below shows a summary of the number of patients with a positive CT sca
 
 ```{r y1_m3_treat_ct_table}
 
+y1_ct_m3_scan_tab_vis
 
 ```
 
@@ -443,6 +462,7 @@ The table below shows a summary of the diagnostic activity by modality for those
 
 ```{r y1_m3_treat_diag_table}
 
+y1_m3_diags_mod_tab_vis
 
 ```
 
@@ -461,6 +481,7 @@ The table below shows a summary of the patients who undergo the additional diagn
 
 ```{r y1_m3_treat_malig_table}
 
+y1_m3_outcomes_tab_vis
 
 ```
 
@@ -481,6 +502,7 @@ The table below shows a summary of the treatment modality activity across the `r
 
 ```{r y1_m3_treat_mod_table}
 
+y1_m3_treat_mod_tab_vis
 
 ```
 
@@ -510,6 +532,7 @@ The table below shows a summary of the CT scan activity for patients on the 12 m
 
 ```{r y1_m12_treat_ct_activity_table}
 
+y1_m12_ct_activity_tab_vis
 
 ```
 
@@ -530,6 +553,7 @@ The table below shows a summary of the number of patients with a positive CT sca
 
 ```{r y1_m12_treat_ct_table}
 
+y1_ct_m12_scan_tab_vis
 
 ```
 
@@ -550,6 +574,7 @@ The table below shows a summary of the diagnostic activity by modality for those
 
 ```{r y1_m12_treat_diag_table}
 
+y1_m12_diags_mod_tab_vis
 
 ```
 
@@ -568,6 +593,7 @@ The table below shows a summary of the patients who undergo the additional diagn
 
 ```{r y1_m12_treat_malig_table}
 
+y1_m12_outcomes_tab_vis
 
 ```
 
@@ -588,6 +614,7 @@ The table below shows a summary of the treatment modality activity across the `r
 
 ```{r y1_m12_treat_mod_table}
 
+y1_m12_treat_mod_tab_vis
 
 ```
 
@@ -618,6 +645,7 @@ The table below shows a summary of the CT scan activity for patients on the 24 m
 
 ```{r y1_m24_treat_ct_activity_table}
 
+y1_m24_ct_activity_tab_vis
 
 ```
 
@@ -638,6 +666,7 @@ The table below shows a summary of the number of patients with a positive CT sca
 
 ```{r y1_m24_treat_ct_table}
 
+y1_ct_m24_scan_tab_vis
 
 ```
 
@@ -658,6 +687,7 @@ The table below shows a summary of the diagnostic activity by modality for those
 
 ```{r y1_m24_treat_diag_table}
 
+y1_m24_diags_mod_tab_vis
 
 ```
 
@@ -676,6 +706,7 @@ The table below shows a summary of the patients who undergo the additional diagn
 
 ```{r y1_m24_treat_malig_table}
 
+y1_m24_outcomes_tab_vis
 
 ```
 
@@ -696,6 +727,7 @@ The table below shows a summary of the treatment modality activity across the `r
 
 ```{r y1_m24_treat_mod_table}
 
+y1_m24_treat_mod_tab_vis
 
 ```
 
