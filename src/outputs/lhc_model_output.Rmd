@@ -188,6 +188,50 @@ The pathway that has been modelled is shown below:
 
 <br/>
 
+## Summary of Key Activity {.tabset .tabset-fade}
+***
+This section provides an overview of several key summaries from the model across each of the five years.
+
+### Patients Screened
+The table below shows the number of patients who have been cumulatively screened across each of the five years:
+```{r key_summ_screened}
+
+summary_screened_table
+
+```
+
+<br/>
+
+### Positive LHCs
+The table below shows the number of patients who had a positive Lung Health Check across each of the five years:
+```{r key_summ_lhc_pos}
+
+summary_lhc_pos_table
+
+```
+
+<br/>
+
+### Positive CT Scans
+The table below shows the number of patients who had a positive CT scan after their Lung Health Check across each of the five years:
+```{r key_summ_ct_pos}
+
+summary_ct_pos_table
+
+```
+
+<br/>
+
+### Confirmed Lung Cancers
+The table below shows the number of patients who had a confirmed Lung Cancer across each of the five years:
+```{r key_summ_ca}
+
+summary_ca_table
+
+```
+
+<br/>
+
 ## Year 1 Projections {.tabset .tabset-fade}
 ***
 
