@@ -36,6 +36,10 @@ m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, i
   m24_treat_diags_df <- m24_treat_outcome_df %>%
     filter(m24_treat_outcome == "Diagnostics")
   
+  ### Incidental Finding Output
+  m24_incidental_df <- m24_treat_outcome_df %>%
+    filter(m24_treat_outcome == "Incidental")
+  
   ### 28-month follow-up Output
   m24_treat_48m_fu_df <- m24_treat_outcome_df %>%
     filter(m24_treat_outcome == "48M_FU")
@@ -55,7 +59,7 @@ m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, i
   m24_treat_cancer_output_df <- m24_treat_diags_outcome_df %>%
     filter(cancer_outcome == "Cancer")
   
-  return(list(m24_dna_agg_df, m24_treat_outcome_agg_df, m24_treat_diags_df, m24_treat_48m_fu_df, m24_treat_diags_outcome_agg_df, m24_treat_cancer_output_df, m24_dna_opt_out))
+  return(list(m24_dna_agg_df, m24_treat_outcome_agg_df, m24_treat_diags_df, m24_treat_48m_fu_df, m24_treat_diags_outcome_agg_df, m24_treat_cancer_output_df, m24_dna_opt_out, m24_incidental_df))
   
 }
 
@@ -77,6 +81,43 @@ m24_treatment_modalities <- function(input_df, surgery_rate, surg_ac_rate, sabr_
   ### Aggregate treatment modalities
   m24_treat_modalities_agg_df <- m24_treat_modalities_df %>%
     group_by(Trial, modality) %>%
+    summarise("Total" = n())
+  
+}
+
+m24_incidental_findings <- function(input_df, cc_rate, emp_rate, ila_rate, meda_rate, avc_rate, 
+                                    bro_rate, rbr_rate, taa_rate, ost_rate, lsl_rate, ren_rate, 
+                                    adr_rate, oca_rate, ple_rate, sbl_rate, con_rate, bon_rate, 
+                                    fra_rate, thy_rate, aaa_rate){
+  
+  ### Simulate incidental findings
+  m24_incidental_findings_df <- input_df %>%
+    mutate(finding_prob = runif(n()),
+           finding = case_when(finding_prob < cc_rate ~ "Coronary Calcification",
+                               finding_prob < cc_rate + emp_rate ~ "Emphysema",
+                               finding_prob < cc_rate + emp_rate + ila_rate ~ "Interstitial Lung Abnormalities",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate ~ "Mediastinal Mass",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate ~ "Aortic Valve Calcification",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate ~ "Bronchiectasis",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate ~ "Respiratory Bronchiolitis",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate ~ "Thoracic Aortic Aneurysm",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate ~ "Osteoporosis",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate ~ "Liver of Spleen Lesions",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate ~ "Renal Lesions",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate ~ "Adrenal Lesions",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate ~ "Other Cancers",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate ~ "Pleural Affusions/Thickening",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate ~ "Suspicious Breast Lesion",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate + con_rate ~ "Consolidation",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate + con_rate + bon_rate ~ "Bone Abnormalities",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate + con_rate + bon_rate + fra_rate ~ "Fractures (with no trauma history)",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate + con_rate + bon_rate + fra_rate + thy_rate ~ "Thyroid Lesion",
+                               finding_prob < cc_rate + emp_rate + ila_rate + meda_rate + avc_rate + bro_rate + rbr_rate + taa_rate + ost_rate + lsl_rate + ren_rate + adr_rate + oca_rate + ple_rate + sbl_rate + con_rate + bon_rate + fra_rate + thy_rate + aaa_rate ~ "Abdominal Aortic Aneurysm",
+                               TRUE ~ "Tuberculosis"))
+  
+  ### Aggregate incidental findings
+  m24_incidental_findings_agg_df <- m24_incidental_findings_df %>%
+    group_by(Trial, finding) %>%
     summarise("Total" = n())
   
 }

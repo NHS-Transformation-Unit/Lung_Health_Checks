@@ -11,6 +11,7 @@ y1_m3_treat_groups_list <- m3_treat_groups(input_df = y1_m3_FU_input_df,
 
 y1_m3_add_diags_df <- y1_m3_treat_groups_list[[3]]
 y1_m3_cancer_df <- y1_m3_treat_groups_list[[6]]
+y1_m3_inc_df <- y1_m3_treat_groups_list[[8]]
 
 
 # Simulate Year 1 3-month Treatment Modalities ----------------------------
@@ -30,3 +31,28 @@ y1_m12_FU_input_df <- y1_m3_treat_groups_list[[4]]
 
 y1_m3_opt_out <- y1_m3_treat_groups_list[[7]] %>%
   select(1:3)
+
+
+# Simulate Year 1 3-Month Incidental Findings -----------------------------
+
+y1_m3_incidental_df <- m3_incidental_findings(input_df = y1_m3_inc_df,
+                                              cc_rate = m3_inc_cc_y1, 
+                                              emp_rate = m3_inc_emp_y1, 
+                                              ila_rate = m3_inc_ila_y1, 
+                                              meda_rate = m3_inc_meda_y1, 
+                                              avc_rate = m3_inc_avc_y1, 
+                                              bro_rate = m3_inc_bro_y1, 
+                                              rbr_rate = m3_inc_rbr_y1, 
+                                              taa_rate = m3_inc_taa_y1, 
+                                              ost_rate = m3_inc_ost_y1, 
+                                              lsl_rate = m3_inc_lsl_y1, 
+                                              ren_rate = m3_inc_ren_y1, 
+                                              adr_rate = m3_inc_adr_y1, 
+                                              oca_rate = m3_inc_oca_y1, 
+                                              ple_rate = m3_inc_ple_y1, 
+                                              sbl_rate = m3_inc_sbl_y1, 
+                                              con_rate = m3_inc_con_y1, 
+                                              bon_rate = m3_inc_bon_y1, 
+                                              fra_rate = m3_inc_fra_y1, 
+                                              thy_rate = m3_inc_thy_y1, 
+                                              aaa_rate = m3_inc_aaa_y1)
