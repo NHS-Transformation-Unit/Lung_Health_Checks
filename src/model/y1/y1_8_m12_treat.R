@@ -11,6 +11,7 @@ y1_m12_treat_groups_list <- m12_treat_groups(input_df = y1_m12_FU_input_df,
 
 y1_m12_add_diags_df <- y1_m12_treat_groups_list[[3]]
 y1_m12_cancer_df <- y1_m12_treat_groups_list[[6]]
+y1_m12_inc_df <- y1_m12_treat_groups_list[[8]]
 
 
 # Simulate Year 1 12-month Treatment Modalities ----------------------------
@@ -30,3 +31,28 @@ y1_m24_FU_input_df <- y1_m12_treat_groups_list[[4]]
 
 y1_m12_opt_out <- y1_m12_treat_groups_list[[7]] %>%
   select(1:3)
+
+
+# Simulate Year 1 12-Month Incidental Findings ----------------------------
+
+y1_m12_incidental_df <- m12_incidental_findings(input_df = y1_m12_inc_df,
+                                                cc_rate = m12_inc_cc_y1, 
+                                                emp_rate = m12_inc_emp_y1, 
+                                                ila_rate = m12_inc_ila_y1, 
+                                                meda_rate = m12_inc_meda_y1, 
+                                                avc_rate = m12_inc_avc_y1, 
+                                                bro_rate = m12_inc_bro_y1, 
+                                                rbr_rate = m12_inc_rbr_y1, 
+                                                taa_rate = m12_inc_taa_y1, 
+                                                ost_rate = m12_inc_ost_y1, 
+                                                lsl_rate = m12_inc_lsl_y1, 
+                                                ren_rate = m12_inc_ren_y1, 
+                                                adr_rate = m12_inc_adr_y1, 
+                                                oca_rate = m12_inc_oca_y1, 
+                                                ple_rate = m12_inc_ple_y1, 
+                                                sbl_rate = m12_inc_sbl_y1, 
+                                                con_rate = m12_inc_con_y1, 
+                                                bon_rate = m12_inc_bon_y1, 
+                                                fra_rate = m12_inc_fra_y1, 
+                                                thy_rate = m12_inc_thy_y1, 
+                                                aaa_rate = m12_inc_aaa_y1)
