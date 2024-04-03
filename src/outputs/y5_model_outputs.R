@@ -17,24 +17,28 @@ y5_init_FU_op <- y5_init_treat_groups_list[[1]]
 y5_init_diag_mod_op <- y5_init_diags_modalities_df
 y5_init_diag_outcome_op <-y5_init_treat_groups_list[[4]]
 y5_init_treat_mod_op <- y5_init_modalities_df
+y5_init_inc_op <- y5_init_incidental_df
 
 y5_m3_book_op <- y5_m3_treat_groups_list[[1]]
 y5_m3_FU_op <- y5_m3_treat_groups_list[[2]]
 y5_m3_diag_mod_op <- y5_m3_diags_modalities_df
 y5_m3_diag_outcome_op <- y5_m3_treat_groups_list[[5]]
 y5_m3_treat_mod_op <- y5_m3_modalities_df
+y5_m3_inc_op <- y5_m3_incidental_df
 
 y5_m12_book_op <- y5_m12_treat_groups_list[[1]]
 y5_m12_FU_op <- y5_m12_treat_groups_list[[2]]
 y5_m12_diag_mod_op <- y5_m12_diags_modalities_df
 y5_m12_diag_outcome_op <- y5_m12_treat_groups_list[[5]]
 y5_m12_treat_mod_op <- y5_m12_modalities_df
+y5_m12_inc_op <- y5_m12_incidental_df
 
 y5_m24_book_op <- y5_m24_treat_groups_list[[1]]
 y5_m24_FU_op <- y5_m24_treat_groups_list[[2]]
 y5_m24_diag_mod_op <- y5_m24_diags_modalities_df
 y5_m24_diag_outcome_op <- y5_m24_treat_groups_list[[5]]
 y5_m24_treat_mod_op <- y5_m24_modalities_df
+y5_m24_inc_op <- y5_m24_incidental_df
 
 ## Exporting defined objects using output function
 
@@ -52,21 +56,25 @@ excel_output(
     y5_init_diag_mod_op = y5_init_diag_mod_op,
     y5_init_diag_outcome_op = y5_init_diag_outcome_op,
     y5_init_treat_mod_op = y5_init_treat_mod_op,
+    y5_init_inc_op = y5_init_inc_op,
     y5_m3_book_op = y5_m3_book_op,
     y5_m3_FU_op = y5_m3_FU_op,
     y5_m3_diag_mod_op = y5_m3_diag_mod_op,
     y5_m3_diag_outcome_op = y5_m3_diag_outcome_op,
     y5_m3_treat_mod_op = y5_m3_treat_mod_op,
+    y5_m3_inc_op = y5_m3_inc_op,
     y5_m12_book_op = y5_m12_book_op,
     y5_m12_FU_op = y5_m12_FU_op,
     y5_m12_diag_mod_op = y5_m12_diag_mod_op,
     y5_m12_diag_outcome_op = y5_m12_diag_outcome_op,
     y5_m12_treat_mod_op = y5_m12_treat_mod_op,
+    y5_m12_inc_op = y5_m12_inc_op,
     y5_m24_book_op = y5_m24_book_op,
     y5_m24_FU_op = y5_m24_FU_op,
     y5_m24_diag_mod_op = y5_m24_diag_mod_op,
     y5_m24_diag_outcome_op = y5_m24_diag_outcome_op,
-    y5_m24_treat_mod_op = y5_m24_treat_mod_op
+    y5_m24_treat_mod_op = y5_m24_treat_mod_op,
+    y5_m24_inc_op = y5_m24_inc_op
   ),
   overwrite = TRUE
 )
