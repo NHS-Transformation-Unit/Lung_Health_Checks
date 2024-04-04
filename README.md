@@ -30,6 +30,7 @@ The current structure of the repository is detailed below:
 ├───data
     ├───config_inputs
     ├───external
+    ├───model_outputs
     └───reference
 ├───documentation
     ├───project_documentation
@@ -58,7 +59,7 @@ The current structure of the repository is detailed below:
 <br/>
 
 ### `data`
-This folder will contain any relevant data files or external data that is to be utilised during the construction of the model. It also contains the model inputs configuration file for loading the user input assumptions into the model.
+This folder will contain any relevant data files or external data that is to be utilised during the construction of the model. It also contains the model inputs configuration file for loading the user input assumptions into the model. Extracts of the model outputs saved to excel will also be saved here.
 
 ### `documentation`
 This folder contain the project documentation including the model specification and guidance on how to use the model.
