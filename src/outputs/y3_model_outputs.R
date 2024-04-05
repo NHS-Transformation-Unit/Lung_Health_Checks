@@ -3,7 +3,7 @@
 
 ## Defining objects to be outputted for Y3
 
-y3_uptake_pop_op <- y4_screened_input_df
+y3_pop_coverage_op <- y4_screened_input_df
 
 y3_pop_smoke_op <- y3_lhc_list[[8]]
 y3_lhc_book_op <- y3_lhc_list[[3]]
@@ -45,7 +45,7 @@ y3_m24_inc_op <- y3_m24_incidental_df
 excel_output(
   paste0(here(),"/data/model_outputs/y3_outputs.xlsx"),
   list(
-    y3_uptake_pop_op = y3_uptake_pop_op,
+    y3_pop_coverage_op = y3_pop_coverage_op,
     y3_pop_smoke_op = y3_pop_smoke_op,
     y3_lhc_book_op = y3_lhc_book_op,
     y3_lhc_outcome_op = y3_lhc_outcome_op,

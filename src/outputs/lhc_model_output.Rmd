@@ -248,8 +248,8 @@ summary_ca_table
 This section provides an overview of the projected activity and outcomes at each point of the pathway during the first year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake {.tabset .tabset-fade}
-In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+### Population Coverage {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the coverage rates set within the model assumptions.
 
 #### Summary
 The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
@@ -262,7 +262,7 @@ y1_uptake_pop_tab_vis
 
 <br/>
 
-#### Distribution of Uptake Population
+#### Distribution of Population Coverage
 The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
 ```{r y1_uptake_hist, out.width='100%'}
@@ -901,8 +901,8 @@ y1_m24_treat_mods_hist
 This section provides an overview of the projected activity and outcomes at each point of the pathway during the second year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake {.tabset .tabset-fade}
-In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+### Population Coverage {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the coverage rates set within the model assumptions.
 
 #### Summary
 The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
@@ -915,7 +915,7 @@ y2_uptake_pop_tab_vis
 
 <br/>
 
-#### Distribution of Uptake Population
+#### Distribution of Population Coverage
 The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
 ```{r y2_uptake_hist, out.width='100%'}
@@ -1555,8 +1555,8 @@ y2_m24_treat_mods_hist
 This section provides an overview of the projected activity and outcomes at each point of the pathway during the third year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake {.tabset .tabset-fade}
-In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+### Population Coverage {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the coverage rates set within the model assumptions.
 
 #### Summary
 The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
@@ -1569,7 +1569,7 @@ y3_uptake_pop_tab_vis
 
 <br/>
 
-#### Distribution of Uptake Population
+#### Distribution of Population Coverage
 The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
 ```{r y3_uptake_hist, out.width='100%'}
@@ -2210,8 +2210,8 @@ y3_m24_treat_mods_hist
 This section provides an overview of the projected activity and outcomes at each point of the pathway during the fourth year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake {.tabset .tabset-fade}
-In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+### Population Coverage {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the coverage rates set within the model assumptions.
 
 #### Summary
 The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
@@ -2224,7 +2224,7 @@ y4_uptake_pop_tab_vis
 
 <br/>
 
-#### Distribution of Uptake Population
+#### Distribution of Population Coverage
 The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
 ```{r y4_uptake_hist, out.width='100%'}
@@ -2862,8 +2862,8 @@ y4_m24_treat_mods_hist
 This section provides an overview of the projected activity and outcomes at each point of the pathway during the final year of the model. Within each tab there is a summary of the activity projected from the `r trials` model runs undertaken.
 
 
-### Population uptake {.tabset .tabset-fade}
-In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the uptake rates set within the model assumptions.
+### Population Coverage {.tabset .tabset-fade}
+In the first stage of the model patients are randomised to be invited for a Lung Health Check. This is based on the coverage rates set within the model assumptions.
 
 #### Summary
 The table below shows a summary of the numbers of patients invited across each of the `r trials` model runs.
@@ -2876,7 +2876,7 @@ y5_uptake_pop_tab_vis
 
 <br/>
 
-#### Distribution of Uptake Population
+#### Distribution of Population Coverage
 The chart below is a histogram showing the distribution of the number of patients invited across each of the `r trials` model runs.
 
 ```{r y5_uptake_hist, out.width='100%'}
