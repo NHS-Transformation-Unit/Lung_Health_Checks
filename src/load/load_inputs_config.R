@@ -1,7 +1,7 @@
 
 # Load file from data -----------------------------------------------------
 
-input_file_name <- "lhc_config_inputs_v4_test.xlsx"
+input_file_name <- "lhc_config_inputs_v5.xlsx"
 
 geography <- read_excel(paste0(here(),"/data/config_inputs/", input_file_name), sheet = "frontpage", range = "B11", col_names = FALSE)[[1]]
 assumptions_pop <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "population", range = "B2:I8")
@@ -11,7 +11,7 @@ assumptions_initial_diag <- read_excel(paste0(here(), "/data/config_inputs/", in
 assumptions_initial_treat <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "initial_treat", range = "B2:I13")
 assumptions_initial_inc <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "initial_incidental", range = "B2:I23")
 assumptions_m3_diag <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m3_diag", range = "B2:I8")
-assumptions_m3_treat <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m3_treat", range = "B2:I15")
+assumptions_m3_treat <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m3_treat", range = "B2:I16")
 assumptions_m3_inc <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m3_incidental", range = "B2:I23")
 assumptions_m12_diag <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m12_diag", range = "B2:I8")
 assumptions_m12_treat <- read_excel(paste0(here(), "/data/config_inputs/", input_file_name), sheet = "m12_treat", range = "B2:I16")
