@@ -504,7 +504,8 @@ y2_m3_ct_activity_tab_vis <- y2_m3_ct_activity_tab_formatted %>%
 y2_ct_m3_scan_tab <- y2_m3_treat_groups_list[[2]] %>%
   ungroup() %>%
   complete(Trial, m3_treat_outcome, fill = list(Total = 0)) %>%
-  mutate(m3_treat_outcome = ifelse(m3_treat_outcome == "12M_FU", "12M follow-up", m3_treat_outcome)) %>%
+  mutate(m3_treat_outcome = ifelse(m3_treat_outcome == "12M_FU", "12M follow-up", m3_treat_outcome),
+         m3_treat_outcome = ifelse(m3_treat_outcome == "24M_FU", "24M follow-up", m3_treat_outcome)) %>%
   group_by(m3_treat_outcome) %>%
   summarize(
     percentile_10 = round(quantile(Total, probs = 0.1, na.rm = TRUE), 0),
