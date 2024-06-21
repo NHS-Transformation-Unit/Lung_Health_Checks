@@ -25,7 +25,9 @@ y5_m12_modalities_df <- m12_treatment_modalities(input_df = y5_m12_cancer_df,
                                                  chemo_rate = m12_treatment_chemo_y5,
                                                  nadj_imm_rate = m12_treatment_nadj_imm_y5)
 
-y5_m24_FU_input_df <- y5_m12_treat_groups_list[[4]]
+y5_m12_m24_FU_input_df <- y5_m12_treat_groups_list[[4]] 
+
+y5_m24_FU_input_df <- bind_rows(y5_m3_m24_FU_input_df, y5_m12_m24_FU_input_df)
 
 # Creating outputs to inform m24 reinvites
 
