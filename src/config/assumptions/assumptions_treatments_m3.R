@@ -29,11 +29,11 @@ m3_incidental_rate_y3 <- assumptions_m3_treat[[4,6]]
 m3_incidental_rate_y4 <- assumptions_m3_treat[[4,7]]
 m3_incidental_rate_y5 <- assumptions_m3_treat[[4,8]]
 
-m3_m24_fu_rate_y1 <- assumptions_m3_treat[[6,4]]
-m3_m24_fu_rate_y2 <- assumptions_m3_treat[[6,5]]
-m3_m24_fu_rate_y3 <- assumptions_m3_treat[[6,6]]
-m3_m24_fu_rate_y4 <- assumptions_m3_treat[[6,7]]
-m3_m24_fu_rate_y5 <- assumptions_m3_treat[[6,8]]
+m3_m24_fu_rate_y1 <- assumptions_m3_treat[[5,4]]
+m3_m24_fu_rate_y2 <- assumptions_m3_treat[[5,5]]
+m3_m24_fu_rate_y3 <- assumptions_m3_treat[[5,6]]
+m3_m24_fu_rate_y4 <- assumptions_m3_treat[[5,7]]
+m3_m24_fu_rate_y5 <- assumptions_m3_treat[[5,8]]
 
 m3_m12_fu_rate_y1 <- 1 - m3_diagnostic_rate_y1 - m3_incidental_rate_y1 - m3_m24_fu_rate_y1
 m3_m12_fu_rate_y2 <- 1 - m3_diagnostic_rate_y2 - m3_incidental_rate_y2 - m3_m24_fu_rate_y2
@@ -41,11 +41,11 @@ m3_m12_fu_rate_y3 <- 1 - m3_diagnostic_rate_y3 - m3_incidental_rate_y3 - m3_m24_
 m3_m12_fu_rate_y4 <- 1 - m3_diagnostic_rate_y4 - m3_incidental_rate_y4 - m3_m24_fu_rate_y4
 m3_m12_fu_rate_y5 <- 1 - m3_diagnostic_rate_y5 - m3_incidental_rate_y5 - m3_m24_fu_rate_y5
 
-m3_cancer_rate_y1 <- assumptions_m3_treat[[5,4]]
-m3_cancer_rate_y2 <- assumptions_m3_treat[[5,5]]
-m3_cancer_rate_y3 <- assumptions_m3_treat[[5,6]]
-m3_cancer_rate_y4 <- assumptions_m3_treat[[5,7]]
-m3_cancer_rate_y5 <- assumptions_m3_treat[[5,8]]
+m3_cancer_rate_y1 <- assumptions_m3_treat[[6,4]]
+m3_cancer_rate_y2 <- assumptions_m3_treat[[6,5]]
+m3_cancer_rate_y3 <- assumptions_m3_treat[[6,6]]
+m3_cancer_rate_y4 <- assumptions_m3_treat[[6,7]]
+m3_cancer_rate_y5 <- assumptions_m3_treat[[6,8]]
 
 m3_non_malignant_rate_y1 <- 1 - m3_cancer_rate_y1
 m3_non_malignant_rate_y2 <- 1 - m3_cancer_rate_y2
