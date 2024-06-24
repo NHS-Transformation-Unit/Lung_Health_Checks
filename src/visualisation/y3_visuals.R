@@ -121,6 +121,7 @@ y3_m3_treat_ct_act_hist <- m3_treat_ct_act_chart_visual(y3_m3_treat_ct_act_hist_
 
 y3_m3_treat_pos_outcomes_hist_df <- y3_m3_treat_groups_list[[2]] %>%
   mutate(m3_treat_outcome_clean = case_when(m3_treat_outcome == "12M_FU" ~ "12 Month Follow-Up",
+                                            m3_treat_outcome == "24M_FU" ~ "24 Month Follow-Up",
                                             m3_treat_outcome == "Diagnostics" ~ "Additional Diagnostics",
                                             m3_treat_outcome == "Incidental" ~ "Incidental Finding"))
 

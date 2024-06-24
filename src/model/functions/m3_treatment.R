@@ -1,5 +1,5 @@
 m3_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, incidental_rate, follow_up_rate, 
-                                 cancer_rate){
+                                 cancer_rate, m24_fu_rate){
   
   ### Simulate DNA and Rebooking for non-excluded patients
   m3_dna_df <- input_df %>%
@@ -24,8 +24,9 @@ m3_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, in
     filter(m3_rebook != "Opt-out") %>%
     mutate(m3_treat_outcome_prob = runif(n()),
            m3_treat_outcome = case_when(m3_treat_outcome_prob < diagnostic_rate ~ "Diagnostics",
-                                          m3_treat_outcome_prob < diagnostic_rate + incidental_rate ~ "Incidental",
-                                          TRUE ~ "12M_FU"))
+                                        m3_treat_outcome_prob < diagnostic_rate + incidental_rate ~ "Incidental",
+                                        m3_treat_outcome_prob < diagnostic_rate + incidental_rate + m24_fu_rate ~ "24M_FU",
+                                        TRUE ~ "12M_FU"))
   
   ### Aggregate m3 outcomes
   m3_treat_outcome_agg_df <- m3_treat_outcome_df %>%
@@ -44,6 +45,10 @@ m3_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, in
   m3_treat_12m_fu_df <- m3_treat_outcome_df %>%
     filter(m3_treat_outcome == "12M_FU")
   
+  ### 24-month follow-up Output
+  m3_treat_24m_fu_df <- m3_treat_outcome_df %>%
+    filter(m3_treat_outcome == "24M_FU")
+  
   ### Simulate cancer diagnosis
   m3_treat_diags_outcome_df <- m3_treat_diags_df %>%
     mutate(cancer_outcome_prob = runif(n()),
@@ -59,7 +64,7 @@ m3_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, in
   m3_treat_cancer_output_df <- m3_treat_diags_outcome_df %>%
     filter(cancer_outcome == "Cancer")
   
-  return(list(m3_dna_agg_df, m3_treat_outcome_agg_df, m3_treat_diags_df, m3_treat_12m_fu_df, m3_treat_diags_outcome_agg_df, m3_treat_cancer_output_df, m3_dna_opt_out, m3_incidental_df))
+  return(list(m3_dna_agg_df, m3_treat_outcome_agg_df, m3_treat_diags_df, m3_treat_12m_fu_df, m3_treat_diags_outcome_agg_df, m3_treat_cancer_output_df, m3_dna_opt_out, m3_incidental_df, m3_treat_24m_fu_df))
   
 }
 

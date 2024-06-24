@@ -7,11 +7,13 @@ y2_m3_treat_groups_list <- m3_treat_groups(input_df = y2_m3_FU_input_df,
                                            diagnostic_rate = m3_diagnostic_rate_y2,
                                            incidental_rate = m3_incidental_rate_y2,
                                            follow_up_rate = m3_m12_fu_rate_y2,
-                                           cancer_rate = m3_cancer_rate_y2)
+                                           cancer_rate = m3_cancer_rate_y2,
+                                           m24_fu_rate = m3_m24_fu_rate_y2)
 
 y2_m3_add_diags_df <- y2_m3_treat_groups_list[[3]]
 y2_m3_cancer_df <- y2_m3_treat_groups_list[[6]]
 y2_m3_inc_df <- y2_m3_treat_groups_list[[8]]
+y2_m3_m24_FU_input_df <- y2_m3_treat_groups_list[[9]]
 
 
 # Simulate Year 2 3-month Treatment Modalities ----------------------------
