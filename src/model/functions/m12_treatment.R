@@ -163,7 +163,7 @@ m12_incidental_findings <- function(input_df, cc_rate, emp_rate, ila_rate, meda_
   
   ### Aggregate incidental findings
   m12_incidental_findings_agg_df <- m12_incidental_findings_df %>%
-    group_by(Trial, finding) %>%
+    group_by(Trial, combined_findings) %>%
     summarise("Total" = n())
   
 }

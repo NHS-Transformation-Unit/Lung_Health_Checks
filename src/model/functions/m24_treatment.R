@@ -88,7 +88,7 @@ m24_treatment_modalities <- function(input_df, surgery_rate, surg_ac_rate, sabr_
 m24_incidental_findings <- function(input_df, cc_rate, emp_rate, ila_rate, meda_rate, avc_rate, 
                                     bro_rate, rbr_rate, taa_rate, ost_rate, lsl_rate, ren_rate, 
                                     adr_rate, oca_rate, ple_rate, sbl_rate, con_rate, fra_rate, 
-                                    thy_rate, aaa_rate, aaa_rate){
+                                    thy_rate, aaa_rate, tub_rate){
   
   ### Simulate incidental findings
   m24_incidental_findings_df <- input_df %>%
@@ -163,7 +163,7 @@ m24_incidental_findings <- function(input_df, cc_rate, emp_rate, ila_rate, meda_
   
   ### Aggregate incidental findings
   m24_incidental_findings_agg_df <- m24_incidental_findings_df %>%
-    group_by(Trial, finding) %>%
+    group_by(Trial, combined_findings) %>%
     summarise("Total" = n())
   
 }

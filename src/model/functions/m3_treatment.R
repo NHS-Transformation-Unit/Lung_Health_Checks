@@ -168,7 +168,7 @@ m3_incidental_findings <- function(input_df, cc_rate, emp_rate, ila_rate, meda_r
   
   ### Aggregate incidental findings
   m3_incidental_findings_agg_df <- m3_incidental_findings_df %>%
-    group_by(Trial, finding) %>%
+    group_by(Trial, combined_findings) %>%
     summarise("Total" = n())
   
 }
