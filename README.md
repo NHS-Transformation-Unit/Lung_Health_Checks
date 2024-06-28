@@ -87,7 +87,7 @@ All code is stored within the `src` folder. This is then divided into:
 
 ## Lung Health Check Pathway
 The diagram below shows the current version of the pathway that has been modelled:
-<img src="images/lhc_pathway-Feedback_Pathway.drawio.svg" alt="LHC Pathway"/>
+<img src="images/lhc_pathway-Suggested_Amends.drawio.svg" alt="LHC Pathway"/>
 
 ## Contributors
 
