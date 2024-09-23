@@ -1,6 +1,6 @@
 incidental_summaries <- function(input_df){
   
-  conditions <- y1_init_incidental_df %>%
+  conditions <- input_df %>%
     separate_rows(combined_findings, sep = ", ") %>%
     distinct(combined_findings) %>%
     pull(combined_findings)
