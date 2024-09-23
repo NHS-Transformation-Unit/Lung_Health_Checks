@@ -1073,4 +1073,3 @@ y2_m24_treat_inc_tab_vis <- y2_m24_incidental_summary %>%
   kable(format = "html", align = "lrrrrr") %>%
   kable_styling() %>%
   row_spec(0, background = "#407EC9", color = "white")
-
