@@ -58,3 +58,8 @@ y4_m12_incidental_df <- m12_incidental_findings(input_df = y4_m12_inc_df,
                                                 thy_rate = m12_inc_thy_y4, 
                                                 aaa_rate = m12_inc_aaa_y4, 
                                                 tub_rate = m12_inc_tub_y4)
+
+
+# Summarise Year 4 12-Month Incidental Findings ---------------------------
+
+y4_m12_incidental_summary <- incidental_summaries(y4_m12_incidental_df)
