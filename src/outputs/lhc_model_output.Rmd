@@ -556,6 +556,17 @@ y1_init_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y1_init_inc_summary, out.width = '100%'}
+
+y1_init_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -663,6 +674,17 @@ The distribution of the activity across these model runs is shown in the histogr
 ```{r y1_m3_treat_mod_hist, out.width='100%'}
 
 y1_m3_treat_mods_hist
+
+```
+
+<br/>
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y1_m3_inc_summary, out.width = '100%'}
+
+y1_m3_treat_inc_tab_vis
 
 ```
 
@@ -780,6 +802,16 @@ y1_m12_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y1_m12_inc_summary, out.width = '100%'}
+
+y1_m12_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
 In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
@@ -894,6 +926,17 @@ y1_m24_treat_mods_hist
 
 <br/>
 
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y1_m24_inc_summary, out.width = '100%'}
+
+y1_m24_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ## Year 2 Projections {.tabset .tabset-fade}
 ***
@@ -1210,6 +1253,17 @@ y2_init_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y2_init_inc_summary, out.width = '100%'}
+
+y2_init_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -1317,6 +1371,17 @@ The distribution of the activity across these model runs is shown in the histogr
 ```{r y2_m3_treat_mod_hist, out.width='100%'}
 
 y2_m3_treat_mods_hist
+
+```
+
+<br/>
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y2_m3_inc_summary, out.width = '100%'}
+
+y2_m3_treat_inc_tab_vis
 
 ```
 
@@ -1435,6 +1500,17 @@ y2_m12_treat_mods_hist
 <br/>
 
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y2_m12_inc_summary, out.width = '100%'}
+
+y2_m12_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
 In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -1548,6 +1624,16 @@ y2_m24_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y2_m24_inc_summary, out.width = '100%'}
+
+y2_m24_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ## Year 3 Projections {.tabset .tabset-fade}
 ***
@@ -1864,6 +1950,17 @@ y3_init_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y3_init_inc_summary, out.width = '100%'}
+
+y3_init_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -1976,6 +2073,16 @@ y3_m3_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y3_m3_inc_summary, out.width = '100%'}
+
+y3_m3_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
@@ -2089,6 +2196,16 @@ y3_m12_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y3_m12_inc_summary, out.width = '100%'}
+
+y3_m12_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
 In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
@@ -2203,6 +2320,16 @@ y3_m24_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y3_m24_inc_summary, out.width = '100%'}
+
+y3_m24_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ## Year 4 Projections {.tabset .tabset-fade}
 ***
@@ -2518,6 +2645,17 @@ y4_init_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y4_init_inc_summary, out.width = '100%'}
+
+y4_init_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -2630,6 +2768,17 @@ y4_m3_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y4_m3_inc_summary, out.width = '100%'}
+
+y4_m3_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 12 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on the 12 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -2737,6 +2886,17 @@ The distribution of the activity across these model runs is shown in the histogr
 ```{r y4_m12_treat_mod_hist, out.width='100%'}
 
 y4_m12_treat_mods_hist
+
+```
+
+<br/>
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y4_m12_inc_summary, out.width = '100%'}
+
+y4_m12_treat_inc_tab_vis
 
 ```
 
@@ -2855,6 +3015,16 @@ y4_m24_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y4_m24_inc_summary, out.width = '100%'}
+
+y4_m24_treat_inc_tab_vis
+
+```
+
+<br/>
 
 ## Year 5 Projections {.tabset .tabset-fade}
 ***
@@ -3170,6 +3340,17 @@ y5_init_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y5_init_inc_summary, out.width = '100%'}
+
+y5_init_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 3 Month Follow-Up Treatments {.tabset .tabset-fade}
 At this point in the model the outcomes of those patients on a three month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -3277,6 +3458,17 @@ The distribution of the activity across these model runs is shown in the histogr
 ```{r y5_m3_treat_mod_hist, out.width='100%'}
 
 y5_m3_treat_mods_hist
+
+```
+
+<br/>
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y5_m3_inc_summary, out.width = '100%'}
+
+y5_m3_treat_inc_tab_vis
 
 ```
 
@@ -3394,6 +3586,17 @@ y5_m12_treat_mods_hist
 
 <br/>
 
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y5_m12_inc_summary, out.width = '100%'}
+
+y5_m12_treat_inc_tab_vis
+
+```
+
+<br/>
+
 ### 24 Month Follow-Up Treatments {.tabset .tabset-fade}
 In this final stage of the model the outcomes of those patients on the 24 month follow-up are determined. At this stage the patients will attend a further CT scan, they may then require additional diagnostics, a malignant diagnosis may be confirmed and treatment provided. This section provides an overview of:
 
@@ -3504,5 +3707,16 @@ y5_m24_treat_mods_hist
 
 ```
 
+
+<br/>
+
+#### Incidental Finding Summary
+The table below shows a summary of the incidental findings by condition across the `r trials` model runs:
+
+```{r y5_m24_inc_summary, out.width = '100%'}
+
+y5_m24_treat_inc_tab_vis
+
+```
 
 <br/>
