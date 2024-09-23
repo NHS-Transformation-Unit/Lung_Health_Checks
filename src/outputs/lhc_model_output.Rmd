@@ -194,7 +194,7 @@ assumptions_m24_treat_table
 ### Pathway
 The pathway that has been modelled is shown below:
 
-![Lung Health Check Pathway](../../images/lhc_pathway-Feedback_Pathway.drawio.svg)
+![Lung Health Check Pathway](../../images/lhc_pathway_suggested_amends.drawio.svg)
 
 <br/>
 
