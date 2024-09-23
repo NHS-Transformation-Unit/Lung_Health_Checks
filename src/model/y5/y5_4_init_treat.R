@@ -49,3 +49,8 @@ y5_init_incidental_df <- initial_incidental_findings(input_df = y5_init_inc_df,
                                                      thy_rate = initial_inc_thy_y5, 
                                                      aaa_rate = initial_inc_aaa_y5, 
                                                      tub_rate = initial_inc_tub_y5)
+
+
+# Summarise Year 5 Initial Incidental Findings ----------------------------
+
+y5_init_incidental_summary <- incidental_summaries(y5_init_incidental_df)

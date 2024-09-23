@@ -58,3 +58,8 @@ y3_m3_incidental_df <- m3_incidental_findings(input_df = y3_m3_inc_df,
                                               thy_rate = m3_inc_thy_y3, 
                                               aaa_rate = m3_inc_aaa_y3, 
                                               tub_rate = m3_inc_tub_y3)
+
+
+# Simulate Year 3 3-Month Incidental Findings -----------------------------
+
+y3_m3_incidental_summary <- incidental_summaries(y3_m3_incidental_df)

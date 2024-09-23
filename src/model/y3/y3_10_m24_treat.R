@@ -51,3 +51,8 @@ y3_m24_incidental_df <- m24_incidental_findings(input_df = y3_m24_inc_df,
                                                 thy_rate = m24_inc_thy_y3, 
                                                 aaa_rate = m24_inc_aaa_y3, 
                                                 tub_rate = m24_inc_tub_y3)
+
+
+# Summarise Year 3 24-Month Incidental Findings ---------------------------
+
+y3_m24_incidental_summary <- incidental_summaries(y3_m24_incidental_df)

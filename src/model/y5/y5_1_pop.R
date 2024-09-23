@@ -16,7 +16,7 @@ y6_screened_input_current_df <- y5_uptake_pop %>%
   group_by(Trial) %>%
   summarise(Total = n())
 
-y6_screened_input_df <- y5_screened_input_df %>%
-  rbind(y5_screened_input_current_df) %>%
+  y6_screened_input_df <- y5_screened_input_df %>%
+  rbind(y6_screened_input_current_df) %>%
   group_by(Trial) %>%
   summarise(Total = sum(Total, na.rm = TRUE))

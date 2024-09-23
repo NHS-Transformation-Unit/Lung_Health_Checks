@@ -468,6 +468,20 @@ y2_init_treat_mod_tab_vis <- y2_init_treat_mod_tab_formatted %>%
   row_spec(0, background = "#407EC9", color = "white")
 
 
+# initial incidental summary ----------------------------------------------
+
+y2_init_treat_inc_tab_vis <- y2_init_incidental_summary %>%
+  ungroup() %>%
+  rename("Condition" = 1,
+         "10th Percentile" = 2,
+         "Lower Quartile" = 3,
+         "Median" = 4,
+         "Upper Quartile" = 5,
+         "90th Percentile" = 6) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
+
 # m3 CT scan table --------------------------------------------------------
 
 y2_m3_ct_activity_tab <- y2_m3_treat_groups_list[[1]] %>%
@@ -652,6 +666,20 @@ y2_m3_treat_mod_tab_vis <- y2_m3_treat_mod_tab_formatted %>%
   row_spec(0, background = "#407EC9", color = "white")
 
 
+# month 3 incidental summary ----------------------------------------------
+
+y2_m3_treat_inc_tab_vis <- y2_m3_incidental_summary %>%
+  ungroup() %>%
+  rename("Condition" = 1,
+         "10th Percentile" = 2,
+         "Lower Quartile" = 3,
+         "Median" = 4,
+         "Upper Quartile" = 5,
+         "90th Percentile" = 6) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
+
 # m12 CT scan table --------------------------------------------------------
 
 y2_m12_ct_activity_tab <- y2_m12_treat_groups_list[[1]] %>%
@@ -835,6 +863,20 @@ y2_m12_treat_mod_tab_vis <- y2_m12_treat_mod_tab_formatted %>%
   row_spec(0, background = "#407EC9", color = "white")
 
 
+# month 12 incidental summary ---------------------------------------------
+
+y2_m12_treat_inc_tab_vis <- y2_m12_incidental_summary %>%
+  ungroup() %>%
+  rename("Condition" = 1,
+         "10th Percentile" = 2,
+         "Lower Quartile" = 3,
+         "Median" = 4,
+         "Upper Quartile" = 5,
+         "90th Percentile" = 6) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
+
 # m24 CT scan table --------------------------------------------------------
 
 y2_m24_ct_activity_tab <- y2_m24_treat_groups_list[[1]] %>%
@@ -1008,6 +1050,21 @@ y2_m24_treat_mod_tab_formatted <- y2_m24_treat_mod_tab %>%
 y2_m24_treat_mod_tab_vis <- y2_m24_treat_mod_tab_formatted %>%
   ungroup() %>%
   rename("Treatment Modality" = 1,
+         "10th Percentile" = 2,
+         "Lower Quartile" = 3,
+         "Median" = 4,
+         "Upper Quartile" = 5,
+         "90th Percentile" = 6) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
+
+
+# month 24 incidental summary ---------------------------------------------
+
+y2_m24_treat_inc_tab_vis <- y2_m24_incidental_summary %>%
+  ungroup() %>%
+  rename("Condition" = 1,
          "10th Percentile" = 2,
          "Lower Quartile" = 3,
          "Median" = 4,
