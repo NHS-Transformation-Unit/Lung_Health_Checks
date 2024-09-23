@@ -38,6 +38,7 @@ source(paste0(here(),"/src/model/functions/m12_treatment.R"))
 source(paste0(here(),"/src/model/functions/m12_diagnostics.R"))
 source(paste0(here(),"/src/model/functions/m24_treatment.R"))
 source(paste0(here(),"/src/model/functions/m24_diagnostics.R"))
+source(paste0(here(),"/src/model/functions/incidental_summaries.R"))
 
 ## Model
 
