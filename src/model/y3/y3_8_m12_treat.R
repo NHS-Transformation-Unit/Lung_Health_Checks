@@ -6,6 +6,7 @@ y3_m12_treat_groups_list <- m12_treat_groups(input_df = y3_m12_FU_input_df,
                                              rebook_rate= m12_scan_rebook_rate_y3,
                                              diagnostic_rate = m12_diagnostic_rate_y3,
                                              incidental_rate = m12_incidental_rate_y3,
+                                             nodule_rate = m12_nodule_rate_y3,
                                              follow_up_rate = m12_m12_fu_rate_y3,
                                              cancer_rate = m12_cancer_rate_y3)
 

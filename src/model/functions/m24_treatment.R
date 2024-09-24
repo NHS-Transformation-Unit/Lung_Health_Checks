@@ -1,4 +1,4 @@
-m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, incidental_rate, follow_up_rate, 
+m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, incidental_rate, nodule_rate, follow_up_rate, 
                                  cancer_rate){
   
   ### Simulate DNA and Rebooking for non-excluded patients
@@ -25,6 +25,7 @@ m24_treat_groups <- function(input_df, dna_rate, rebook_rate, diagnostic_rate, i
     mutate(m24_treat_outcome_prob = runif(n()),
            m24_treat_outcome = case_when(m24_treat_outcome_prob < diagnostic_rate ~ "Diagnostics",
                                          m24_treat_outcome_prob < diagnostic_rate + incidental_rate ~ "Incidental",
+                                         m24_treat_outcome_prob < diagnostic_rate + incidental_rate + nodule_rate ~ "Nodule FU",
                                           TRUE ~ "48M_FU"))
   
   ### Aggregate m24 outcomes

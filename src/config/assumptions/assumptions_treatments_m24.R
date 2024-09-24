@@ -29,11 +29,17 @@ m24_incidental_rate_y3 <- assumptions_m24_treat[[4,6]]
 m24_incidental_rate_y4 <- assumptions_m24_treat[[4,7]]
 m24_incidental_rate_y5 <- assumptions_m24_treat[[4,8]]
 
-m24_m24_fu_rate_y1 <- 1 - m24_diagnostic_rate_y1 - m24_incidental_rate_y1
-m24_m24_fu_rate_y2 <- 1 - m24_diagnostic_rate_y2 - m24_incidental_rate_y2
-m24_m24_fu_rate_y3 <- 1 - m24_diagnostic_rate_y3 - m24_incidental_rate_y3
-m24_m24_fu_rate_y4 <- 1 - m24_diagnostic_rate_y4 - m24_incidental_rate_y4
-m24_m24_fu_rate_y5 <- 1 - m24_diagnostic_rate_y5 - m24_incidental_rate_y5
+m24_nodule_rate_y1 <- assumptions_m24_treat[[5,4]]
+m24_nodule_rate_y2 <- assumptions_m24_treat[[5,5]]
+m24_nodule_rate_y3 <- assumptions_m24_treat[[5,6]]
+m24_nodule_rate_y4 <- assumptions_m24_treat[[5,7]]
+m24_nodule_rate_y5 <- assumptions_m24_treat[[5,8]]
+
+m24_m24_fu_rate_y1 <- 1 - m24_diagnostic_rate_y1 - m24_incidental_rate_y1 - m24_nodule_rate_y1
+m24_m24_fu_rate_y2 <- 1 - m24_diagnostic_rate_y2 - m24_incidental_rate_y2 - m24_nodule_rate_y2
+m24_m24_fu_rate_y3 <- 1 - m24_diagnostic_rate_y3 - m24_incidental_rate_y3 - m24_nodule_rate_y3
+m24_m24_fu_rate_y4 <- 1 - m24_diagnostic_rate_y4 - m24_incidental_rate_y4 - m24_nodule_rate_y4
+m24_m24_fu_rate_y5 <- 1 - m24_diagnostic_rate_y5 - m24_incidental_rate_y5 - m24_nodule_rate_y5
 
 m24_cancer_rate_y1 <- assumptions_m24_treat[[6,4]]
 m24_cancer_rate_y2 <- assumptions_m24_treat[[6,5]]

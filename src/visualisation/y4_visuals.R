@@ -180,7 +180,8 @@ y4_m12_treat_ct_act_hist <- m12_treat_ct_act_chart_visual(y4_m12_treat_ct_act_hi
 y4_m12_treat_pos_outcomes_hist_df <- y4_m12_treat_groups_list[[2]] %>%
   mutate(m12_treat_outcome_clean = case_when(m12_treat_outcome == "24M_FU" ~ "24 Month Follow-Up",
                                              m12_treat_outcome == "Diagnostics" ~ "Additional Diagnostics",
-                                             m12_treat_outcome == "Incidental" ~ "Incidental Finding"))
+                                             m12_treat_outcome == "Incidental" ~ "Incidental Finding",
+                                             m12_treat_outcome == "Nodule FU" ~ "Nodule Follow-Up"))
 
 y4_m12_treat_pos_outcomes_hist <- m12_treat_pos_outcomes_chart_visual(y4_m12_treat_pos_outcomes_hist_df, "#407EC9", "Year 4")
 
@@ -233,7 +234,8 @@ y4_m24_treat_ct_act_hist <- m24_treat_ct_act_chart_visual(y4_m24_treat_ct_act_hi
 y4_m24_treat_pos_outcomes_hist_df <- y4_m24_treat_groups_list[[2]] %>%
   mutate(m24_treat_outcome_clean = case_when(m24_treat_outcome == "48M_FU" ~ "48 Month Follow-Up",
                                              m24_treat_outcome == "Diagnostics" ~ "Additional Diagnostics",
-                                             m24_treat_outcome == "Incidental" ~ "Incidental Finding"))
+                                             m24_treat_outcome == "Incidental" ~ "Incidental Finding",
+                                             m24_treat_outcome == "Nodule FU" ~ "Nodule Follow-Up"))
 
 y4_m24_treat_pos_outcomes_hist <- m24_treat_pos_outcomes_chart_visual(y4_m24_treat_pos_outcomes_hist_df, "#407EC9", "Year 4")
 
