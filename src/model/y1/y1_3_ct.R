@@ -15,3 +15,7 @@ y1_ct_output = y1_ct_list[[6]]
 
 y1_ct_opt_out <- y1_ct_list[[7]] %>%
   select(1:3) 
+
+# Creating ct exclusions output
+
+y1_ct_ex <- y1_ct_list[[1]]
