@@ -47,6 +47,10 @@ y4_ct_outcomes_hist_df <- y4_ct_list[[3]]
 y4_ct_outcomes_hist <- ct_outcomes_chart_visual(y4_ct_outcomes_hist_df, "#407EC9", "Year 4")
 
 
+# CT Exclusions -----------------------------------------------------------
+
+y4_ct_ex_chart <- ct_ex_chart_visual(y4_ct_ex, "#407EC9", "Year 4")
+
 # CT Scan Negative Follow-ups ---------------------------------------------
 
 y4_ct_neg_ri_hist_df <- y4_ct_list[[5]] %>%
