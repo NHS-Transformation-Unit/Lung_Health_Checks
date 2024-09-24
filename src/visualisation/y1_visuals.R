@@ -65,6 +65,10 @@ y1_ct_opt_out_hist_df <- y1_ct_list[[7]] %>%
 y1_ct_opt_out_hist <- ct_opt_out_chart_visual(y1_ct_opt_out_hist_df, "#407EC9", "Year 1")
 
 
+# CT Exclusions -----------------------------------------------------------
+
+y1_ct_ex_chart <- ct_ex_chart_visual(y1_ct_ex, "#407EC9", "Year 1")
+
 # Initial Treatment Positive CT Outcomes ----------------------------------
 
 y1_init_treat_pos_outcomes_hist_df <- y1_init_treat_groups_list[[1]] %>%

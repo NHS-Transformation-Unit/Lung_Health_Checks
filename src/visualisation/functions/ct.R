@@ -97,3 +97,20 @@ ct_opt_out_chart_visual <- function(input_df, fill_hex, sub_label){
     theme_tu_white(hex_col = "#407EC9")
   
 }
+
+
+# CT Exclusions -----------------------------------------------------------
+
+ct_ex_chart_visual <- function(input_df, fill_hex, sub_label){
+  
+  ct_ex_chart <- ggplot(input_df, aes(x = Total)) +
+    geom_histogram(fill = fill_hex, alpha = 0.5, color = "#000000", bins = 20) +
+    labs(x = "Number of patients",
+         y = "Number of Trials",
+         title = "Histogram of in year CT scan exclusions",
+         subtitle = sub_label,
+         caption = "Model Output") +
+    theme_tu_white(hex_col = "#407EC9")
+  
+}
+

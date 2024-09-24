@@ -316,6 +316,27 @@ y1_ct_opt_out_tab_vis <- y1_ct_opt_out_tab_formatted %>%
   row_spec(0, background = "#407EC9", color = "white")
 
 
+
+# ct exclusions -----------------------------------------------------------
+
+y1_ct_ex_tab <- y1_ct_ex %>%
+  summarize(
+    percentile_10 = round(quantile(Total, probs = 0.1, na.rm = TRUE), 0),
+    lower_quartile = round(quantile(Total, probs = 0.25, na.rm = TRUE), 0),
+    median = round(median(Total, na.rm = TRUE), 0),
+    upper_quartile = round(quantile(Total, probs = 0.75, na.rm = TRUE), 0),
+    percentile_90 = round(quantile(Total, probs = 0.9, na.rm = TRUE), 0)
+  ) %>%
+  rename("10th Percentile" = 1,
+         "Lower Quartile" = 2,
+         "Median" = 3,
+         "Upper Quartile" = 4,
+         "90th Percentile" = 5) %>%
+  kable(format = "html", align = "lrrrrr") %>%
+  kable_styling() %>%
+  row_spec(0, background = "#407EC9", color = "white")
+
+
 # init scan outcomes table ------------------------------------------------
 
 y1_ct_init_scan_tab <- y1_init_treat_groups_list[[1]] %>%

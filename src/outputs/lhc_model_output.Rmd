@@ -464,6 +464,29 @@ y1_ct_opt_out_hist
 
 <br/>
 
+#### CT Scan Exclusions
+The table below shows a summary of the number of patients who were excluded from receiving a CT scan across the `r trials` model runs:
+
+```{r y1_ct_ex_table}
+
+y1_ct_ex_tab
+
+```
+
+
+<br/>
+
+The distribution of exclusions across these model runs is shown in the histogram below:
+
+```{r y1_ct_ex_hist, out.width='100%'}
+
+y1_ct_ex_chart
+
+```
+
+<br/>
+
+
 ### Initial Treatments {.tabset .tabset-fade}
 For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
 
@@ -1156,6 +1179,28 @@ The distribution of opt-outs across these model runs is shown in the histogram b
 ```{r y2_ct_opt_out_hist, out.width='100%'}
 
 y2_ct_opt_out_hist
+
+```
+
+<br/>
+
+#### CT Scan Exclusions
+The table below shows a summary of the number of patients who were excluded from receiving a CT scan across the `r trials` model runs:
+
+```{r y2_ct_ex_table}
+
+y2_ct_ex_tab
+
+```
+
+
+<br/>
+
+The distribution of exclusions across these model runs is shown in the histogram below:
+
+```{r y2_ct_ex_hist, out.width='100%'}
+
+y2_ct_ex_chart
 
 ```
 
@@ -1858,6 +1903,28 @@ y3_ct_opt_out_hist
 
 <br/>
 
+#### CT Scan Exclusions
+The table below shows a summary of the number of patients who were excluded from receiving a CT scan across the `r trials` model runs:
+
+```{r y3_ct_ex_table}
+
+y3_ct_ex_tab
+
+```
+
+
+<br/>
+
+The distribution of exclusions across these model runs is shown in the histogram below:
+
+```{r y3_ct_ex_hist, out.width='100%'}
+
+y3_ct_ex_chart
+
+```
+
+<br/>
+
 ### Initial Treatments {.tabset .tabset-fade}
 For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
 
@@ -2553,6 +2620,29 @@ y4_ct_opt_out_hist
 
 <br/>
 
+#### CT Scan Exclusions
+The table below shows a summary of the number of patients who were excluded from receiving a CT scan across the `r trials` model runs:
+
+```{r y4_ct_ex_table}
+
+y4_ct_ex_tab
+
+```
+
+
+<br/>
+
+The distribution of exclusions across these model runs is shown in the histogram below:
+
+```{r y4_ct_ex_hist, out.width='100%'}
+
+y4_ct_ex_chart
+
+```
+
+<br/>
+
+
 ### Initial Treatments {.tabset .tabset-fade}
 For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
 
@@ -3247,6 +3337,29 @@ y5_ct_opt_out_hist
 ```
 
 <br/>
+
+#### CT Scan Exclusions
+The table below shows a summary of the number of patients who were excluded from receiving a CT scan across the `r trials` model runs:
+
+```{r y5_ct_ex_table}
+
+y5_ct_ex_tab
+
+```
+
+
+<br/>
+
+The distribution of exclusions across these model runs is shown in the histogram below:
+
+```{r y5_ct_ex_hist, out.width='100%'}
+
+y5_ct_ex_chart
+
+```
+
+<br/>
+
 
 ### Initial Treatments {.tabset .tabset-fade}
 For patients who have a concerning CT scan they will fall within one of three groups. Those requiring further diagnostics, those with an incidental finding and those who will be referred for a three month follow-up scan. For those patients who undergo further diagnostics these will confirm if there is a malignancy requiring treatment. These patients will receive one of eight potential treatment modalities. This is based on the probabilities applied to the model. This section provides an overview of:
