@@ -39,3 +39,17 @@ age_out_y2 <- assumptions_pop[[6,5]]
 age_out_y3 <- assumptions_pop[[6,6]]
 age_out_y4 <- assumptions_pop[[6,7]]
 age_out_y5 <- assumptions_pop[[6,8]]
+
+# Age in and out relative -------------------------------------------------
+
+age_diff_y1 <- age_in_y1 - age_out_y1
+age_diff_y2 <- age_in_y2 - age_out_y2
+age_diff_y3 <- age_in_y3 - age_out_y3
+age_diff_y4 <- age_in_y4 - age_out_y4
+age_diff_y5 <- age_in_y5 - age_out_y5
+
+age_diff_y1_c <- age_diff_y1
+age_diff_y2_c <- (1 + age_diff_y1) * (1 + age_diff_y2)  - 1
+age_diff_y3_c <- (1 + age_diff_y2_c) * (1 + age_diff_y3)  - 1
+age_diff_y4_c <- (1 + age_diff_y3_c) * (1 + age_diff_y4)  - 1
+age_diff_y5_c <- (1 + age_diff_y4_c) * (1 + age_diff_y5)  - 1
