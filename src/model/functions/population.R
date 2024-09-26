@@ -1,4 +1,4 @@
-uptake_pop <- function(start_pop, age_in, age_out, smk_current, smk_prev, screened_prev, repeats, uptake){
+uptake_pop <- function(start_pop, age_diff, smk_current, smk_prev, screened_prev, repeats, uptake){
   
   ### Simulate starting dataframes of the screening population
   screening_pop_df <- data.frame()
@@ -26,7 +26,7 @@ uptake_pop <- function(start_pop, age_in, age_out, smk_current, smk_prev, screen
     }
     
     ### Determine size of the population for screening in the year
-    screening_pop <- ((start_pop * (1 + (age_in - age_out)) * (smk_current + smk_prev)) * uptake) - screened_prev_value + repeats_value
+    screening_pop <- ((start_pop * (1 + (age_diff)) * (smk_current + smk_prev)) * uptake) - screened_prev_value + repeats_value
     
     screening_pop_trial <- data.frame(
       Trial = i,

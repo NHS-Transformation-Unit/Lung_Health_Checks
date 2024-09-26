@@ -2,8 +2,7 @@
 # Simulate Year 5 Uptake Population ---------------------------------------
 
 y5_uptake_pop <- uptake_pop(start_pop = total_pop,
-                            age_in = age_in_y5,
-                            age_out = age_out_y5,
+                            age_diff = age_diff_y5_c,
                             smk_current = smk_rate_current_y5,
                             smk_prev = smk_rate_prev_y5,
                             screened_prev = y5_screened_input_df,
