@@ -48,3 +48,12 @@ lhc_negative_ri_rate_y2 <- assumptions_lhc[[5,5]]
 lhc_negative_ri_rate_y3 <- assumptions_lhc[[5,6]]
 lhc_negative_ri_rate_y4 <- assumptions_lhc[[5,7]]
 lhc_negative_ri_rate_y5 <- assumptions_lhc[[5,8]] 
+
+
+# Opt-out and DNA Re-invitation Rate --------------------------------------
+
+lhc_oodna_ri_rate_y1 <- assumptions_lhc[[6,4]]
+lhc_oodna_ri_rate_y2 <- assumptions_lhc[[6,5]]
+lhc_oodna_ri_rate_y3 <- assumptions_lhc[[6,6]]
+lhc_oodna_ri_rate_y4 <- assumptions_lhc[[6,7]]
+lhc_oodna_ri_rate_y5 <- assumptions_lhc[[6,8]]
