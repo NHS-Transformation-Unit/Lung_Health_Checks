@@ -42,3 +42,11 @@ ct_scan_negative_24m_fu_y2 <- assumptions_ct[[5,5]]
 ct_scan_negative_24m_fu_y3 <- assumptions_ct[[5,6]]
 ct_scan_negative_24m_fu_y4 <- assumptions_ct[[5,7]]
 ct_scan_negative_24m_fu_y5 <- assumptions_ct[[5,8]]
+
+# CT DNA Re-invites -------------------------------------------------------
+
+ct_dna_ri_rate_y1 <- assumptions_ct[[6,4]]
+ct_dna_ri_rate_y2 <- assumptions_ct[[6,5]]
+ct_dna_ri_rate_y3 <- assumptions_ct[[6,6]]
+ct_dna_ri_rate_y4 <- assumptions_ct[[6,7]]
+ct_dna_ri_rate_y5 <- assumptions_ct[[6,8]]
